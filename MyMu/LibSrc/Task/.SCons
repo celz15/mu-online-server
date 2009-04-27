@@ -1,0 +1,11 @@
+Import('env','shared')
+#configuracion
+LIB='TaskTime'
+srcfiles=['Task.cpp','TimeTick.cpp']
+#build library
+
+if int(shared):
+	env.SharedLibrary(env['LIBPATH']+'/'+LIB,srcfiles,)
+else:
+	env.Library(env['LIBPATH']+'/'+LIB,srcfiles)
+

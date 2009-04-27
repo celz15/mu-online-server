@@ -1,0 +1,7 @@
+// Not Crypted
+{
+0xc1, 0x04, 0x0f, 0x22 };
+
+[C1 04 0F] HEADER
+ 
+[95] BYTE Ping

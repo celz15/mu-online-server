@@ -1,0 +1,3 @@
+c3 06 f1 03 00 16
+
+chyba request podniesienia statow [00]-str o [16] ??

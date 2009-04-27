@@ -1,0 +1,10 @@
+C1 08 3A 00 19 00 00 00
+
+// Decrypted C1/C2
+struct _OP3A00
+{
+	BYTE op;	// 0x3A
+	BYTE op_2;	// 0x00
+
+	_PDMC(money, 4, unsigned long);
+};

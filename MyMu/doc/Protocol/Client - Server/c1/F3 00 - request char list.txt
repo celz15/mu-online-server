@@ -1,0 +1,9 @@
+C1 04 F3 00 
+Á    ó  .  
+
+// Decrypted C1/C2
+struct _OPF300
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x00
+}; 

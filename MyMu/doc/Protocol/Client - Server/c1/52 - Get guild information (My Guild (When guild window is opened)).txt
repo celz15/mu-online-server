@@ -1,0 +1,9 @@
+C1  03  52  
+193 003 082 
+Á      R   
+
+// not crypted
+struct _OP52
+{
+	BYTE op;	// 0x52
+};

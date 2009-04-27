@@ -1,0 +1,17 @@
+C1 05 BD 00 01
+
+00 - SubCode
+
+
+-- 00 ---------
+
+01 - Start Event ? Smoke ?
+02 - BlueStatue / Red
+
+-- 02 ---------
+
+02 - Back To Blue Statue
+
+-- 08 ---------
+
+Rankings

@@ -1,0 +1,47 @@
+C1  0C  24  00  00  01  00  16  00  00  00  00  
+193 012 036 000 000 001 000 022 000 000 000 000 
+Á   .   $   .   .      .      .   .   .   .   
+ c3 0c 24 00 00 21 00 14 00 f4 00 0c
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP24
+{
+	BYTE op;		// 0x24
+	
+	BYTE from_where;	// vault window, inventory window, trade window, etc... (see Window IDs)
+	BYTE slot_from;	// slot index, from which the item is being moved
+
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability [FOR POTIONS IT'S AMOUNT]
+	BYTE excattributes;	// info about excellent options and second block of items
+
+	BYTE some_quest_info;	// not sure
+
+	BYTE to_where;	// vault window, inventory window, trade window, etc...
+	BYTE slot_to;	// slot index, to which the item is being moved
+};
+
+Inventory slots in inventory:
+0 = weapon left
+1 = weapon right
+2 = helm
+3 = armor
+4 = pants
+5 = gloves   !!! 
+6 = boots
+7 = wings
+8 = angel/aatan
+9 = pendant
+10 = ring left
+11 = ring right
+12-75 = your bag slots
+
+(Total: 76)
+
+Slots in vault total: 120
+Trade slots total: 32
+
+Window IDs:
+0x80 = trade window
+0x00 = inventory
+0x02 = vault

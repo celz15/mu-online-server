@@ -1,0 +1,9 @@
+C1  04  83  00  
+193 004 131 000 
+Á      ƒ   .   
+
+struct _OP83
+{
+	unsigned char op;		// 0x83
+	unsigned char result;	// 0x0D = invalid personal id, 0x00 = vault is not locked
+};

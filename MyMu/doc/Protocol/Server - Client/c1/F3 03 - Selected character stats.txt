@@ -1,0 +1,47 @@
+C1  34  F3  03  88  74  00  00  00  00  00  00  64  00  00  00  00  00  12  00  12  00  0F  00  1E  00  3C  00  3C  00  3C  00  3C  00  0A  00  15  00  FF  FF  00  00  00  00  02  00  00  00  02  00  00  00  
+193 052 243 003 136 116 000 000 000 000 000 000 100 000 000 000 000 000 018 000 018 000 015 000 030 000 060 000 060 000 060 000 060 000 010 000 021 000 255 255 000 000 000 000 002 000 000 000 002 000 000 000 
+Á   4   ó      ˆ   t   .   .   .   .   .   .   d   .   .   .   .   .      .      .      .      .   <   .   <   .   <   .   <   .   .   .      .   ÿ   ÿ   .   .   .   .      .   .   .      .   .   .   
+
+C1  34  F3  03  89  82  00  00  64  00  00  00  B8  01  00  00  02  00  15  00  12  00  0F  00  1E  00  3D  00  3D  00  3E  00  3E  00  0A  00  15  00  FF  FF  5E  00  00  00  02  00  00  00  02  00  00  00  
+193 052 243 003 137 130 000 000 100 000 000 000 184 001 000 000 002 000 021 000 018 000 015 000 030 000 061 000 061 000 062 000 062 000 010 000 021 000 255 255 094 000 000 000 002 000 000 000 002 000 000 000 
+Á   4   ó      ‰   ‚   .   .   d   .   .   .   ¸      .   .      .      .      .      .      .   =   .   =   .   >   .   >   .   .   .      .   ÿ   ÿ   ^   .   .   .      .   .   .      .   .   .   
+
+C1  34  F3  03  AF  73  03  00  00  00  00  00  64  00  00  00  00  00  16  00  19  00  14  00  0F  00  50  00  50  00  1E  00  1E  00  0A  00  14  00  FF  FF  00  00  00  00  02  00  00  00  02  00  00  00  
+193 052 243 003 175 115 003 000 000 000 000 000 100 000 000 000 000 000 022 000 025 000 020 000 015 000 080 000 080 000 030 000 030 000 010 000 020 000 255 255 000 000 000 000 002 000 000 000 002 000 000 000 
+Á   4   ó      ¯   s      .   .   .   .   .   d   .   .   .   .   .      .      .      .      .   P   .   P   .      .      .   .   .      .   ÿ   ÿ   .   .   .   .      .   .   .      .   .   .   
+
+// Decrypted C3/C4
+struct _OPF303
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x03
+
+	unsigned char pos_x;	// position x
+	unsigned char pos_y;	// position y
+
+	_PDMC(map_id, 2, unsigned short);	// map ID (in preview: 0 - lorencia)
+
+	_PDMC(experience, 4, unsigned long);	// current experience
+	_PDMC(experience_max, 4, unsigned long);	// experience needed for level up
+
+	_PDMC(lu_points, 2, unsigned short);	// level up points
+	_PDMC(strength, 2, unsigned short); //
+	_PDMC(dexterity, 2, unsigned short); //
+	_PDMC(vitality, 2, unsigned short); //
+	_PDMC(energy, 2, unsigned short); //
+
+	_PDMC(health, 2, unsigned short); //
+	_PDMC(health_max, 2, unsigned short); //
+	_PDMC(mana, 2, unsigned short); //
+	_PDMC(mana_max, 2, unsigned short); //
+	_PDMC(stamina, 2, unsigned short); //
+	_PDMC(stamina_max, 2, unsigned short); //
+
+	// default 0xFFFF
+	_PDMC(unknown1, 2, unsigned short);
+
+	_PDMC(money, 4, unsigned long);	//
+
+	_PDMC(unknown2, 4, unsigned long);	//
+	_PDMC(unknown3, 4, unsigned long);	//
+};

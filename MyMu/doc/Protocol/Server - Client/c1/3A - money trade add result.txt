@@ -1,0 +1,9 @@
+C1 04 3A 01
+
+// not crypted
+struct _OP3A
+{
+	BYTE op;	// 0x3A
+
+	BYTE result;	// 0x01 = OK, 0x00 = NOT OK :)
+};

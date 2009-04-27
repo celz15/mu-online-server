@@ -1,0 +1,16 @@
+Mob Set Direction
+
+C1 07 18 03 7A 01 64
+
+ID 2 Bytes
+Dir 1 Byte
+Unknown 1 Byte
+
+
+
+99b+ ?atak 
+C1 07 18 1FFA 0078
+         x1   x2x3
+
+x1 id atakujacego
+x2x3 ? unknown

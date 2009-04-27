@@ -1,0 +1,22 @@
+C1 0C 0E 00 3B FD 42 00 00 00 00 00 
+Б  .    .  ;  э  B  .  .  .  .  .  
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP0E00
+{
+	unsigned char op;		// 0x0E
+	unsigned char op_2;	// 0x00
+
+	_PDMC(tick_count, 4, unsigned long);	// GetTickCount
+	unsigned char unknown2[4];	// unknown
+};
+
+// посылается первый раз на сервер сразу после подтверждения логина от сервера (Login OK),
+// затем каждые 20 сек идёт запрос на пинг
+
+// The GetTickCount function retrieves the number of milliseconds that have
+// elapsed since the system was started. It is limited to the resolution of
+// the system timer.
+
+// The elapsed time is stored as a DWORD value. Therefore, the time will wrap
+// around to zero if the system is run continuously for 49.7 days.

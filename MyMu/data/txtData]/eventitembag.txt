@@ -1,0 +1,4 @@
+// box lof luck , box of heaven
+
+14 13 0 0 0 0 //Jewel of Bless
+12 15 0 0 0 0 //Jewel of Chaos

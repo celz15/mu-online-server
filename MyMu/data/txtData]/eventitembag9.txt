@@ -1,0 +1,33 @@
+//BOK+2 
+//Normal   
+        8       0       0       0       1       0       //Excellent Bronze Armor 
+        11      0       0       0       1       0       //Excellent Bronze Boots 
+        10      0       0       0       1       0       //Excellent Bronze Gloves 
+        7       0       0       0       1       0       //Excellent Bronze Helm 
+        9       0       0       0       1       0       //Excellent Bronze Pants 
+        8       4       0       0       1       0       //Excellent Bone Armor 
+        11      4       0       0       1       0       //Excellent Bone Boots 
+        10      4       0       0       1       0       //Excellent Bone Gloves 
+        7       4       0       0       1       0       //Excellent Bone Helm 
+        9       4       0       0       1       0       //Excellent Bone Pants 
+        8       12      0       0       1       0       //Excellent Wind Armor 
+        11      12      0       0       1       0       //Excellent Wind Boots 
+        10      12      0       0       1       0       //Excellent Wind Gloves 
+        7       12      0       0       1       0       //Excellent Wind Helm 
+        9       12      0       0       1       0       //Excellent Wind Pants 
+        8       6       0       0       1       0       //Excellent Scale Armor 
+        11      6       0       0       1       0       //Excellent Scale Boots 
+        10      6       0       0       1       0       //Excellent Scale Gloves 
+        7       6       0       0       1       0       //Excellent Scale Helm 
+        9       6       0       0       1       0       //Excellent Scale Pants 
+        8       7       0       0       1       0       //Excellent Sphinx Armor 
+        11      7       0       0       1       0       //Excellent Sphinx Boots 
+        10      7       0       0       1       0       //Excellent Sphinx Gloves 
+        7       7       0       0       1       0       //Excellent Sphinx Helm 
+        9       7       0       0       1       0       //Excellent Sphinx Pants 
+        8       11      0       0       1       0       //Excellent Silk Armor 
+        11      11      0       0       1       0       //Excellent Silk Boots 
+        10      11      0       0       1       0       //Excellent Silk Gloves 
+        7       11      0       0       1       0       //Excellent Silk Helm 
+        9       11      0       0       1       0       //Excellent Silk Pants 
+        8       11      0       0       1       0       //Excellent Silk Armor

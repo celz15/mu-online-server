@@ -1,0 +1,36 @@
+C2  00  11  13  01  03  AF  00  FA  00  00  B7  89  B7  89  20  00  
+194 000 017 019 001 003 175 000 250 000 000 183 137 183 137 032 000 
+Â   .               ¯   .   ú   .   .   ·   ‰   ·   ‰   .   .   
+
+// not crypted
+struct _OP13
+{
+	unsigned char op;		// 0x13
+	unsigned char count;	// how many monsters we have met?
+
+	//_OP13_block monsters[count];
+};
+
+struct _OP13_block
+{
+	unsigned char serial[2];	// monster's serial
+	unsigned char unknown1;		// always 0x00
+	unsigned char monster_id;	// ID of the monster
+
+	unsigned char unknown[2];	// always 0x0000
+
+	unsigned char begin_pos_x;	// begin postion x
+	unsigned char begin_pos_y;	// begin postion y
+
+	unsigned char end_pos_x;	// end postion x
+	unsigned char end_pos_y;	// end postion y
+
+	unsigned char view_direction;	// first 4bits - view direction
+	unsigned char unknown2;		// always 0x00
+};
+
+other examples:
+
+C2 00 1D 13 02 03 39 03 00 00 00 B5 80 B5 80 30 00 03 7A 02 00 00 00 B5 77 B5 77 30 00
+C2 00 11 13 01 03 62 02 00 00 00 BC 7C BB 7C 60 00
+C2 00 11 13 01 03 62 02 00 00 BB 7D BA 7D 70 00

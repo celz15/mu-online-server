@@ -1,0 +1,10 @@
+C1 2B 55 45 53 4C 00 00 00 00 00 00 04 40 00 00 04 40 00 00 04 40 00 00 04 40 00 04 04 40 40 44 44 44 44 44 44 44 44 04 44 44 40
+
+// Decrypted C1/C2
+struct _OP55
+{
+	BYTE op;	// 0x55
+
+	BYTE name[8];	// guild name
+	BYTE logo[32];	// 64 colors of logo (2 colors per 1 byte)
+};

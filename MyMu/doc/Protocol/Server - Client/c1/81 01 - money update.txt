@@ -1,0 +1,13 @@
+C1  0C  81  01  2C  01  00  00  37  00  00  00  
+193 012 129 001 044 001 000 000 055 000 000 000 
+¡   .   Å      ,      .   .   7   .   .   .   
+
+// not crypted
+struct _OP8101
+{
+	BYTE op;	// 0x81
+	BYTE op_2;	// 0x01
+
+	_PDMC(vault_money, 4, unsigned long);
+	_PDMC(inventory_money, 4, unsigned long);
+}

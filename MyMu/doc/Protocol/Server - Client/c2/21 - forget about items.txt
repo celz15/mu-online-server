@@ -1,0 +1,15 @@
+C2  00  07  21  01  00  82  
+194 000 007 033 001 000 130 
+Â   .       !      .   ‚   
+
+// not crypted
+struct _OP21
+{
+	BYTE op;	// 0x21
+	BYTE num;	// number of items to forget
+};
+
+struct _OP21_block
+{
+	_PDMC(serial, 2, unsigned short);	// serial of item to forget
+};

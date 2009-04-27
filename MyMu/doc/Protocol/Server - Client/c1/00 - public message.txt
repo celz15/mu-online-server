@@ -1,0 +1,8 @@
+C1 3D 00 48 6F 74 73 69 7A 7A 6C 65 4B 53 3E 2B 33 2B 31 32 20 44 2E 48 65 6C 6D 65 74 20 26 20 31 30 30 20 48 50 20 44 69 6E 6F 20 3D 20 32 53 20 4D 41 49 4C 6D 65 20 52 75 73 68 00 
+Á  =  .  H  o  t  s  i  z  z  l  e  K  S  >  +  3  +  1  2  .  D  .  H  e  l  m  e  t  .  &  .  1  0  0  .  H  P  .  D  i  n  o  .  =  .  2  S  .  M  A  I  L  m  e  .  R  u  s  h  .  
+
+[C1 LEN 00] HEADER
+
+[00 00 00 00 00 00 00 00 00 00] 10 BYTES Author Name
+[...]  ASCII Message
+[00] BYTE End of Message

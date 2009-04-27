@@ -1,0 +1,6 @@
+
+// Firecracker , Heart of love
+14 13 0 0 0 0 //Jewel of Bless
+14 14 0 0 0 0 //Jewel of Soul
+12 15 0 0 0 0 //Jewel of Chaos
+14 16 0 0 0 0 //Jewel of Life

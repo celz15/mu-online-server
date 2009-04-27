@@ -1,0 +1,30 @@
+//BOK+1
+//normal
+	8       5       0       0       1       0       //Excellent Leather Armor 
+        11      5       0       0       1       0       //Excellent Leather Boots 
+        10      5       0       0       1       0       //Excellent Leather Gloves 
+        7       5       0       0       1       0       //Excellent Leather Helm 
+        9       5       0       0       1       0       //Excellent Leather Pants 
+        8       2       0       0       1       0       //Excellent Pad Armor 
+        11      2       0       0       1       0       //Excellent Pad Boots 
+        10      2       0       0       1       0       //Excellent Pad Gloves 
+        7       2       0       0       1       0       //Excellent Pad Helm 
+        9       2       0       0       1       0       //Excellent Pad Pants 
+        8       10      0       0       1       0       //Excellent Vine Armor 
+        11      10      0       0       1       0       //Excellent Vine Boots 
+        10      10      0       0       1       0       //Excellent Vine Gloves 
+        7       10      0       0       1       0       //Excellent Vine Helm 
+        9       10      0       0       1       0       //Excellent Vine Pants 
+        1       0       0       1       1       0       //Excellent Small Axe 
+        1       1       0       1       1       0       //Excellent Hand Axe 
+        1       2       0       1       1       0       //Excellent Double Axe 
+        1       3       0       1       1       0       //Excellent Tomahawk 
+        2       0       0       1       1       0       //Excellent Mace 
+        2       1       0       1       1       0       //Excellent Morning Star 
+        2       2       0       1       1       0       //Excellent Iron Hammer 
+        4       0       0       1       1       0       //Excellent Short Bow 
+        4       1       0       1       1       0       //Excellent Bow 
+        4       2       0       1       1       0       //Excellent Fairy Bow 
+        4       3       0       1       1       0       //Excellent Battle Bow 
+        4       4       0       1       1       0       //Excellent Tiger Bow 
+        8       4       0       0       1       0       //Excellent Bone Armor

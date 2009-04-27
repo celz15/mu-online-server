@@ -1,0 +1,25 @@
+C1  09  22  0F  C4  00  03  80  00 
+c3  08  22  0c  21  00  14  00  00 //99b+
+193 009 034 015 196 000 003 128 000 
+Á   .    "      Ä   .      €   .   
+
+C1  09  22  FE  00  00  00  28  BF
+
+// Decrypted C3/C4
+
+struct _OP22
+{
+	BYTE op;	// 0x22
+	BYTE slot;	// slot, in which the item is being placed
+
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability [FOR POTIONS IT'S AMOUNT]
+	BYTE excattributes;	// info about excellent options and second block of items
+
+	BYTE some_quest_info;	// not sure
+};
+
+
+k->s [c3  04  22  ab  13] -podnes item o id ab 13 
+s->k [c3  08  22  0c  21  00  14  00  00]

@@ -1,0 +1,36 @@
+//[Deivas] Bar
+14 0 0 255 0 0 0 //Apple
+14 1 0 255 0 0 0 //Small HP Potion
+14 2 0 255 0 0 0 //Medium HP Potion
+14 3 0 255 0 0 0 //Big HP Potion
+14 4 0 255 0 0 0 //Small MP Potion
+14 5 0 255 0 0 0 //Medium MP Potion
+14 6 0 255 0 0 0 //Big MP Potion
+14 8 0 255 0 0 0 //Antidote
+13 0 0 255 0 0 0 //Guardian Angel
+13 1 0 255 0 0 0 //Satan
+13 2 0 255 0 0 0 //Horn of Unilia
+13 4 0 255 0 0 0 //Dark Horse 
+13 5 0 255 0 0 0 //Dark Spirit
+13 16 1 255 0 0 0 //Blood Scroll+2
+13 16 2 255 0 0 0 //Blood Scroll+3
+13 16 3 255 0 0 0 //Blood Scroll+4
+13 16 4 255 0 0 0 //Blood Scroll+5
+13 16 5 255 0 0 0 //Blood Scroll+6
+13 17 1 255 0 0 0 //Blood Tooth+2
+13 17 2 255 0 0 0 //Blood Tooth+3
+13 17 3 255 0 0 0 //Blood Tooth+4
+13 17 4 255 0 0 0 //Blood Tooth+5
+13 17 5 255 0 0 0 //Blood Tooth+6
+13 18 0 255 0 0 0 //Invisible Cloak+1
+14 17 1 255 0 0 0 //Eye of Devil Square+2
+14 17 2 255 0 0 0 //Eye of Devil Square+3
+14 17 3 255 0 0 0 //Eye of Devil Square+4
+14 18 1 255 0 0 0 //Devil Square Key+2
+14 18 2 255 0 0 0 //Devil Square Key+3
+14 18 3 255 0 0 0 //Devil Square Key+4
+14 19 0 255 0 0 0 //Devil Square Invitation+1
+14 10 0 255 0 0 0 //Town Teleport
+14 9 0 1 0 0 0 //Alcohol
+13 29 0 0 0 0 0 //armor of guardian
+end

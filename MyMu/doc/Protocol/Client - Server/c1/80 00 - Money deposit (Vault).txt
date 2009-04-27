@@ -1,0 +1,12 @@
+C1  08  81  00  E8  03  00  00  
+193 008 129 000 232 003 000 000 
+¡   .   Å   .   Ë      .   .   
+
+// Decrypted C1/C2
+sturct _OP8100
+{
+	BYTE op;	// 0x81
+	BYTE op_2;	// 0x00
+
+	_PDMC(money, 4, unsigned long);	// how much money to deposit
+};

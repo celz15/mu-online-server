@@ -1,0 +1,94 @@
+#configuracions
+#geting commandline flags
+debug = ARGUMENTS.get('debug', 0)
+shared = ARGUMENTS.get('shared', 0)
+#gettin platform
+platform = ARGUMENTS.get('OS', Platform())
+#settings const's
+
+OS_=str(platform)
+#if int(debug):
+REL='DEBUG'
+#else:
+#      REL='RELASE'     
+
+              
+
+print 'Bulding OpenMuServer for ' , OS_ , '-',REL,'Platform...'
+#czy debug
+
+if OS_==str('posix'):
+	PINCLUDE="-I /usr/include/ -I/usr/include/mysql/   "
+	PLIB="-L/usr/lib/mysql  "
+	EXECS=Split("""      
+			GSEmu
+			GSPosixEmu
+			""")
+			
+	LIBS=Split("""
+			Encryption
+			MuObiects
+		   	DB
+			HexBuffer
+			Socket
+			Task
+			Server
+			Protocol
+			
+	       """)
+else:
+	PINCLUDE="" 
+	PLIB=""
+	EXECS=Split("""      
+			GSEmu
+			SubServerStatus
+			Client1
+			""")
+			
+	LIBS=Split("""
+			Encryption
+			MuObiects
+		   	DB
+			HexBuffer
+			Socket
+			Task
+			Server
+			Protocol
+			DecEncC3
+		       """)
+
+
+if int(debug):
+	env = Environment(CPPFLAGS='-pg -ggdb '+PINCLUDE+PLIB,CPPPATH ="#Include",LIBPATH='#.lib',OS=OS_)
+else:
+	env = Environment(CPPFLAGS='-pg '+PINCLUDE+PLIB,CPPPATH ="#Include",LIBPATH='#.lib',OS=OS_)
+
+#configurations
+print "CONFIGURING....\n"
+
+conf = Configure(env)
+if conf.CheckCHeader('mysql.h'):
+      conf.env.Append(CPPFLAGS=' -DHAS_MYSQL_H')
+#else:
+#     print "u need mysql package install in ur system to compile this source"
+if OS_==str('posix'):
+     conf.env.Append(CPPFLAGS=' -DIN_POSIX_')
+
+if not conf.CheckCHeader('winsock2.h'):
+     if OS_ == str('win32'):
+            print "U must have this file in win32 platform ... Bye :( "
+            Exit(1)
+
+env = conf.Finish()
+print "\nDONE....\n\n"
+#buliding
+Export('env','shared')
+
+#libs
+for blib in LIBS:
+    env.SConscript('#LibSrc/'+blib+'/.SCons',         build_dir='#.build/'+OS_+'/'+REL+'/lib/'+blib,          duplicate=0)
+
+#execs
+for bexe in EXECS:
+	env.SConscript('#Src/'+bexe+'/.SCons',         build_dir='#.build/'+OS_+'/'+REL+'/bin/'+bexe,          duplicate=0)
+

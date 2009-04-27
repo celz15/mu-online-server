@@ -1,0 +1,32 @@
+//BOK+4
+//Normal
+        8       16      0       0       1       0       //Excellent Black Dragon Armor 
+        11      16      0       0       1       0       //Excellent Black Dragon Boots 
+        10      16      0       0       1       0       //Excellent Black Dragon Gloves 
+        7       16      0       0       1       0       //Excellent Black Dragon Helm 
+        9       16      0       0       1       0       //Excellent Black Dragon Pants 
+        8       20      0       0       1       0       //Excellent Thunder Armor 
+        11      20      0       0       1       0       //Excellent Thunder Boots 
+        10      20      0       0       1       0       //Excellent Thunder Gloves 
+        9       20      0       0       1       0       //Excellent Thunder Pants 
+        8       17      0       0       1       0       //Excellent Phoenix Armor 
+        11      17      0       0       1       0       //Excellent Phoenix Boots 
+        10      17      0       0       1       0       //Excellent Phoenix Gloves 
+        7       17      0       0       1       0       //Excellent Phoenix Helm 
+        9       17      0       0       1       0       //Excellent Phoenix Pants 
+        8       18      0       0       1       0       //Excellent Soul Armor 
+        11      18      0       0       1       0       //Excellent Soul Boots 
+        10      18      0       0       1       0       //Excellent Soul Gloves 
+        7       18      0       0       1       0       //Excellent Soul Helm 
+        9       18      0       0       1       0       //Excellent Soul Pants 
+        9       19      0       0       1       0       //Excellent Divine Pants 
+        7       19      0       0       1       0       //Excellent Divine Helm 
+        10      19      0       0       1       0       //Excellent Divine Gloves 
+        11      19      0       0       1       0       //Excellent Divine Boots 
+        8       19      0       0       1       0       //Excellent Divine Armor 
+        2       10      0       0       1       0       //Excellent Stalker's Mace 
+        4       17      0       1       1       0       //Excellent Giant Bow 
+        5       10      0       0       1       0       //Excellent Dragon Staff 
+        13      8       0       0       1       0       //Excellent Ring of Ice 
+        13      9       0       0       1       0       //Excellent Ring of Poison 
+        13      12      0       0       1       0       //Excellent Lightning Pendant

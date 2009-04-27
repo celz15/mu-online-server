@@ -1,0 +1,13 @@
+C1  08  66  00  91  46  00  00  
+193 008 102 000 145 070 000 000 
+Á   .   f   .   ‘   F   .   .   
+
+// Decrypted C1/C2
+struct _OP6600
+{
+	BYTE op;		// 0x66
+	BYTE op_2;		// 0x00
+
+	_PDMC(guild_id, 2, unsigned short);	// guild ID
+	_PDMC(unknown, 2, unsigned short);	// unknown
+};

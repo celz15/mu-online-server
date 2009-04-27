@@ -1,0 +1,91 @@
+[SRV-G]C3,0D,6D,E9,0B,BD,06,F0,07,E3,5D,25,1F
+<03,1C,00,00,8E,79,00>
+??C3(    ? )
+C1 08 1C 00 00 8E 79 00
+
+C1 08 1C 00 00 8E 79 00
+C1 X1 X2 X3 X4 X5 X6 X7
+
+X1 - C1
+X2 - LEN
+X3 - 1C TYP
+X3 - GATE ID / 00 = No Gate
+X4 - MAP
+X5 - X
+X6 - Y
+X7 - Head Direction
+
+
+==
+c3,//C3??
+08,//len
+1C,//??ID
+16,//...Gate.txt/bmd??
+02,//map
+D9,//X
+28,//Y
+00,//head
+
+
+//move  icecity
+[GAMEG]C1,1A,00,C4,3F,8D,12,61,42,EA,14,A2,EB,99,72,E9,D5,B1,F2,CE,DD,17,DB,3D,36,87
+<4D,47,00,00,00,00,00,00,00,00,2F,D2,C6,B6,AF,20,B1,F9,B7,E7,B9,C8,00>
+????(MG        /move icecity )
+
+[SRV-G]C3,0D,99,6F,35,71,5B,7F,B4,5D,A9,3D,07
+<61,
+1C, //protocal id
+16, //gate number
+02 //map id
+,CE,2C, //x,y
+00>
+??C3(a   ? )
+
+[SRV-G]C3,0D,0A,C8,21,0C,03,FE,45,60,1E,FB,C1
+<62,22,FE,77,88,18,
+
+c3 08 1c 16 02 ce 2c 00 
+
+c2 len protocalid gatenumber mapid x y unknown
+
+c3 len protocalid gatenumber mapid x y unknown
+
+---
+
+C1 07 1C 12 00 00 14
+
+12:
+ID	Flag	Map	X1	Y1	X2	Y2	Destination	Direction	Requirement
+18	1	0	5	38	6	41	19		0		15
+
+14:
+ID	Flag	Map	X1	Y1	X2	Y2	Destination	Direction	Requirement
+20	1	2	244	34	245	37	21		0		0
+
+---
+
+C1 07 1C 17 00 00 1D
+
+17:
+ID	Flag	Map	X1	Y1	X2	Y2	Destination	Direction	Requirement
+23	1	0	213	246	217	247	24		0		10
+
+1D:
+ID	Flag	Map	X1	Y1	X2	Y2	Destination	Direction	Requirement
+29	2	4	162	2	166	3	0		5		80
+
+C1 07 1C 17 00 00 48
+
+48 = 72
+
+C1 07 1C 17 00 00 49
+
+
+--
+test:
+C3 0D 0A C8 21 0C 03 FE 45 60 1E FB C1
+
+C3 0D A0 41 1C F6 C7 BB B1 65 BE 5B 6E
+C3 0D EC 1A 35 32 52 E2 60 FE 56 75 4F
+C3 0D B6 78 0A B5 1F 01 63 5A 24 C3 F9
+C3 0D CF EC 23 79 90 A7 44 0E 04 74 4E

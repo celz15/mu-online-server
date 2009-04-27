@@ -1,0 +1,14 @@
+C1  06  23  8D  A8  0E  
+193 006 035 141 168 014 
+Á      #      ¨      
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP23
+{
+	BYTE op;	// 0x23
+	BYTE coord_x;	// X, where the item is being dropped
+	BYTE coord_y;	// Y, where the item is being dropped
+	BYTE slot_from;	// from which slot in inventory the item is being dropped
+};
+c3 05 23 26 e1 5d k-s
+c1 05 23 01 0e s-k

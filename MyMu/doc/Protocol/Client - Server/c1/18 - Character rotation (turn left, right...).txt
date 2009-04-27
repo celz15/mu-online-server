@@ -1,0 +1,17 @@
+C1  05  18  05  7A  
+193 005 024 005 122 
+Á            z   
+
+// Decrypted C1/C2
+struct _OP18
+{
+	BYTE new_direction;	// 0x00 - 0x08
+	BYTE unknown;	// always 0x7A dla nicnierobienia przy smiechu zmienia wartosc
+};
+
+//Y
+//|-------
+//||6|5|4|
+//||7|*|3|
+//||0|1|2|
+//|------- X

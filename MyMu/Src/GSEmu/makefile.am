@@ -1,0 +1,16 @@
+bin_PROGRAMS = GSEmu
+GSEmu_SOURCES = main.cpp
+AM_CPPFLAGS = -I../../Include -I$(PYTHON_INCLUDE_DIR) $(MYSQL_INCLUDE)
+AM_LDFLAGS  =   -l$(PYTHON_LIB) $(MYSQL_LDFLAGS)
+GSEmu_LDADD = $(top_srcdir)/LibSrc/libMuCrypt.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuTasks.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuSocket.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuHexBuffor.a
+
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libProtocol.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuObjects.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libDB.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuTasks.a
+GSEmu_LDADD += $(top_srcdir)/LibSrc/libMuServer.a
+
+

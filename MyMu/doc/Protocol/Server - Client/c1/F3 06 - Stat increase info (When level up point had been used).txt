@@ -1,0 +1,14 @@
+C1  0A  F3  06  13  00  44  00  18  00  
+
+// not crypted
+struct _OPF306
+{
+	BYTE op;	// 0xF3
+	BYTE op_2;	// 0x06
+
+	BYTE success_stat;	// 4bits - success (0 - false, 1 success) | 4bits - stat_id - 0x00 - str, 0x01 - dex, 0x02 - vitality, 0x03 - energy
+	BYTE unknown;
+
+	_PDMC(mana, 2, unsigned short);	// mana update	(if 0x00 - leave unupdated)
+	_PDMC(stam, 2, unsigned short);	// stam update	(if 0x00 - leave unupdated)
+};

@@ -1,0 +1,46 @@
+////////////////////////////////////////////////// Quest /////////////////////////////////////////////////////////////			
+// Quest Type			
+// 1:, 2: NPC, 3:			
+///////////////////////////////////////////////// Quest ///////////////////////////////////////////////////////////////																	
+
+// 																
+//(Type)       (Quest Index)	(1. 2. 3.)	NPC    (Quest  SubType )	(Quest Name)													
+0	0	2	235	"NIE WIEM"													
+//1										
+//(Quest Type)	(Item Type)	(Item SubType)	 (Item Number)	(Target Monster)   (1~1000)	(Type)	(SubType)	(?????)	
+1	14	23	1	45    60     10	200	0	10	0	52	54	55	56	1	1	1	0
+1	14	23	1	45    60     10	200	0	10	1	52	54	55	56	0	0	0	1
+end																	
+
+
+
+
+
+//(Type)	(Quest Index)	 (1. 2. 3.)	NPC    (Quest SubType )	(Quest Name)													
+0	1	2	235	"Transformacja"													
+// 									
+//(Quest Type)	(Item Type)	(Item SubType)	(Item Number)	(Target Monster)	 (1~1000)		(Type)	(SubType)	
+1	14	24	1	62    76	10	201	0	10	0	60	61	62	72	0	1	0	0
+1	14	25	1	62    76	10	201	0	10	0	64	65	66	72	0	0	1	0
+1	14	26	1	62    76	10	201	0	10	0	67	68	69	72	1	0	0	0
+end																	
+
+
+
+//																	
+//(Type)	    (Quest Index)																
+1	0																
+//1																
+//(Level Min)	(Level Max)	(need zen)	(start context)	
+ 1	 0	10000	10000	0	73
+-1	-1	0	0	1000000	51	
+-1	-1	150	0	0	50	
+end						
+
+//(Type)	(Quest Index)					
+1	1					
+//2						
+//(Level Min)	(Level Max)	(need zen)	(start context)	
+-1	0	0	0	2000000	71	
+end						
+						

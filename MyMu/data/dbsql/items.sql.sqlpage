@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SQLPage nameConnection="muonline">
+<Statement><![CDATA[CREATE TABLE IF NOT EXISTS `items` (
+ `U_ID` INT(11) NOT NULL AUTO_INCREMENT,
+ `U_CHAR_ID` INT(11) NOT NULL DEFAULT '0',
+ `U_ITEM` VARCHAR(10) NOT NULL DEFAULT '',
+ PRIMARY KEY  (`U_ID`)
+ ) ENGINE=MYISAM;
+ 
+ 
+]]></Statement>
+</SQLPage>

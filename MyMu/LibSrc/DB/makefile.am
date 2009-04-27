@@ -1,0 +1,3 @@
+lib_LIBRARIES = ../libDB.a
+___libDB_a_SOURCES =BDBase.cpp BDLogin.cpp BDBase.cpp BDLoginF.cpp BDUsers.cpp
+AM_CPPFLAGS = -I$(top_srcdir)/Include $(MYSQL_INCLUDE)

@@ -1,0 +1,28 @@
+//[Lorencia] Peddlar
+7 5 0 255 0 1 0 //Leather helm
+8 5 0 255 0 1 0 //Leather armor
+9 5 0 255 0 1 0 //Leather pants
+10 5 0 255 0 1 0 //Leather gloves
+11 5 0 255 0 1 0 //Leather boots
+7 0 0 255 0 1 0 //Bronze helm
+8 0 0 255 0 1 0 //Bronze armor
+9 0 0 255 0 1 0 //Bronze pants
+10 0 0 255 0 1 0 //Bronze gloves
+11 0 0 255 0 1 0 //Bronze boots
+7 6 0 255 0 1 0 //Scale helm
+8 6 0 255 0 1 0 //Scale armor
+9 6 0 255 0 1 0 //Scale pants
+10 6 0 255 0 1 0 //Scale gloves
+11 6 0 255 0 1 0 //Scale boots
+7 8 0 255 0 1 0 //Brass helm
+8 8 0 255 0 1 0 //Brass armor
+9 8 0 255 0 1 0 //Brass pants
+10 8 0 255 0 1 0 //Brass gloves
+11 8 0 255 0 1 0 //Brass boots
+7 9 0 255 0 1 0 //Plate helm
+8 9 0 255 0 1 0 //Plate armor
+9 9 0 255 0 1 0 //Plate pants
+10 9 0 255 0 1 0 //Plate gloves
+11 9 0 255 0 1 0 //Plate boots
+
+end

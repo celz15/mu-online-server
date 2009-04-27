@@ -1,0 +1,19 @@
+//[Lorencia] Potion Girl
+
+
+14 0 0 255 0 0 0 //Apple
+14 1 0 255 0 0 0 //Small HP Potion
+14 2 0 255 0 0 0 //Medium HP Potion
+14 3 0 255 0 0 0 //Big HP Potion
+14 4 0 255 0 0 0 //Small MP Potion
+14 5 0 255 0 0 0 //Medium MP Potion
+14 6 0 255 0 0 0 //Big MP Potion
+14 8 0 255 0 0 0 //Antidote
+13 0 0 255 0 0 0 //Guardian Angel
+13 1 0 255 0 0 0 //Satan
+13 2 0 255 0 0 0 //Horn of Unilia
+13 4 0 255 0 0 0 //Dark Horse 
+13 5 0 255 0 0 0 //Dark Spirit
+14 10 0 255 0 0 0 //Town Teleport
+14 9 0 1 0 0 0 //Alcohol
+end

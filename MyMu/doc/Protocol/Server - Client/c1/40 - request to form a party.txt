@@ -1,0 +1,9 @@
+C1 05 40 17 CD
+
+// not crypted
+struct _OP40
+{
+	BYTE op;	// 0x40
+
+	WORD PlayerID;	// former's ID
+};

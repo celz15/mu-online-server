@@ -1,0 +1,1 @@
+select GObjId ,GObjName , GObjLvl from GObj;

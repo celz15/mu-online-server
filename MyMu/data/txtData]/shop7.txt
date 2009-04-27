@@ -1,0 +1,17 @@
+//[Devias] Wizard Shop
+7 14 0 255 0 1 0 //Guardian Helm
+8 14 0 255 0 1 0 //Guardian Armor
+9 14 0 255 0 1 0 //Guardian Pants
+10 14 0 255 0 1 0 //Guardian Gloves
+11 14 0 255 0 1 0 //Guardian Boots
+7 3 0 255 0 1 0 //Legendary helm
+8 3 0 255 0 1 0 //Legendary armor
+9 3 0 255 0 1 0 //Legendary pants
+10 3 0 255 0 1 0 //Legendary gloves
+11 3 0 255 0 1 0 //Legendary boots
+5 5 0 255 0 1 0 //Legendary Staff
+6 14 0 255 0 1 0 //Legendary shield
+5 3 0 255 0 1 0 //Thunderstaff
+5 4 0 255 0 1 0 //Gorgonstaff
+
+end

@@ -1,0 +1,24 @@
+C1  2A  F3  01  01  77  6F  69  6E  00  00  00  00  00  00  04  01  00  20  00  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  FF  
+193 042 243 001 001 119 111 105 110 000 000 000 000 000 000 004 001 000 032 000 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 
+Á   *   ó         w   o   i   n   .   .   .   .   .   .         .   .   .   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ   ÿ
+
+// not crypted
+struct _OPF301
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x01
+
+	unsigned char result;	// 0x01 = success, 0x00 = invalid character name or already exists
+
+	unsigned char name[10];	// name of character
+	unsigned char screen_slot;	// screen slot, at which the character could be placed
+
+	_PDMC(level, 2, unsigned short);	// level
+
+	BYTE class;
+	BYTE ctlcode;
+
+	// s etogo mesta clientu MU naplevat' na to, chto nahodicca dalshe...
+
+	BYTE unknown[22];
+};

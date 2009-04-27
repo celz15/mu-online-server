@@ -1,0 +1,6 @@
+lib_LIBRARIES = ../libMuSocket.a
+___libMuSocket_a_SOURCES =Socket.cpp\
+SocketUnix.cpp\
+SocketWin32.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include

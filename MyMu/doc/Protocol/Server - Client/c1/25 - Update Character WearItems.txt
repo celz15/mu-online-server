@@ -1,0 +1,12 @@
+// NotCrypted [1.02D]
+
+[C1 0C 25] Header
+ 
+[12C8] WORD PlayerID 
+[07] BYTE ItemID
+[41] BYTE Option
+[27] BYTE UNK
+[00] BYTE UNK
+[00] BYTE UNK
+[90] BYTE UNK
+[00] BYTE UNK

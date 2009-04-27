@@ -1,0 +1,25 @@
+Import('env','shared')
+#configuracion
+EXE='Client1'
+srcfiles=Split("""
+		main.cpp
+
+	       """)
+
+if str(env['OS'])==str('win32'):
+	nidslib=Split("""
+		Socket
+		wsock32 
+	      """)
+else:
+	nidslib=Split("""
+	   
+	      """)
+
+#build library
+
+
+
+#build programs
+
+env.Program(EXE,srcfiles,LIBS=nidslib)

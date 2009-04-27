@@ -1,0 +1,14 @@
+C1  09  16  03  FE  00  1E  00  0A  
+193 009 022 003 254 000 030 000 010 
+Á   .         þ   .      .   .   
+
+// Decrypted C3/C4
+struct _OP16
+{
+	BYTE op;	// 0x16
+
+	_PDMC(monster_serial, 2, unsigned short);	// monster's serial, of whose death we gain experience
+	BYTE unknown;
+	_PDMC(experience, 2, unsigned short);	// how much experience was gained
+	BYTE unknown;	// always 0x0A najprawdzopodobniej stopa przeoliczania 0a =10 czyli exp jest mnozony x10 dla wieksyzch expow powinna sie zwiekszac na 0xb
+};

@@ -1,0 +1,10 @@
+C1  05  22  00  82  
+193 005 034 000 130 
+Á      "   .   ‚   
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP22
+{
+	BYTE op;	// 0x22
+	_PDMC(serial, 2, unsigned short);	// item's serial, which is being picked up
+};

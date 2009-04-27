@@ -1,0 +1,21 @@
+Import('env','shared')
+#configuracion
+LIB='Protocol'
+srcfiles=[
+	'CBPacket.cpp' , 
+	'PacketHandler.cpp' , 
+	'SBPacket.cpp',
+	'SHello.cpp',
+	'SVeryficationPassUserAnsfer.cpp',
+	'SIdDie.cpp',
+	'SToMoveID.cpp',
+	'SIdGetDmg.cpp'
+	]
+
+#build library
+
+if int(shared):
+	env.SharedLibrary(env['LIBPATH']+'/'+LIB,srcfiles,)
+else:
+	env.Library(env['LIBPATH']+'/'+LIB,srcfiles)
+

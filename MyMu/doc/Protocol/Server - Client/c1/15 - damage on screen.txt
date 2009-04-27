@@ -1,0 +1,7 @@
+C1 07 15  12C0 000D
+
+C1 - [BYTE] Header
+07 - [BYTE] Len
+15 - [BYTE] Type
+12C0 - [WORD] PlayerID / MobID
+0000 - [WORD] Damage

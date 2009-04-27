@@ -1,0 +1,10 @@
+C1  05  30  03  B9  
+193 005 048 003 185 
+Á      0      ¹   
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP30
+{
+	BYTE op;		// 0x30
+	_PDMC(npc_id, 2, unsigned short);	// clicked NPC id
+};

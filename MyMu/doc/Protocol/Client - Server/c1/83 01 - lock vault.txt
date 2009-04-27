@@ -1,0 +1,13 @@
+C1  10  83  01  D2  04  31  32  33  34  35  36  37  00  00  00  
+193 016 131 001 210 004 049 050 051 052 053 054 055 000 000 000 
+Á      ƒ      Ò      1   2   3   4   5   6   7   .   .   .   
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP8301
+{
+	unsigned char op;		// 0x83
+	unsigned char op_2;	// 0x01
+
+	_PDMC(vault_pw, 2, unsigned short);	// 4 digit password.  vault_pw = ((passwd << 8) >> 8) | (passwd << 8); // THIS IS NOT UNSIGNED SHORT PASSWORD! IT's REVERSED
+	unsigned char personal_id_code[10];	// personal ID code
+};

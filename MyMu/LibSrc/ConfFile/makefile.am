@@ -1,0 +1,4 @@
+lib_LIBRARIES = ../libMuConfFile.a
+___libMuConfFile_a_SOURCES =ConfFile.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include

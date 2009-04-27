@@ -1,0 +1,13 @@
+C1  05  23  01  0E  
+193 005 035 001 014 
+Á      #         
+
+// not crypted
+struct _OP23
+{
+	BYTE op;	// 0x23
+	BYTE success;	// 0x01 = success, 0x00 = failure
+	BYTE slot_from;	// from which slot the item has been successfuly dropped
+};
+
+c1 05 23 01 0c potwierdzenie zyrzucenia itemu ze slotu 0c

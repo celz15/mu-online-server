@@ -1,0 +1,3 @@
+lib_LIBRARIES = ../libMuTasks.a
+___libMuTasks_a_SOURCES =Task.cpp TimeTick.cpp
+AM_CPPFLAGS = -I$(top_srcdir)/Include

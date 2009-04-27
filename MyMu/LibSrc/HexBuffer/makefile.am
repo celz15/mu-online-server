@@ -1,0 +1,4 @@
+lib_LIBRARIES = ../libMuHexBuffor.a
+___libMuHexBuffor_a_SOURCES =HexBuffer.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include

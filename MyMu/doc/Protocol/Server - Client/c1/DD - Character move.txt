@@ -1,0 +1,24 @@
+C1  08  DD  18  F1  95  78  30  
+193 008 221 024 241 149 120 048 
+Á   .   Ý      ñ   •   x   0   
+
+// not ecnrypted
+struct _OPDD
+{
+	unsigned short pc_id;	// player creature id
+
+	// stop at this location on current map
+	unsigned char pos_x;	// position x
+	unsigned char pos_y;	// position y
+
+	unsigned char view_direction;	// (first 4bits) direction of view after stop, last 4bits = 0000
+};
+
+// view directions
+
+//Y
+//|-------
+//||6|5|4|
+//||7|9|3|
+//||8|1|2|
+//|------- X

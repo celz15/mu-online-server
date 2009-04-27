@@ -1,0 +1,11 @@
+C1 06 44 02 0A 1A 
+
+// not crypted
+struct _OP4402
+{
+	BYTE op;	// 0x44
+	BYTE op_2;	// 0x02
+
+	BYTE unknown;
+	BYTE id_health;	// 4bits player's ID in party | 4bits health loss percentage in tenths (from 0 TO 10) (if dead - health loss = 10)
+};

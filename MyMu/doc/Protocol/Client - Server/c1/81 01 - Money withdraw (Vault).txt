@@ -1,0 +1,9 @@
+C1  08  81  01  C8  00  00  00  
+193 008 129 001 200 000 000 000 
+¡   .   Å      »   .   .   .   
+
+// Decrypted C1/C2
+struct _OP8101
+{
+	_PDMC(money, 4, unsigned long);	// how much money is being withdraw
+};

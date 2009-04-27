@@ -1,0 +1,7 @@
+C1  03  A0
+
+// Decrypted C3/C4
+struct _OPA0
+{
+	BYTE op;	// 0xA0
+};

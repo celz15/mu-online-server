@@ -1,0 +1,11 @@
+C1  06  F3  07  00  00  
+193 006 243 007 000 000 
+Á      ó       .   .   
+
+struct _OPF307
+{
+	BYTE op;		// 0xF3
+	BYTE op_2;		// 0x07
+
+	_PDMC(unknown, 2, unsigned short);
+};

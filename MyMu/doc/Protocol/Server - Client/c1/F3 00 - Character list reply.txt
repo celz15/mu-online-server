@@ -1,0 +1,200 @@
+C1 23 F3 00 02 00 01 00 45 76 6F 6C 76 65 72 00 00 00 00 2C 01 00 80 10 10 FF FF FF 00 04 3F F8 00 00 00
+C1 23 F3 00 02 00 01 00 45 76 6F 6C 76 65 72 00 00 00 00 2C 01 00 80 10 10 FD FF FF 00 00 3F F8 00 00 00
+C1 23 F3 00 02 00 01 00 53 55 50 45 52 45 4C 46 00 00 00 01 00 00 40 FF 80 FF FF FF 00 00 00 F8 00 00 00 
+Á  #  ó  .    .    .  S  U  P  E  R  E  L  F  .  .  .    .  .  @  ÿ  €  ÿ  ÿ  ÿ  .  .  .  ø  .  .  .  
+
+// not crypted
+struct _OPF300
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x00
+
+	unsigned char unknown1;	// 0x02
+	unsigned char unknown2;	// 0x00
+
+	unsigned char num;	// number of character info blocks ( 0x00 < num < 0x06 ) ( 5 characters total )
+
+	//_OPF301_block character_infos[num];	// character info blocks
+};
+
+struct _OPF300_block
+{// character info block
+	unsigned char pos_id;	// position id on the screen (0x00 - 0x04)
+	unsigned char name[10];	// char's name
+
+	unsigned char unknown_00;	//0x00 (testil, pitalsja vse biti po ocheredi stavit', nichego ne menjajecca)
+
+	unsigned short level[2];	// char's level
+	unsigned char ctlcode;	// 0x08 - GM, 0x03 - blocked
+	
+	unsigned char class;	// char's class	(0x00 = DW, 0x20 = DK, 0x40 = ELF)
+
+	// default 0xFFFF
+	unsigned short hands;	// items in hands (1byte left hand | 1byte right hand) formula of ID: item's BYTE = (ItemSection << 5) | (ItemId)
+
+	// default 0xFFFFFF
+	// {	// see item glow levels
+	unsigned char helm_armor;	// 4bits helm type | 4bits armor type
+	unsigned char pants_gloves;	// 4bits pants type | 4bits gloves type
+	unsigned char boots_wings_animal;	// 4bits boots type | 2bits (first level wings) (if not equipped: 11) | 2bits (first level animal) (if not equipped: 11)
+	// }
+
+	// default 0x000000
+	unsigned char glow_levels[3];
+
+	// default 0xF8 (11111000)
+	// see item list byte description
+	unsigned char armortopbits_wingslevel2;	// ~(5 top bits of (helm|armor|pants|gloves|boots)) | 3bits second level wings
+
+	// default 0x00
+	unsigned char violeteglowing;		//violete glowing
+
+	// default 0x00
+	unsigned char blueglowing;	// blue glowing
+
+	// default 0x00
+	unsigned char additional;	// dark horse & flag with dragons
+};
+
+//additional
+00000001 - dark horse
+00000010 - flag with dragons
+00000100 - nothing
+00001000 - nothing
+00010000 - nothing
+00100000 - nothing
+01000000 - nothing
+10000000 - nothing
+
+//violete glowing
+00000001 - (equipped DINORANT) :)))))))) (KOREICI PROSTO CHERTI)
+00000010 - right hand glows
+00000100 - left hand glows
+00001000 - boots glows
+00010000 - gloves glows
+00100000 - pants glows
+01000000 - armor glows
+10000000 - helm glows
+
+//blue glowing
+00000001 - unknown
+00000010 - unknown
+00000100 - unknown
+00001000 - boots
+00010000 - gloves
+00100000 - pants
+01000000 - armor
+10000000 - helm
+
+// item glow levels
+Weapon-1:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	00000001	(0x000001)
++5 +6		00000000 	00000000 	00000010	(0x000002)
++7		00000000 	00000000 	00000011	(0x000003)
++8		00000000 	00000000 	00000100	(0x000004)
++9		00000000 	00000000 	00000101	(0x000005)
++10		00000000 	00000000 	00000110	(0x000006)
++11		00000000 	00000000 	00000111	(0x000007)
+
+
+Weapon-2:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	00001000	(0x000008)
++5 +6		00000000 	00000000 	00010000	(0x000010)
++7		00000000 	00000000 	00011000	(0x000018)
++8		00000000 	00000000 	00100000	(0x000020)
++9		00000000 	00000000 	00101000	(0x000028)
++10		00000000 	00000000 	00110000	(0x000030)
++11		00000000 	00000000 	00111000	(0x000038)
+
+
+Helm:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	01000000	(0x000040)
++5 +6		00000000 	00000000 	10000000	(0x000080)
++7		00000000 	00000000 	11000000	(0x0000C0)
++8		00000000 	00000001 	00000000	(0x000100)
++9		00000000 	00000001 	01000000	(0x000140)
++10		00000000 	00000001 	10000000	(0x000180)
++11		00000000 	00000001 	11000000	(0x0001C0)
+
+
+Armor:
++0		00000000 	00000000 	00000000	(0x000000)
++1 +2		00000000 	00000001 	00000000	(0x000100)
++3 +4		00000000 	00000010 	00000000	(0x000200)
++5 +6		00000000 	00000100 	00000000	(0x000400)
++7		00000000 	00000110 	00000000	(0x000600)
++8		00000000 	00001000 	00000000	(0x000800)
++9		00000000 	00001010 	00000000	(0x000A00)
++10		00000000 	00001100 	00000000	(0x000C00)
++11		00000000 	00001110 	00000000	(0x000E00)
+
+
+Pants:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00010000 	00000000	(0x001000)
++5 +6		00000000 	00100000 	00000000	(0x002000)
++7		00000000 	00110000 	00000000	(0x003000)
++8		00000000 	01000000 	00000000	(0x004000)
++9		00000000 	01010000 	00000000	(0x005000)
++10		00000000 	01100000 	00000000	(0x006000)
++11		00000000 	01110000 	00000000	(0x007000)
+
+
+Gloves:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	10000000 	00000000	(0x008000)
++5 +6		00000001 	00000000 	00000000	(0x010000)
++7		00000001 	10000000 	00000000	(0x018000)
++8		00000010 	00000000 	00000000	(0x020000)
++9		00000010 	10000000 	00000000	(0x028000)
++10		00000011 	00000000 	00000000	(0x030000)
++11		00000011 	10000000 	00000000	(0x038000)
+
+
+Boots:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000100 	00000000 	00000000	(0x040000)
++5 +6		00001000 	00000000 	00000000	(0x080000)
++7		00001100 	00000000 	00000000	(0x0C0000)
++8		00010000 	00000000 	00000000	(0x100000)
++9		00010100 	00000000 	00000000	(0x140000)
++10		00011000 	00000000 	00000000	(0x180000)
++11		00011100 	00000000 	00000000	(0x1C0000)
+
+
+// first level wing type | first level animal type
+//{
+// animal type
+00 - g. angel
+01 - satan
+10 - horn
+11 - nothing equipped
+
+// wing type
+00 - fairy wings
+01 - angel wings
+10 - satan wings
+11 - nothing equipped
+//}
+
+// classes
+0x00 = DW
+0x10 = SOUL MASTER
+0x20 = DK
+0x30 = BLADE KNIGHT
+0x40 = ELF
+0x50 = MUSE ELF
+0x60 = MG
+0x80 = DARK LORD
+
+// second level wings
+001 - butterfly wings
+010 - archangel wings
+011 - devil wings
+100 - magic gladiator wings
+101 - dark lord cape (vidno tolko na dark lorde)
+110 - kakoi-to sinij orb na spine (NULL pohodu)
+111 - kakoi-to sinij orb na spine (NULL pohodu)

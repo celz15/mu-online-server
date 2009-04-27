@@ -1,0 +1,13 @@
+C1  06  2A  11  01  00  
+193 006 042 017 001 000 
+Á      *         .   
+
+// not encrypted
+struct _OP2A
+{
+	BYTE op;	// 0x2A
+	BYTE slot;	// which slot to update
+
+	BYTE durability;	// durability or amount, which to set on the item
+	BYTE unknown;
+};

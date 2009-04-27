@@ -1,0 +1,8 @@
+C1 04 3C 01
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP3C
+{
+	BYTE op;	// 0x3C
+	BYTE action;	// 0x01 = trade OK button down, 0x00 = trade OK button up
+};

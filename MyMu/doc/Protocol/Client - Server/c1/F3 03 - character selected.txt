@@ -1,0 +1,11 @@
+C1 0E F3 03 53 55 50 45 52 45 4C 46 00 00 
+Á    ó    S  U  P  E  R  E  L  F  .  .  
+
+// Decrypted C1/C2
+struct _OPF303
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x03
+
+	unsigned char name[10];	// name of selected character
+};

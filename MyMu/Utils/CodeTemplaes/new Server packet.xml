@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><templates><template autoinsert="false" context="org.eclipse.cdt.ui.text.templates.c" deleted="false" description="twozy klase paczki servera" enabled="true" name="my Server">&#13;
+#include "Protocol/SBPacket.h"&#13;
+&#13;
+//clasa : ${name}&#13;
+//h    -paczka budowana&#13;
+class ${name} : public CSPacket&#13;
+{&#13;
+${paraTyp} _${paraName};		//${opis}&#13;
+public:&#13;
+	${name}(${paraTyp} ${paraName}):CSPacket()&#13;
+	{&#13;
+	_${paraName}=${paraName};&#13;
+		MyName="${OpisPaczki}";&#13;
+	};&#13;
+	 ~${name}(){};&#13;
+	HexBuff * build()&#13;
+	{&#13;
+	${cursor}&#13;
+	return h;&#13;
+	};&#13;
+	&#13;
+};&#13;
+</template></templates>

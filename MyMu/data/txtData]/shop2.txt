@@ -1,0 +1,34 @@
+//[Lorencia] Wizard Shop
+15 3 0 0 0 0 0 //Fireball
+15 10 0 1 0 0 0 //Power Wave
+15 2 0 1 0 0 0 //Lightning Book
+15 5 0 1 0 0 0 //Teleport
+15 1 0 1 0 0 0 //Meteorite
+15 6 0 1 0 0 0 //Ice
+15 0 0 1 0 0 0 //Poison
+15 4 0 1 0 0 0 //Flame
+15 7 0 1 0 0 0 //Twister
+15 8 0 1 0 0 0 //Evil Spirits
+15 9 0 1 0 0 0 //Hellfire
+7 2 0 25 0 1 0 //Pad helm
+8 2 0 255 0 1 0 //Pad armor
+9 2 0 255 0 1 0 //Pad pants
+10 2 0 255 0 1 0 //Pad gloves
+11 2 0 255 0 1 0 //Pad boots
+7 4 0 255 0 1 0 //Bone helm
+8 4 0 255 0 1 0 //Bone armor
+9 4 0 255 0 1 0 //Bone pants
+10 4 0 255 0 1 0 //Bone gloves
+11 4 0 255 0 1 0 //Bone boots
+7 7 0 255 0 1 0 //Sphinx helm
+8 7 0 255 0 1 0 //Sphinx armor
+9 7 0 255 0 1 0 //Sphinx pants
+10 7 0 255 0 1 0 //Sphinx gloves
+11 7 0 255 0 1 0 //Sphinx boots
+5 0 0 255 0 1 0 //Skullstaff
+6 4 0 255 0 1 0 //Buckler
+5 2 0 255 0 1 0 //Serpentstaff
+
+
+ 
+end

@@ -1,0 +1,10 @@
+C1 06 41 01 17 CD
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP41
+{
+	BYTE op;	// 0x41
+
+	BYTE answer;	// 0x01 = OK, 0x00 = FUCK OFF
+	_PDMC(serial, 2, unsigned short);	// former's serial
+};

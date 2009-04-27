@@ -1,0 +1,163 @@
+C2  00  27  12  01  17  EF  90  7C  60  A8  FF  F1  11  1F  12  48  03  84  00  00  00  00  00  00  5B  4D  47  5D  4A  45  54  00  00  00  91  79  13  00  
+C2  00  27  12  01  15  99  87  8C  10  A8  FF  33  36  6F  0D  B6  C4  1A  00  00  00  00  00  00  54  69  6E  68  4C  61  42  75  69  00  87  90  56  00  
+C2  00  27  12  01  97  CD  90  85  20  00  00  55  55  5F  00  00  00  00  00  00  00  00  00  00  31  31  34  34  32  32  00  00  00  00  90  85  02  00
+
+// not crypted
+struct _OP12
+{
+	unsigned char op;		// 0x12
+	unsigned char count;	// how many characters we have met?
+};
+
+struct _OP12_block
+{
+	_PDMC(pc_id, 2, unsigned short);	// assign player creature to this ID;
+	unsigned char begin_pos_x;	// begin position x
+	unsigned char begin_pos_y;	// begin position y
+	
+	unsigned char class_pose;	// 4bit class | 4bit how did character spawn (0x00 - stand, 0x01 - teleported (like magic effect), 0x02 - sitting, 0x03 - at wall, 0x04 - hanged (like in noria))
+
+	//default 0xFF
+	//{
+	unsigned char left_hand;	// ID of item in hand
+	unsigned char right_hand;	// ID of item in hand
+	//}
+
+	// default 0xFFFFFF
+	// {	// see item glow levels
+	unsigned char helm_armor;	// 4bits helm type | 4bits armor type
+	unsigned char pants_gloves;	// 4bits pants type | 4bits gloves type
+	unsigned char boots_animal;	// 4bits boots type | 2bits 1st level wings | 2bits animal type (0x00 - guardian angel, 0x01 - satan, 0x02 - nothing)
+	// }
+
+	// default 0x000000
+	unsigned char glow_levels[3];
+
+	// default 0xF8 (11111000)
+	// see item list byte description
+	unsigned char itemlist_wings;	// 5bits (старшые биты helm, armor, pants, gloves, boots) | 3bits 2dn level wing type
+
+	BYTE excellent_glow;	// 5bits if item is excellent, then bit is 1, otherwise 0 (helm, armor, pants, gloves, boots) | 3bits
+	BYTE blue_glow;	// 5bits if item is glowing, then bit is 1, otherwise 0 (helm, armor, pants, gloves, boots)
+
+	BYTE new_items;	// ??? 0x01 - dark horse, 0x02 - FLAG ON THE BACK OF CHARACTER
+	BYTE unknown4;
+
+	BYTE magic_effect;
+	BYTE aura;
+
+	_PDM(name, 10);		// char's name
+
+	unsigned char end_pos_x;	// end position x
+	unsigned char end_pos_y;	// end position y
+
+	unsigned char direction_status;	// 4 bits direction | 4bits murderer status - (0x00 - green status, 0x01 - Commoner, 0x02 - 
+	unsigned char unknown3;
+};
+
+classes:
+0 = Dark Wizard 
+1 = Soul Master
+2 = Dark Knight 
+3 = Blade Knight
+4 = Elf 
+5 = Muse Elf 
+6 = Magic Gladiator 
+
+// THESE ARE THE VALUES THAT WILL HAVE TO BE OR'ED
+// item list byte description
+Armor:	// if any of these is equipped
+boots			11110000 	(0x08)
+gloves		11101000 	(0x10)
+pants			11011000 	(0x20)
+armor			10111000 	(0x40)
+helm			01111000 	(0x80)
+
+Wings:	// if any of these is equipped
+Butterfly Wings	00000001	(0x01)
+Arch Angel Wings	00000010	(0x02)
+Devil Wings		00000011	(0x03)
+MG Wings		00000100	(0x04)
+Fairy Wings		00000101	(0x05)
+Heaven Wings	00000110	(0x06)
+Satan Wings		00000111	(0x07)
+
+// THESE ARE THE VALUES THAT WILL HAVE TO BE OR'ED
+// item glow levels
+Weapon-1:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	00000001	(0x000001)
++5 +6		00000000 	00000000 	00000010	(0x000002)
++7		00000000 	00000000 	00000011	(0x000003)
++8		00000000 	00000000 	00000100	(0x000004)
++9		00000000 	00000000 	00000101	(0x000005)
++10		00000000 	00000000 	00000110	(0x000006)
++11		00000000 	00000000 	00000111	(0x000007)
+
+
+Weapon-2:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	00001000	(0x000008)
++5 +6		00000000 	00000000 	00010000	(0x000010)
++7		00000000 	00000000 	00011000	(0x000018)
++8		00000000 	00000000 	00100000	(0x000020)
++9		00000000 	00000000 	00101000	(0x000028)
++10		00000000 	00000000 	00110000	(0x000030)
++11		00000000 	00000000 	00111000	(0x000038)
+
+
+Helm:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00000000 	01000000	(0x000040)
++5 +6		00000000 	00000000 	10000000	(0x000080)
++7		00000000 	00000000 	11000000	(0x0000C0)
++8		00000000 	00000001 	00000000	(0x000100)
++9		00000000 	00000001 	01000000	(0x000140)
++10		00000000 	00000001 	10000000	(0x000180)
++11		00000000 	00000001 	11000000	(0x0001C0)
+
+
+Armor:
++0		00000000 	00000000 	00000000	(0x000000)
++1 +2		00000000 	00000001 	00000000	(0x000100)
++3 +4		00000000 	00000010 	00000000	(0x000200)
++5 +6		00000000 	00000100 	00000000	(0x000400)
++7		00000000 	00000110 	00000000	(0x000600)
++8		00000000 	00001000 	00000000	(0x000800)
++9		00000000 	00001010 	00000000	(0x000A00)
++10		00000000 	00001100 	00000000	(0x000C00)
++11		00000000 	00001110 	00000000	(0x000E00)
+
+
+Pants:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	00010000 	00000000	(0x001000)
++5 +6		00000000 	00100000 	00000000	(0x002000)
++7		00000000 	00110000 	00000000	(0x003000)
++8		00000000 	01000000 	00000000	(0x004000)
++9		00000000 	01010000 	00000000	(0x005000)
++10		00000000 	01100000 	00000000	(0x006000)
++11		00000000 	01110000 	00000000	(0x007000)
+
+
+Gloves:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000000 	10000000 	00000000	(0x008000)
++5 +6		00000001 	00000000 	00000000	(0x010000)
++7		00000001 	10000000 	00000000	(0x018000)
++8		00000010 	00000000 	00000000	(0x020000)
++9		00000010 	10000000 	00000000	(0x028000)
++10		00000011 	00000000 	00000000	(0x030000)
++11		00000011 	10000000 	00000000	(0x038000)
+
+
+Boots:
++0 +2		00000000 	00000000 	00000000	(0x000000)
++3 +4		00000100 	00000000 	00000000	(0x040000)
++5 +6		00001000 	00000000 	00000000	(0x080000)
++7		00001100 	00000000 	00000000	(0x0C0000)
++8		00010000 	00000000 	00000000	(0x100000)
++9		00010100 	00000000 	00000000	(0x140000)
++10		00011000 	00000000 	00000000	(0x180000)
++11		00011100 	00000000 	00000000	(0x1C0000)
+

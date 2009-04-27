@@ -1,0 +1,3 @@
+zapytanie o to czy przyjac riend
+tsty
+c1 0d c2 74 65 73 74 00 59 9b 10 00 00

@@ -1,0 +1,21 @@
+C2  00  3A  F3  10  09  01  C0  00  16  00  00  05  42  00  1C  80  00  0C  B4  08  1F  C0  00  0D  B4  10  20  C0  00  0E  C0  00  03  80  00  0F  C0  00  03  80  00  10  C0  00  03  80  00  13  01  00  16  00  00  35  20  04  12  
+194 000 058 243 016 009 001 192 000 022 000 000 005 066 000 028 128 000 012 180 008 031 192 000 013 180 016 032 192 000 014 192 000 003 128 000 015 192 000 003 128 000 016 192 000 003 128 000 019 001 000 022 000 000 053 032 004 018 
+Â   .   :   ó      .      À   .      .   .      B   .      €   .   .   ´   .      À   .   .   ´      .   À   .      À   .      €   .      À   .      €   .      À   .      €   .         .      .   .   5   .         
+
+// Decrypted C3/C4
+struct _OPF310
+{
+	BYTE num;	// number of items (blocks)
+};
+
+struct _OPF310_block
+{
+	BYTE slot;	// slot's number
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability
+	BYTE excattributes;	// info about excellent options and second block of items
+	BYTE some_quest_info;	// not sure
+	BYTE item_index;	// index of item section
+	BYTE some_extra_info	// ???
+};
