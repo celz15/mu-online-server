@@ -1,0 +1,12 @@
+C1  1B  00  4E  45  57  43  48  41  52  41  43  54  2F  73  65  72  76  65  72  73  74  61  74  75  73  00  
+193 027 000 078 069 087 067 072 065 082 065 067 084 047 115 101 114 118 101 114 115 116 097 116 117 115 000 
+Á      .   N   E   W   C   H   A   R   A   C   T   /   s   e   r   v   e   r   s   t   a   t   u   s   .   
+
+// Decrypted C1/C2
+struct _OP00
+{
+	BYTE op;	// 0x00
+	_PDM(name, 10);	// from which character the message is being posted (THIS MUST EQUAL TO SELECTED CHARACTER'S NAME!!!)
+	
+	// unsigned char message[] // size undetermined. Message padded with 0x00 at the end. max message size = 241 (excluding padding)
+};

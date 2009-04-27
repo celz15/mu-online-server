@@ -1,0 +1,13 @@
+lib_LIBRARIES = ../libMuObjects.a
+___libMuObjects_a_SOURCES =\
+MuCharacterBase.cpp  \
+MuMonsterInstance.cpp \
+MyCharacterList.cpp\
+MuCharacter.cpp\
+MuObiect.cpp \
+MuMap.cpp \
+MuPcInstance.cpp\
+MuMaps.cpp\
+MuObjectsPool.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include $(MYSQL_INCLUDE)

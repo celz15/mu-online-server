@@ -1,0 +1,4 @@
+lib_LIBRARIES = ../libMuServer.a
+___libMuServer_a_SOURCES =MuClientTheard.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include $(MYSQL_INCLUDE)

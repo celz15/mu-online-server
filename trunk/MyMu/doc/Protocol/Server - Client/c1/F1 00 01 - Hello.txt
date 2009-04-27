@@ -1,0 +1,13 @@
+C1 0C F1 00 01 15 36 30 39 39 32 36 
+Á  .  ñ  .      6  0  9  9  2  6  
+
+// not crypted
+struct _OPF100
+{
+	unsigned char op;		// 0xF1
+	unsigned char op_2;	// 0x00
+	unsigned char op_3;	// 0x01
+
+	unsigned short client_id;
+	unsigned char version[5];		// server version [09926]
+};

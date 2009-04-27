@@ -1,0 +1,7 @@
+C1 03 43
+
+// not crypted
+struct _OP43
+{
+	BYTE op;	// 0x43
+};

@@ -1,0 +1,13 @@
+C1  08  27  FF  00  42  00  17  
+193 008 039 255 000 064 000 022 
+Á   .   .   ÿ   .   @   .      
+
+// not crypted
+struct _OP25FE00
+{
+	BYTE op;	// 0x27
+	BYTE op_2;	// 0xFF
+
+	WORD mana;
+	WORD stamina;
+};

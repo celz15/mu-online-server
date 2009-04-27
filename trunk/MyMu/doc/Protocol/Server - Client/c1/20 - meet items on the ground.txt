@@ -1,0 +1,25 @@
+C2  00  0E  20  01  81  26  8D  A8  C4  00  03  80  00  
+194 000 014 032 001 129 038 141 168 196 000 003 128 000 
+¬   .      .      Å   &   ç   ®   ƒ   .      Ä   .   
+
+// not crypted
+struct _OP20
+{
+	BYTE op;	// 0x20
+	BYTE num;	// number of items met
+};
+
+struct _OP20_block
+{
+	_PDMC(serial, 2, unsigned short); // assigned serial to this item
+
+	BYTE coord_x;	// X, at which the item is lying
+	BYTE coord_y;	// Y, at which the item is lying
+
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability [FOR POTIONS IT'S AMOUNT]
+	BYTE excattributes;	// info about excellent options and second block of items
+
+	BYTE some_quest_info;	// not sure
+};

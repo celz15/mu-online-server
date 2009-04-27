@@ -1,0 +1,42 @@
+// [Noria] Potion Fairy
+
+14 0 0 255 0 0 0 //Apple
+14 1 0 255 0 0 0 //Small HP Potion
+14 2 0 255 0 0 0 //Medium HP Potion
+14 3 0 255 0 0 0 //Big HP Potion
+14 4 0 255 0 0 0 //Small MP Potion
+14 5 0 255 0 0 0 //Medium MP Potion
+14 6 0 255 0 0 0 //Big MP Potion
+14 8 0 255 0 0 0 //Antidote
+13 0 0 255 0 0 0 //Guardian Angel
+13 1 0 255 0 0 0 //Satan
+13 2 0 255 0 0 0 //Horn of Unilia
+14 17 1 255 0 0 0 //Eye of Devil Square+2
+14 17 2 255 0 0 0 //Eye of Devil Square+3
+14 17 3 255 0 0 0 //Eye of Devil Square+4
+14 18 1 255 0 0 0 //Devil Square Key+2
+14 18 2 255 0 0 0 //Devil Square Key+3
+14 18 3 255 0 0 0 //Devil Square Key+4
+14 19 0 255 0 0 0 //Devil Square Invitation+1
+7 10 0 255 0 1 0 //Vine helm
+8 10 0 255 0 1 0 //Vine armor
+9 10 0 255 0 1 0 //Vine pants
+10 10 0 255 0 1 0 //Vine gloves
+11 10 0 255 0 1 0 //Vine boots
+7 11 0 255 0 1 0 //Silk helm
+8 11 0 255 0 1 0 //Silk armor
+9 11 0 255 0 1 0 //Silk pants
+10 11 0 255 0 1 0 //Silk gloves
+11 11 0 255 0 1 0 //Silk boots
+7 12 0 255 0 1 0 //Wind helm
+8 12 0 255 0 1 0 //Wind armor
+9 12 0 255 0 1 0 //Wind pants
+10 12 0 255 0 1 0 //Wind gloves
+11 12 0 255 0 1 0 //Wind boots
+7 13 0 255 0 1 0 //Spirit helm
+8 13 0 255 0 1 0 //Spirit armor
+9 13 0 255 0 1 0 //Spirit pants
+10 13 0 255 0 1 0 //Spirit gloves
+11 13 0 255 0 1 0 //Spirit boots
+
+end

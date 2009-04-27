@@ -1,0 +1,10 @@
+C1 08 3B 36 D0 07 00 00
+
+// not crypted
+struct _OP3B36
+{
+	BYTE op;	// 0x3B
+	BYTE op_2;	// 0x36
+
+	_PDMC(money, 4, unsigned long);
+};

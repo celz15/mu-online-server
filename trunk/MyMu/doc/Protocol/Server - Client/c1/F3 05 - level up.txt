@@ -1,0 +1,19 @@
+C1  12  F3  05  05  00  05  00  42  00  48  00  18  00  00  00  02  00  
+193 018 243 005 005 000 005 000 066 000 072 000 024 000 000 000 002 000 
+Á      ó         .      .   B   .   H   .      .   .   .      .   
+
+// not crypted
+struct _OPF305
+{
+	BYTE op;	// 0xF5
+	BYTE op_2;	// 0x05
+
+	_PDMC(level, 2, unsigned short);	// new level
+	_PDMC(stat_points, 2, unsigned short);	// stat points assigned
+	_PDMC(max_health, 2, unsigned short);	// health max
+	_PDMC(max_mana, 2, unsigned short);	// max mana
+	_PDMC(max_stam, 2, unsigned short);	// max stam
+
+	_PDMC(unknown, 2, unsigned short);	// not discovered yet
+	_PDMC(unknown2, 2, unsigned short);	// unknown
+};

@@ -1,0 +1,55 @@
+
+DEC ENC INIT...
+>> INIT Python Core ... 
+SYSTEM:> TASKCORE STARTED ...........
+|>SYSTEM Time events init..Done
+|SYSTEM: DB Connected... 
+|SYSTEM: DB Base done
+
+SYSTEM MAPS MNG INIT						--RUN--
+
+>MAP: lorencia init ...
+>>MUSPOT: test spot 1	:[,][þ,þ] (r: 1,c: 1) Init 	--Done--
+>>MAP: lorencia SPOT #1						--ADD'ED--
+>MAP: lorencia init		 				---DONE---
+>MAPSMNG: lorencia: 						--ADD'ED--
+
+>MAP: noria init ...
+>MAP: noria init		 				---DONE---
+>MAPSMNG: noria: 						--ADD'ED--
+
+
+Total map init: 2.
+SYSTEM MAPS MNG INIT 						--DONE--
+
+
+MOBS INIT...
+ init monster function entrylorencia: INITS MOBS SPOTS
+---INIT SPOT #0---.
+>MAP:lorencia new Obiect id:65533	 na [73,167]	 typ:4	--ADD'ED--
+---INIT SPOT #0 DONE---.
+
+ init monster function entry -- NO SPOT TO INIT --
+SYSTEM:>Memeory Usage:
+   Pool    [65535] Memory [2047kb]
+   Monsters[3] Memory [2kb] 
+   Players [0] Memory [0kb]
+   Items   [0] Memory [0kb]
+   NPC     [0] Memory [0kb]
+   TOTOAL  [2050]kb 
+
+>MAP:lorencia new Obiect id:65535	 na [130,127]	 typ:4	--ADD'ED--
+>MAP:lorencia new Obiect id:65534	 na [130,128]	 typ:4	--ADD'ED--
+MOBS INIT Done...
+COMMANDMNG INIT 
+Twoze kkomende Test
+Register new Command in CommandMng: test
+Register new Command in CommandMng: help
+Register new Command in CommandMng: info
+Register new Command in CommandMng: mapsmng
+Register new Command in CommandMng: runPy
+COMMANDMNG INIT DONE
+Emu:>in task 2 quene
+>SYSTEM TASK TEST DONE
+>TASKCORE RUN: test dzialanie task core
+Emu:>

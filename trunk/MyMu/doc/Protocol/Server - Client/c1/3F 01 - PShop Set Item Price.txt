@@ -1,0 +1,6 @@
+// Crypted C3
+
+[C10A3F01] Header
+[1B] BYTE Slot
+[64000000] DWORD Price
+[00] BYTE

@@ -1,0 +1,19 @@
+//[Devias] Weapon Shop
+
+7 1 0 255 0 1 0 //Dragon Helm
+8 1 0 255 0 1 0 //Dragon Armor
+9 1 0 255 0 1 0 //Dragon Pants
+10 1 0 255 0 1 0 //Dragon Gloves
+11 1 0 255 0 1 0 //Dragon Boots
+3 0 0 255 1 1 0 //Lightspear
+3 1 0 255 1 1 0 //Spear
+3 2 0 255 1 1 0 //Dragonlance
+3 3 0 255 1 1 0 //Big Pike
+3 4 0 255 1 1 0 //Serpentspear
+3 5 0 255 1 1 0 //Double Halberd
+3 6 0 255 1 1 0 //Halberd
+3 7 0 255 1 1 0 //Bardiche
+3 8 0 255 1 1 0 //Great Scythe
+3 9 0 255 1 1 0 //Bill Of Balrog
+
+end

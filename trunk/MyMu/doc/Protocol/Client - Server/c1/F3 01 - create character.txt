@@ -1,0 +1,12 @@
+C1 0F F3 01 53 55 50 45 52 45 4C 46 00 00 20 
+Á    ó    S  U  P  E  R  E  L  F  .  .  .  
+
+// Decrypted C1/C2
+struct _OPF301
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x01
+
+	unsigned char name[10];	// SUPERELF
+	unsigned char class;	// 0x20 - ELF
+};

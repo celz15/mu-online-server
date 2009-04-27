@@ -1,0 +1,47 @@
+ c1 0d c1 74 65 73 74 00 59 9b 10 00 00  add friiend testrequest
+          x1 x1 x1 x1 x1 x1 x1 x1 x1 x1
+
+          x1 nick postaci
+                     
+ c1 0d c2 74 65 73 74 00 59 9b 10 00 00  zapytanie o to czy przyjac rienda
+          x1 x1 x1 x1 x1 x1 x1 x1 x1 x1
+
+          x1 nick postaci
+
+c1 0d c3 74 65 73 74 00 59 9b 10 00 00  del friiend testrequest
+          x1 x1 x1 x1 x1 x1 x1 x1 x1 x1
+
+          x1 nick postaci
+
+C1|05|C1|00|00|01     char no exist
+
+
+c1 0f c1 01 6d 69 6b 69  00 77 00 08 00 00 ff  postac reg jako off
+         x1 x2 x2 x2 x2  x2 x2 x2 x2 x2 x2 x3
+         
+         x1 flaga 01 jako oczekujacy 
+         x2 nick
+         x3 serwer na ktorym jest  ff ofline
+
+
+
+c2 00 12 c0 00 32 01 6d 69 6b 69 00 00 00 00 00 00 ff  //lista frenda
+            x0 x0 x1 x2 x2 x2 x2 x2 x2 x2 x2 x2 x2 x3  
+            
+        x0: id gracza ???  wyglada na to ze stale
+        x1: ile jest riend?
+        x2: nick  
+        x3: status ff offline 01 na ktorym jestem
+        
+        
+c1 0d ca 68 79 6a 75 75 75 00 00 00 00 // chat took request nie mam pojacia jakia jest odpowiedz :/
+         x1 x1 x1 x1 x1 x1 x1 x1 x1 x1
+         
+        x1 nick postaci z ktora chcemy rozmawiac  
+        C1|10|CA|00|00|01|6F|72|64|58|65|6E|00|00|00|10|67 dpowiedz ??
+
+
+c3 40 e8 ca 38 30 2e 35 34 2e 31 34 2e 31 30 32 00 00 00 01 00 00 00 cb 07 00 62 61 6b 69 6e 00 00 00 00 00 01 76 61 6d 70 69 
+            8   0  .  5  4  .  1  4  .  1  0  2                                b  a k  i  n                     v  a  m  p  i  
+        
+        c1 04 c4 00 | 01 reuse chat off! on

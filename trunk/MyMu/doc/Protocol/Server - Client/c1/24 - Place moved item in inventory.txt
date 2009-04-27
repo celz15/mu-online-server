@@ -1,0 +1,66 @@
+C1  0A  24  00  0D  B4  10  20  C0  00  
+193 010 036 000 013 180 016 032 192 000 
+Á   .   $   .   .   ´      .   À   .   
+c3 09 24 00 0f e3 00 00 80 00
+// Decrypted C3/C4
+struct _OP24
+{
+	BYTE op;		// 0x24
+	
+	BYTE to_where;	// vault window, inventory window, trade window, etc..., 0xFF - The item is being dropped on another item (2 apples on 2 apples, we get 3 and 1 apple)
+	BYTE slot_to;	// slot index, to which the item is being moved
+
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability [FOR APPLES AND POTIONS IT's DURABILITY]
+	BYTE excattributes;	// info about excellent options and second block of items
+
+	BYTE some_quest_info;	// not sure
+};
+
+Inventory slots in inventory:
+0 = weapon left
+1 = weapon right
+2 = helm
+3 = armor
+4 = pants
+5 = gloves
+6 = boots
+7 = wings
+8 = angel/satan
+9 = pendant
+10 = ring left
+11 = ring right
+12-75 = bag slots
+
+(Total: 76)
+
+Slots in vault total: 120
+Trade slots total: 32
+PShop slots total: 32
+
+
+--  V 99.62
+c3 0a 24
+LOCAL.pMsg,0C3
+LOCAL.pMsg+2,24
+LOCAL.pMsg+1,0A
+LOCAL.pMsg+3,ARG.result
+LOCAL.pMsg+4,ARG.pos
+[LOCAL.pMsg+5],ARG.ItemInfo
+
+00432F8C                                   |.  8A51 01        MOV DL,BYTE PTR DS:[ECX+1]
+[LOCAL.pMsg+6],[ARG.ItemInfo]
+00432F92                                   |.  8B45 14        MOV EAX,[ARG.ItemInfo]
+00432F95                                   |.  8A48 02        MOV CL,BYTE PTR DS:[EAX+2]
+00432F98                                   |.  884D FB        MOV [LOCAL.pMsg+7],CL
+00432F9B                                   |.  8B55 14        MOV EDX,[ARG.ItemInfo]
+00432F9E                                   |.  8A42 03        MOV AL,BYTE PTR DS:[EDX+3]
+00432FA1                                   |.  8845 FC        MOV [LOCAL.pMsg+8],AL
+00432FA4                                   |.  8B4D 14        MOV ECX,[ARG.ItemInfo]
+00432FA7                                   |.  8A51 04        MOV DL,BYTE PTR DS:[ECX+4]
+00432FAA                                   |.  8855 FD        MOV [LOCAL.pMsg+9],DL
+00432FAD                                   |.  8B45 F5        MOV EAX,[LOCAL.pMsg+1]
+00432FB0                                   |.  25 FF000000    AND EAX,0FF
+
+ 

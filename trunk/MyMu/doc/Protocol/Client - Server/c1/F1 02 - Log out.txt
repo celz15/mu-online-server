@@ -1,0 +1,11 @@
+C1 05 F1 02 00 
+Á    ñ    .  
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OPF102
+{
+	unsigned char op;		// 0xF1
+	unsigned char op_2;	// 0x02
+
+	unsigned char type;	// 0x00 - exit game (connection - close), 0x01 - switch character (connection - keep alive), 0x02 - select server (connection - close)
+};

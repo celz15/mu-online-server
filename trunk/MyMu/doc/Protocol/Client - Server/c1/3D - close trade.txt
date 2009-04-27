@@ -1,0 +1,7 @@
+C1 03 3D
+
+// not crypted
+struct _OP3D
+{
+	BYTE op;	// 0x3D
+};

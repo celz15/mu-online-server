@@ -1,0 +1,14 @@
+Import('env','shared')
+#configuracion
+LIB='Socket'
+if str(env['OS'])==str('win32'):
+	srcfiles=['Socket.cpp','SocketWin32.cpp']
+else:
+	srcfiles=['Socket.cpp','SocketUnix.cpp']
+#build library
+
+if int(shared):
+	env.SharedLibrary(env['LIBPATH']+'/'+LIB,srcfiles,)
+else:
+	env.Library(env['LIBPATH']+'/'+LIB,srcfiles)
+

@@ -1,0 +1,2 @@
+CEnterSelectedCharacterRequest.o CEnterSelectedCharacterRequest.o:  \
+ CEnterSelectedCharacterRequest.cpp

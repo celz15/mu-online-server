@@ -1,0 +1,5 @@
+bin_PROGRAMS=MuEmu
+MuEmu_SOURCES=main.cpp
+AM_LDFLAGS=-lboost_system -lpthread	
+
+

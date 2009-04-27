@@ -1,0 +1,3 @@
+pokaz dmg na ekrane
+c1 08 d7 19 99 00 0a 00 
+c1 08 d7 01 9e 00 00 00

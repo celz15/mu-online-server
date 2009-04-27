@@ -1,0 +1,9 @@
+C1 04 37 00
+
+// Decrypted C1/C2
+struct _OP37
+{
+	BYTE op;	// 0x37
+
+	BYTE answer;	// 0x00 = cancel, 0x01 = ok
+};

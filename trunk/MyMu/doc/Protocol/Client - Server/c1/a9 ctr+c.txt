@@ -1,0 +1,2 @@
+ c1 06 a9 01 00 08
+ c1 06 a9 01 00 08   podczas wchodzenia ctr+c ... klijent wysyla ta paczke

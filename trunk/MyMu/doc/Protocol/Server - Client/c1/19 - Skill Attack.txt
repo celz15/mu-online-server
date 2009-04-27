@@ -1,0 +1,7 @@
+// Crypted C3
+
+[C1 08 19] Header
+
+[44]   BYTE Skill Number
+[12D2] WORD PlayerID
+[12D3] WORD TargetID

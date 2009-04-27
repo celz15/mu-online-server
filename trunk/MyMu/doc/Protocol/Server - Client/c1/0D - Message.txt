@@ -1,0 +1,29 @@
+C1 3B 0D 01 00 00 00 00 00 00 00 00 00 59 6F 75 20 63 61 6E 20 75 73 65 20 79 6F 75 72 20 61 63 63 6F 75 6E 74 20 75 6E 74 69 6C 20 32 30 30 35 2E 20 34 2E 20 36 2E 00 00 00 00 
+Á  ;  .    .  .  .  .  .  .  .  .  .  Y  o  u  .  c  a  n  .  u  s  e  .  y  o  u  r  .  a  c  c  o  u  n  t  .  u  n  t  i  l  .  2  0  0  5  .  .  4  .  .  6  .  .  .  .  .  
+
+C1 - [BYTE] Header
+3B - [BYTE] Len
+0D - [BYTE] Type
+01 - [BYTE] SubType
+
+SubType ---------------------------------------------------
+00 - [BYTE] BlueMessage
+01 - [BYTE] yellow centered
+02 - [BYTE] guild notice
+0A - [BYTE] scrolling message
+-----------------------------------------------------------
+
+===========[SECTION ONLY FOR SCROLLING MESSAGE]=============
+==[IF THE MESSAGE IS NOT SCROLLING, ALL 9 BYTES CAN BE 00]==
+
+00 - [BYTE] Repeat Count
+03 - [BYTE] Unknown
+00 - [BYTE] Color RED
+00 - [BYTE] Color GREEN
+00 - [BYTE] Color BLUE
+00 - [BYTE] Opacity;
+00 - [BYTE] ScrollingSpeed
+
+========[END SECTION ONLY FOR SCROLLING MESSAGE]===========
+
+BYTES - [ASCII] MESSAGE

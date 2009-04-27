@@ -1,0 +1,17 @@
+C1  30  66  09  8A  29  00  00  45  56  30  4C  56  45  52  53  11  11  11  11  14  44  44  41  14  11  11  11  14  44  44  41  14  11  11  11  14  11  11  11  14  44  44  41  11  11  11  11  
+193 048 102 009 138 041 000 000 069 086 048 076 086 069 082 083 017 017 017 017 020 068 068 065 020 017 017 017 020 068 068 065 020 017 017 017 020 017 017 017 020 068 068 065 017 017 017 017 
+Á   0   f   .   Š   )   .   .   E   V   0   L   V   E   R   S                  D   D   A                  D   D   A                              D   D   A               
+
+// not crypted
+struct _OP6609
+{
+	unsigned char op;		// 0x66
+	unsigned char op_2;	// 0x09
+
+	_PDMC(guild_id, 2, unsigned short);	// guild serial
+
+	unsigned char unknown[2];	// unknown
+
+	unsigned char guild_name[8];	// guild name
+	unsigned char logo[32];		// guild logo
+};

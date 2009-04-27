@@ -1,0 +1,14 @@
+C1  07  D6  04  1D  78  03  
+193 007 214 004 029 120 003 
+Á       Ö         x      
+
+// Decrypted C1/C2
+struct _OPD6
+{
+	BYTE op;	// 0xD6
+
+	_PDMC(creature_serial, 2, unsigned short);	// victim's serial
+	
+	BYTE unknown;	// always 0x78
+	BYTE direction;	// direction, in which the monster is located from character
+};

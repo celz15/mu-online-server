@@ -1,0 +1,24 @@
+C2  00  0C  31  00  01  07  01  00  16  00  00  
+194 000 012 049 000 001 007 001 000 022 000 000 
+Â   .   .   1   .             .      .   .   
+
+// not crypted
+sturct _OP3100
+{
+	BYTE op;	// 0x31
+	BYTE op_2;	// 0x00
+
+	BYTE num;	// number of blocks
+}
+
+sturct _OP3100_block
+{
+	BYTE slot_id;	// slot, in which the item is placed
+
+	BYTE item_id;	// ID of item, which is being moved
+	BYTE skill_luck_opt;	// information about +skill +luck and opts
+	BYTE durability;	// item's durability
+	BYTE excattributes;	// info about excellent options and second block of items
+
+	BYTE some_quest_info;	// not sure
+}

@@ -1,0 +1,28 @@
+//[Lorencia] Weapon Shop
+12 13 0 255 0 0 0 //Unicorn Attack (Blade Knight/Dark Knight/MG)
+12 7 0 255 0 0 0 //Orb of twisting slash
+12 14 0 255 0 0 0 //Mass Healing (Blade Knight)
+12 19 0 255 0 0 0 //Swift Attack Orb (Dark Knight)
+12 12 0 255 0 0 0 //Earth Break (Blade Knight)
+12 16 0 255 0 0 0 //Flame Slash (MG)
+12 21 0 0 0 0 0 //scroll of fireburst 
+12 22 0 0 0 0 0 //scroll of sumon 
+12 23 0 0 0 0 0 //scroll of damage 
+12 24 0 0 0 0 0 //scroll of electric spark
+0 0 0 255 0 1 0 //Kris
+0 1 0 255 0 1 0 //Shortsword
+0 2 0 255 0 1 0 //Rapier
+0 3 0 255 1 1 0 //Katache
+0 4 0 255 1 1 0 //Scimitar
+0 5 0 255 1 1 0 //Blade
+0 6 0 255 1 1 0 //Gladius
+0 7 0 255 1 1 0 //Falchion
+0 8 0 255 1 1 0 //Serpentsword
+0 9 0 255 1 1 0 //Salamandersword
+0 10 0 255 1 1 0 //Light Sabre
+0 11 0 255 1 1 0 //Legendary Sword
+0 12 0 255 1 1 0 //Heliacal Sword
+0 13 0 255 1 1 0 //Doubleblade
+0 14 0 255 1 1 0 //Lightningsword
+
+end

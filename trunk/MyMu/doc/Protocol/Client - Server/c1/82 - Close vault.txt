@@ -1,0 +1,10 @@
+Client -> Server
+C1  03  82  
+193 003 130 
+Á      ‚   
+
+// not crypted
+struct _OP82
+{
+	BYTE op;		// 0x82
+};

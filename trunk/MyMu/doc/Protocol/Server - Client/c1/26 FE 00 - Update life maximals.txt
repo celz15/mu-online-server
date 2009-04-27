@@ -1,0 +1,11 @@
+C1  07  26  FE  00  3F  00  
+
+// not crypted
+struct _OP26FE00
+{
+	BYTE op;	// 0x26
+	BYTE op_2;	// 0xFE
+
+	WORD max_life;
+	BYTE unknown;
+};

@@ -1,0 +1,28 @@
+C1 35 42 01 02 31 31 34 34 32 32 00 00 00 00 00 00 90 85 00 00 78 00 00 00 78 00 00 00 4A 4F 4B 41 4D 4F 4E 44 41 00 01 00 90 84 00 00 6E 00 00 00 6E 00 00 00
+
+// not crypted
+struct _OP42
+{
+	BYTE op;	// 0x42
+	BYTE result_type;	// 0x00 - failed, 0x01 - ok [not sure]
+
+	BYTE count;	// number of folks in a party
+
+	// ... _OP4201_block[count]
+};
+
+struct _OP4201_block
+{
+	BYTE name[10];	// character's name
+	BYTE id;	// id of character (or position in the party list)
+
+	BYTE map_id;
+
+	BYTE coord_x;
+	BYTE coord_y;
+
+	BYTE unknown[2];
+
+	_PDMC(health, 4, unsigned long);	// current health
+	_PDMC(health_max, 4, unsigned long);	// max health;
+};

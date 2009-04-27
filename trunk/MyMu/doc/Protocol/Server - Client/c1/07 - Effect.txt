@@ -1,0 +1,5 @@
+C1|0C|07|01|04|00|00|00|0D|AC|00|00|
+
+01 - 00 / 01 OnOff
+04 - Effect
+0DAC - PlayerID

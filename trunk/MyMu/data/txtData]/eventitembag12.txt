@@ -1,0 +1,50 @@
+//BOK+5
+//Normal
+        0       20      0       1       1       0       //Excellent Blade of Devourer 
+        0       20      0       1       1       0       //Excellent Blade of Devourer 
+        0       21      0       1       1       0       //Excellent Double Blunt Sword 
+        0       31      0       1       1       0       //Excellent DeathBroad 
+        5       11      0       0       1       0       //Excellent Kundun Staff 
+        3       10      0       1       1       0       //Excellent Dragon Spear 
+        2       11      0       0       1       0       //Excellent Mace of Gimli 
+        2       12      0       0       1       0       //Excellent Phantom Mace 
+        2       13      0       0       1       0       //Excellent Mace of the King 
+        9       28      0       0       1       0       //Excellent Adamantine Pants 
+        7       28      0       0       1       0       //Excellent Adamantine Mask 
+        10      28      0       0       1       0       //Excellent Adamantine Gloves 
+        11      28      0       0       1       0       //Excellent Adamantine Boots 
+        8       28      0       0       1       0       //Excellent Adamantine Armor 
+        9       27      0       0       1       0       //Excellent Magus Pants 
+        7       27      0       0       1       0       //Excellent Magus Mask 
+        10      27      0       0       1       0       //Excellent Magus Gloves 
+        11      27      0       0       1       0       //Excellent Magus Boots 
+        8       27      0       0       1       0       //Excellent Magus Armor 
+        9       26      0       0       1       0       //Excellent Storm Pants 
+        7       26      0       0       1       0       //Excellent Storm Mask 
+        10      26      0       0       1       0       //Excellent Storm Gloves 
+        11      26      0       0       1       0       //Excellent Storm Boots 
+        8       26      0       0       1       0       //Excellent Storm Armor 
+        9       25      0       0       1       0       //Excellent Embroidered Pants+7 
+        7       25      0       0       1       0       //Excellent Embroidered Helm+1 
+        10      25      0       0       1       0       //Excellent Embroidered Gloves+7 
+        11      25      0       0       1       0       //Excellent Embroidered Boots+7 
+        8       25      0       0       1       0       //Excellent Embroidered Armor+7 
+        9       24      0       0       1       0       //Excellent Nature Pants+7 
+        7       24      0       0       1       0       //Excellent Nature Helmet+7 
+        10      24      0       0       1       0       //Excellent Nature Gloves+7 
+        11      24      0       0       1       0       //Excellent Nature Boots+7 
+        8       24      0       0       1       0       //Excellent Nature Armor+7 
+        9       23      0       0       1       0       //Excellent Hurricane Pants+7 
+        10      23      0       0       1       0       //Excellent Hurricane Gloves+7 
+        11      23      0       0       1       0       //Excellent Hurricane Boots+7 
+        8       23      0       0       1       0       //Excellent Hurricane Armor+7 
+        8       22      0       0       1       0       //Excellent DaRK Side Armor+7 
+        11      22      0       0       1       0       //Excellent DaRK Side Boots+7 
+        10      22      0       0       1       0       //Excellent DaRK Side Gloves+7 
+        7       22      0       0       1       0       //Excellent DaRK Side Helm+7 
+        9       22      0       0       1       0       //Excellent DaRK Side Pants+7 
+        9       21      0       0       1       0       //Excellent Red Phoenix Pants+7 
+        7       21      0       0       1       0       //Excellent Red Phoenix Helm+7 
+        10      21      0       0       1       0       //Excellent Red Phoenix Gloves+7 
+        11      21      0       0       1       0       //Excellent Red Phoenix Boots+7 
+        8       21      0       0       1       0       //Excellent Red Phoenix Armor+7

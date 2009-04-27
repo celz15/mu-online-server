@@ -1,0 +1,16 @@
+C1 13 F3 30 00 00 00 00 00 00 00 00 00 00 09 00 04 08 04 
+Á    ó  0  .  .  .  .  .  .  .  .  .  .  .  .    .    
+
+// not crypted
+struct _OPF330
+{
+	BYTE op;	// 0xF3
+	BYTE op_2;	// 0x30
+
+	BYTE skill_keys[10];
+	BYTE game_options;
+	BYTE q_key;
+	BYTE w_key;
+	BYTE e_key;
+	BYTE chatwindow_options;
+};

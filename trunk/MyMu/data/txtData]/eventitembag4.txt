@@ -1,0 +1,4 @@
+//star of christmas
+14 16 0 0 0 0 //Jewel of Life
+14 13 0 0 0 0 //Jewel of Bless
+12 15 0 0 0 0 //Jewel of Chaos

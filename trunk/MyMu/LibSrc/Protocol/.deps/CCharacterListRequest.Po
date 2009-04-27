@@ -1,0 +1,2 @@
+CCharacterListRequest.o CCharacterListRequest.o:  \
+ CCharacterListRequest.cpp

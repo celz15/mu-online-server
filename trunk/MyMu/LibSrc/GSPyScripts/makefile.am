@@ -1,0 +1,4 @@
+lib_LIBRARIES = ../libMuPython.a
+___libMuPython_a_SOURCES =PyMuMaps.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include -Ipython$(PYTHON_VERSION)/

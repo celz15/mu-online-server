@@ -1,0 +1,24 @@
+C1  17  F3  04  8E  85  00  05  3D  00  3E  00  16  00  00  00  84  00  00  00  6F  00  00  
+193 023 243 004 142 133 000 005 061 000 062 000 022 000 000 000 132 000 000 000 111 000 000 
+Á      ó      Ž   …   .      =   .   >   .      .   .   .   „   .   .   .   o   .   .   
+
+struct _OPF304
+{
+	BYTE op;		// 0xF3
+	BYTE op_2;	// 0x04
+	BYTE pos_x;
+	BYTE pos_y;
+	BYTE map_id;
+
+	BYTE unknown;	// direction & ~0xF0
+
+	_PMDC(health, 2, unsigned short);
+	_PMDC(mana, 2, unsigned short);
+	_PMDC(stamina, 2, unsigned short);
+	_PMDC(unknown, 2, unsigned short);
+
+	_PMDC(experience, 4, unsigned long);
+	_PMDC(money, 2, unsigned short);
+
+	BYTE unknown;
+};

@@ -1,0 +1,12 @@
+C1 18 F3 02 53 55 50 45 52 45 4C 46 00 00 31 32 33 34 35 36 37 00 00 00 
+Á    ó    S  U  P  E  R  E  L  F  .  .  1  2  3  4  5  6  7  .  .  .  
+
+// Decrypted C1/C2
+struct _OPF302
+{
+	unsigned char op;		// 0xF3
+	unsigned char op_2;	// 0x02
+
+	unsigned char name[10];	// SUPERELF
+	unsigned char personal_code[10];	// 1234567
+};

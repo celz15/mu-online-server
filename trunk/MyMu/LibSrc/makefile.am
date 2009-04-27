@@ -1,0 +1,4 @@
+SUBDIRS = ConfFile  Encryption     Server\
+DB	  GSPyScripts   MuObiects    Socket\
+HexBuffer  Protocol	   Task
+

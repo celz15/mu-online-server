@@ -1,0 +1,25 @@
+C1  08  DD  92  78  33  33  30  
+193 008 221 146 120 051 051 048 
+Á   .   Ý   ’   x   3   3   0   
+
+// Decrypted C1/C2
+struct _OPDD
+{
+	// current location on current map
+	unsigned char pos_x;	// position x
+	unsigned char pos_y;	// position y
+
+	unsigned char move_directions[];	// unlimited direction count.
+							// each byte represents two directions (two steps)
+							// each 4bits = direction
+							// if bits = 0000, then it's not a step, just a "whitespace"
+};
+
+// directions
+
+//Y
+//|-------
+//||6|5|4|
+//||7|9|3|
+//||8|1|2|
+//|------- X

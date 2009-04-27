@@ -1,0 +1,11 @@
+C1  07  26  FF  00  10  00
+
+// not crypted
+struct _OP26FF
+{
+	BYTE op;	// 0x26
+	BYTE op_2;	// 0xFF
+	BYTE op_3;	// 0x00
+
+	WORD life;
+};

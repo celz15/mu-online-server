@@ -1,0 +1,7 @@
+m4_include([m4/mysql.m4])
+m4_include([m4/ax_python.m4])
+m4_include([m4/ax_boost_asio.m4])
+m4_include([m4/ax_boost_system.m4])
+m4_include([m4/ax_boost.m4])
+m4_include([m4/ax_boost_python.m4])
+m4_include([m4/ax_lib_mysql.m4])

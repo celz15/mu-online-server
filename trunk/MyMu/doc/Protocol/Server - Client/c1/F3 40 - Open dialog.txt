@@ -1,0 +1,12 @@
+C1 07 F3 40 01 02 00
+
+// not crypted
+struct _OPF340
+{
+	BYTE op;	// 0xF3
+	BYTE op_2;	// 0x40
+
+	WORD dialog_id;	// 0x0102
+
+	BYTE unknown;
+};

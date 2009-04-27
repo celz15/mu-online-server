@@ -1,0 +1,3 @@
+PyMuMaps.o PyMuMaps.o: PyMuMaps.cpp ../../config.h
+
+../../config.h:

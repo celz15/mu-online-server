@@ -1,0 +1,18 @@
+C1|06|BC|00|01|00
+
+[TYPE]
+BC
+
+[BYTE]
+00 - Mix
+01 - Dissolve
+
+[BYTE]
+00 - Bless
+01 - Soul
+
+[BYTE]
+00 - Count 10
+01 - Count 20
+02 - Count 30
+

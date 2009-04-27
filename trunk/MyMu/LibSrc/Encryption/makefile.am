@@ -1,0 +1,4 @@
+lib_LIBRARIES = ../libMuCrypt.a
+___libMuCrypt_a_SOURCES =encryption.cpp
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include

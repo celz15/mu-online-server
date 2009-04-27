@@ -1,0 +1,42 @@
+Import('env','shared')
+#configuracion
+EXE='GSPosixEmu'
+srcfiles=Split("""
+		main.cpp
+
+	       """)
+
+if str(env['OS'])==str('win32'):
+	nidslib=Split("""
+		TAskTime
+		Socket
+		HexBuffer
+		Server
+		Protocol
+		DBUtils
+		mysql
+		wsock32
+	      """)
+else:
+	nidslib=Split("""
+	    encryption
+		TaskTime
+		Socket
+		HexBuffer
+		Server
+		Protocol
+		DBUtils
+		mysqlclient
+		pthread
+		MuObiects
+		z
+		stdc++ 
+	      """)
+
+#build library
+
+
+
+#build programs
+
+env.Program(EXE,srcfiles,LIBS=nidslib)

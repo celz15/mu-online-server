@@ -1,0 +1,12 @@
+C1  05  F3  06  00  
+193 005 243 006 000 
+Á      ó      .   
+
+// Decrypted C1/C2
+struct _OPF306
+{
+	BYTE op;	// 0xF3
+	BYTE op_2;	// 0x06
+
+	BYTE which;	// which stat to increase? 0x00 - strength, 0x01 - dexterity, 0x02 - vitality, 0x03 - energy
+};

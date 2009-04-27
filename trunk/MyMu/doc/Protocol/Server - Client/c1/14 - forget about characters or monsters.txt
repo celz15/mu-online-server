@@ -1,0 +1,15 @@
+C1  06  14  01  15  76  
+193 006 020 001 021 118 
+Á               v   
+
+// not crypted
+struct _OP14
+{
+	BYTE op;	// 0x14
+	BYTE num;	// number of characters or monsters to forget
+};
+
+struct _OP14_block
+{
+	_PDMC(serial, 2, unsigned short);	// serial of character or monster to forget about
+};

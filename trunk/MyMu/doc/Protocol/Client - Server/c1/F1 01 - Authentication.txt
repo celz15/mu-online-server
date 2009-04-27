@@ -1,0 +1,17 @@
+C1 31 F1 01 8C BD C4 88 A0 CF 89 A2 DB CD 98 BA C6 8C FE 99 CF CF AB FC C2 45 BF 00 30 39 39 32 36 33 44 4C 4B 46 4A 67 6B 72 6A 67 69 72 69 64 61 
+Á  1  ñ    Œ  ½  Ä  ˆ     Ï  ‰  ¢  Û  Í  ˜  º  Æ  Œ  þ  ™  Ï  Ï  «  ü  Â  E  ¿  .  0  9  9  2  6  3  D  L  K  F  J  g  k  r  j  g  i  r  i  d  a 
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OPF101
+{
+	unsigned char op;		// 0xF1
+	unsigned char op_2;	// 0x01
+
+	unsigned char account[10];	// account (crypted using MU_Old_crypt_3bytes)
+	unsigned char password[10];	// password (crypted using MU_Old_crypt_3bytes)
+
+	unsigned long tick_count[4];		// unknown
+
+	unsigned char client_version[5];		// client version [09926]
+	unsigned char client_serial[16];	// client serial [3DLKFJgkrjgirida]
+}; 

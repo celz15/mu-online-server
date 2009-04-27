@@ -1,0 +1,15 @@
+// not crypted
+struct _OP56
+{
+	BYTE op;	// 0x56
+	BYTE result;
+};
+
+// results
+0x00 - guild already exists
+0x01 - guild create ok
+0x02 - guild name must be at least 4 characters long
+0x03 - you are already in a guild
+0x04 - no spaces allowed in guild names
+0x05 - no symbols allowed in guild names
+0x06 - reserved string

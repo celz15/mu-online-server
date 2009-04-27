@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><templates><template autoinsert="true" context="org.eclipse.cdt.ui.text.templates.c" deleted="false" description="" enabled="true" name="myClient">#include "Protocol/CBPacket.h"&#13;
+&#13;
+&#13;
+//clasa: ${name}&#13;
+//_cl      - wskaznik do clientTheart&#13;
+//buff   - wskaznik do bufora Hex &#13;
+&#13;
+class ${name}:public CBPacket {&#13;
+	${cursor}&#13;
+public:&#13;
+${name}(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}&#13;
+	virtual ~${name}(){};&#13;
+	void debuild()&#13;
+	{&#13;
+	${cursor}&#13;
+	}&#13;
+};</template></templates>

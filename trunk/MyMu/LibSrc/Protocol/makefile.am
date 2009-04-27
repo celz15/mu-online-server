@@ -1,0 +1,15 @@
+lib_LIBRARIES = ../libProtocol.a
+___libProtocol_a_SOURCES = CBPacket.cpp \
+CCharacterListRequest.cpp \
+CEnterSelectedCharacterRequest.cpp \
+PacketHandler.cpp\
+SBPacket.cpp\
+SCharacterListAnsfer.cpp\
+SHello.cpp\
+SIdDie.cpp\
+SIdGetDmg.cpp\
+SToMoveID.cpp\
+SVeryficationPassUserAnsfer.cpp
+
+
+AM_CPPFLAGS = -I$(top_srcdir)/Include/ $(MYSQL_INCLUDE)

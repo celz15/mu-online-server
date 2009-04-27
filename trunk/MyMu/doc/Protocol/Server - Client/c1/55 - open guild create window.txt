@@ -1,0 +1,5 @@
+// not crypted
+struct _OP55
+{
+	BYTE op;	// 0x55
+};

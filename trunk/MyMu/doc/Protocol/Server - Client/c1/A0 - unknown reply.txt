@@ -1,0 +1,11 @@
+C1  05  A0  03  FF  
+193 005 160 003 255 
+Á             ÿ   
+
+// not encrypted
+struct _OPA0
+{
+	BYTE op;	// 0xA0
+
+	_PDMC(unknown, 2, unsigned short);
+};

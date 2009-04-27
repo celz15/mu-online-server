@@ -1,0 +1,21 @@
+Golden Archer Windows
+
+C10694000000
+---------------------------------
+C1 -[BYTE] Header
+06 -[BYTE] Len
+94 -[BYTE] Type
+00 -[BYTE] SubType
+0000 -[WORD] Number Of Rena/Stone
+---------------------------------
+
+SubType
+---------------------------------
+00 - Rena Register
+01 - Stone Register
+02 - Stone Exchange
+03 - UNKNOWN
+04 - Lucky Number
+---------------------------------
+
+Missing : Rena Exchange

@@ -1,0 +1,9 @@
+C1 05 36 18 CB
+
+// Decrypted C3/C4 -> Decrypted C1/C2
+struct _OP36
+{
+	BYTE op;	// 0x36
+
+	_PDMC(serial, 2, unsigned short);	// target's serial
+};
