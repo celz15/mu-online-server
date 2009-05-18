@@ -26,7 +26,7 @@ AC_HEADER_STDC
 AC_HEADER_SYS_WAIT
 AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h sys/socket.h unistd.h])
 AC_CHECK_HEADER(winsock2.h)
-AC_CHECK_HEADER(mysql.h)
+AC_CHECK_HEADER(mysql/mysql.h)
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

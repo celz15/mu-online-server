@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */  
 
-#if defined(__WIN__)
+#if defined(__WIN__) || defined (__MINGW32__)
 #include "Socket/SocketWin32.h"
 #include <iostream>
 

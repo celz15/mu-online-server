@@ -1,99 +1,76 @@
 #ifndef MUHANDINWENTORY_H_
 #define MUHANDINWENTORY_H_
 #include "MuObiects/MuItemT.h"
-class MuHandInwentory{
-	protected:
-	int item_c; 					//ile mamy itemow
-	MuItemInInwentory * inw[75];		//tabela inw 
-	public:
-	MuHandInwentory()
-	{
-	item_c=0;
-	for (int a=0;a<=75;a++)
-	inw[a]=NULL;					//nulujemy inw
-	};
-	~MuHandInwentory(){};
-	
-	MuItemInInwentory* getImp()		//pobieramy impa
-	{
-		return inw[1];
-	};
-	MuItemInInwentory* getHelm()
-	{
-		return inw[2];
-	};
-	MuItemInInwentory* getWings()
-	{
-		return inw[3];
-	};
-	MuItemInInwentory* getLWapon()
-	{
-		return inw[4];
-	};
-	MuItemInInwentory* getPedant()
-	{
-		return inw[5];
-	};
-	MuItemInInwentory* getArmur()
-	{
-		return inw[6];
-	}
-	MuItemInInwentory* getRWapon()
-	{
-		return inw[7];
-	}
-	MuItemInInwentory* getGuard()
-	{
-		return inw[8];
-	}
-	MuItemInInwentory* getPants()
-	{
-		return inw[9];
-	}
 
-	MuItemInInwentory* getLRing()
-	{
-		return inw[10];
-	}
 
-	MuItemInInwentory* getRRing()
-	{
-		return inw[11];
-	}
-		MuItemInInwentory* getBoots()
-	{
-		return inw[12];
-	}
+class MuHandInwentory
+{
+protected:
+  unsigned long _map; // 8x8 bits 
+  ItemInInwentory * inw[75];		//tabela inw 
+public:
+  MuHandInwentory()
+  {
+     for (int a=0;a<=75;a++)
+      inw[a]=NULL;					//nulujemy inw
+  };
+  ~MuHandInwentory(){};
 	
-	bool putIn(MuItemInInwentory *i,int sl)
-	{
-		if (inw[sl]==NULL)
-		{
-			item_c++;
-			inw [sl]=i;
-			return true;
-		} else return false;
-	};
-	MuItemInInwentory* getItem(int pos)
-	{
-		return inw[pos];
-	};
-	int getItemC(){return item_c;};
-	void LoadAllInwentory()
-	{
-		
-	};
-	void SaveAllInwentory()
-	{
-	};
-	void LoadXItem(int slot)
-	{
-	};
-	void SaveXItem(int slot){
-	};
-	void MoveItem(int from  ,int to)
-	{
-	};
+  ItemInInwentory* getImp()		//pobieramy impa
+  {
+    return inw[1];
+  };
+  ItemInInwentory* getHelm()
+  {
+    return inw[2];
+  };
+  ItemInInwentory* getWings()
+  {
+    return inw[3];
+  };
+  ItemInInwentory* getLWapon()
+  {
+    return inw[4];
+  };
+  ItemInInwentory* getPedant()
+  {
+    return inw[5];
+  };
+  ItemInInwentory* getArmur()
+  {
+    return inw[6];
+  }
+  ItemInInwentory* getRWapon()
+  {
+    return inw[7];
+  }
+  ItemInInwentory* getGuard()
+  {
+    return inw[8];
+  }
+  ItemInInwentory* getPants()
+  {
+    return inw[9];
+  }
+
+  ItemInInwentory* getLRing()
+  {
+    return inw[10];
+  }
+
+  ItemInInwentory* getRRing()
+  {
+    return inw[11];
+  }
+  ItemInInwentory* getBoots()
+  {
+    return inw[12];
+  }
+	
+  bool putIn(ItemInInwentory *i, int sl)
+  {
+    return true;
+  };
 };
 //11   22   3333 1 - imp 2 helm 3 wings
 //44 5 66    777 4 lwapon 5 pedant 6 armur

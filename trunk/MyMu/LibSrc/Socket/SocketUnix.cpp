@@ -3,7 +3,7 @@
 #include <iostream>
 
 using std::cout;
-#if defined (__WIN__)
+#if defined (__WIN__) || defined(__MINGW32__) 
 #else
 
 SocketUnix::SocketUnix(int s)

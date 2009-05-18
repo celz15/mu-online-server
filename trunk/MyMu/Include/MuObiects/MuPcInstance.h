@@ -17,187 +17,162 @@
 #include "Protocol/SGotExp.h"
 #include "Protocol/SInwentoryList.h"
 #include "Protocol/SLvlUp.h"
+#include "Protocol/SNpcMiting.h"
+#include "Protocol/SForgetId.h"
 
-//TASK KLASY
 class MuPcInstance; // predefinicja dla task klas
 
-class TaskMP:public Job{
-MuPcInstance* me;
-	public:
-	TaskMP(MuPcInstance* m){
-		opis="Uzupelnianie many";
-		me=m;};
-	~TaskMP(){}
-	virtual void Run();
-};
-class TaskSP:public Job{
-
-MuPcInstance *me;
-	public:
-	TaskSP(MuPcInstance* m){
-		opis="Uzupelnianie Staminy";
-		me=m;};
-	~TaskSP(){}
-	virtual void Run();
-};
-//MAIN KLAS
 
 class ObiectPool;
 class MuPcInstance:public MuCharacter 
 {
   friend class ObiectPool;
-  // SOCKET
-  Socket*_Con;				//polaczenie
-	
+  //------------------connection----------------------------
+  Socket* p_Con;				//polaczenie
+  //---------------------lvl up and experance --------------
+  unsigned long  p_CurExp; 		// ilosc posiadanego expa
+  unsigned long  p_NexExp;		// ilosc expa na  lvl up
+  unsigned short p_CurLP;		// lvlup points
+  unsigned char  p_LpPerLvl;            // lp per lvl
+  //------------------------base stats
+  unsigned short p_StatStr;					//strange
+  unsigned short p_StatAgl;					//agilty
+  unsigned short p_StatVit;					//vitali
+  unsigned short p_StatEnr;					//energy
+  unsigned short p_StatCom; 					//command tylko dla dl
+  //------------------------other 
+  unsigned char p_Class;
+  bool          p_NewChar;
 
 
-  unsigned long  _exp; 		// ilosc posiadanego expa
-  unsigned long  _nexp;		// ilosc expa na  lvl up
-  int   _lp;					// lvlup points
-	
-  unsigned long _clvl(int t1)
-  {
-    unsigned long t=1000;
-    for(int c=1;c==t1;c++)
-      t=t*2;
-    return t;
-  };
-	
-  int _str;					//strange
-  int _agl;					//agilty
-  int _vit;					//vitali
-  int _enr;					//energy
-  int _com; 					//command tylko dla dl
-	
-	
-  // MANA USTAWIENIA
-  int _curentMP;				//aktualna ilosc many
-  int _maxBaseMP;				//max punktow many
-  int _reqMP;					//stopa uzupelniania mp
-  int _dtMP;					//intensywnosc uzupelniania mp;
-  bool _RreqMP;				//czy urucomiony task
-  TaskMP *_TaskMP;			//task uzupelniania zycia
-  //metody do many:
-  void _InitMP(){if (_TaskMP==NULL) _TaskMP=new TaskMP(this);};
-	
-  void _RStepMP()
-  {
-    _curentMP+=_reqMP;			//uzupelniamy o dana ilosc mane
-    if(_curentMP>_maxBaseMP)
-      {
-	_curentMP=_maxBaseMP;	//fixujemy ew nadmiar
-	_RreqMP=false;			//osiagnelismy full nie trzeba uzupelniac
-      };
-  };	
-	
-  void _SetupMP()
-  {
-    //zalorzenie tu mamy ustawic wzorcowe ustawieni [do testow]
-    _maxBaseMP =100;
-    _reqMP=		5;
-    _dtMP=		20;
-    _curentMP=	10;
-    _RreqMP=	true;
-    std::cout << ">SYSTEM: SetupMP done\n";
-  };
-	
-  //Status postaci / atakowany itp
-  //ogulne zalozenia:
-  //statyuse:
-  //0 nic nie robie takiego:P
-  //1 atakuje
-  //2 jestem atakowany
-  //3 podczas trade
-	
-	
-	
-  // STAMIANA USTAWIENIA
-  int _curentSP;				//aktualan ilosc p. staminy
-  int _maxBaseSP;				//max punktow staminy
-  int _reqSP;					//stopa uzupelniania mp
-  int _dtSP;					//intensywnosc uzupelniania mp;
-  bool _RreqSP;				//czy urucomiony task
-  TaskSP *_TaskSP;			//task zupelniania sp
-  void _InitSP(){if (_TaskSP==NULL) _TaskSP=new TaskSP(this);};
-  void _RStepSP()
-  {
-    _curentSP+=_reqSP;			//uzupelniamy o dana ilosc mane
-    if(_curentSP>_maxBaseSP)
-      {
-	_curentSP=_maxBaseSP;	//fixujemy ew nadmiar
-	_RreqSP=false;			//osiagnelismy full nie trzeba uzupelniac
-      };
-  };
-	
-  void _SetupSP()
-  {
-    //zalorzenie tu mamy ustawic wzorcowe ustawieni [do testow]
-		 
-    _maxBaseSP =100;
-    _reqSP=		3;
-    _dtSP=		20;
-    _curentSP=	10;
-    _RreqSP=	true;
-    std::cout << ">SYSTEM: SetupSP done\n";
-  };
-	
-  //dmg ?
-	
-  //inwentory
-  MuHandInwentory* _inwentory;
-	
-  //Skille
-  MuSkillMng * _skillMng;
 protected:
+
   MuPcInstance()	
   {
-    _inwentory=new MuHandInwentory();
-    _SetupMP();							//ustawiamy mp
-    _SetupSP();							//ustawiamy sp
-    //_nexp=calculateLvlUpExp();		//liczymy exp na lvlup
-    //_skillMng=new MuSkillMng(this);		//ustawiamy skil list
+    
     std::cout << "MuPcIntancr init done \n";
   }
-public:	
+
+public:
+  unsigned long getCurExp()
+  {
+    return p_CurExp;
+  };
+  unsigned short getCurLp()
+  {
+    return p_CurLP;
+  };
+  void setCurExp(unsigned long exp)
+  {
+    p_CurExp=exp;
+  }
+  void setCurExp(unsigned long exp , unsigned short lp)
+  {
+    setCurExp(exp);
+    p_CurLP=lp;
+  };
+  void SetFromCharacterBase(MuCharacterBase * c)
+  {
+    setName((char *)c->getName().c_str());
+    setLvl(c->getLvl());
+    setClass(c->getClass());
+    setNewChar(c->getChNew());
+    
+  }
+  void setNewChar(bool t)
+  {
+    p_NewChar=t;
+  };
+  void setClass(unsigned char cl)
+  {
+    p_Class = cl;
+  };
+  unsigned char getClass()
+  {
+    return p_Class;
+  }
+  bool decCurLp()
+  {
+    if(p_CurLP<=0) return false;
+    p_CurLP--;
+    return true;
+  };
 
   virtual ~MuPcInstance()
   {
     std::cout << "Preparing to close Character\n";
   }
+  void setConnected(Socket*s)
+  {
+    p_Con=s;
+  };			
 
-  //MAPA
-  //MuMap* getAMap(){return _mapa;};				//pobiera aktualna mape
-  //void   setAMap(MuMap*m){_mapa=m;};				//ustawia aktualna mape
-
-  //WYSYLANIE PACZEK
-  void setConnected(Socket*s){_Con=s;};			//pobiera Polaczenie
-  void Send(SBPacket *p){_Con->Send(p);};			//posyla do klijenta paczke
+  void Send(SBPacket *p)
+  {
+    if (p !=NULL)
+    p_Con->Send(p);
+  };			
 
   //STATYSTYKI USTAWIANUE
-  void setStr(int str);				//ustawia  sile
-  void setAgl(int agl);				//usatwia zrecznosc
-  void setVit(int vit);				//ustawia zycie
-  void setEnr(int enr);				//ustawia energie
-  void setCom(int com);				//ustawia command
+  void setStr(unsigned short str);				//ustawia  sile
+  void setAgl(unsigned short agl);				//usatwia zrecznosc
+  void setVit(unsigned short vit);				//ustawia zycie
+  void setEnr(unsigned short enr);				//ustawia energie
+  void setCom(unsigned short com);				//ustawia command
 
   //STATYSTYKI POBUR
-  int getStr();						//pobiera sile
-  int getAgl();						//pobiera agi
-  int getVit();						//pobiera zycie
-  int getEnr();						//pobiera energie
-  int getCom();						//pobiera command[tylko dla dl;
+  unsigned short getStr();						//pobiera sile
+  unsigned short getAgl();						//pobiera agi
+  unsigned short getVit();						//pobiera zycie
+  unsigned short getEnr();						//pobiera energie
+  unsigned short getCom();						//pobiera command[tylko dla dl;
 
   //INCRASE STATS
-  void incStr(){_str++;};
-  void incAgl(){_agl++;};
-  void incVit(){_vit++;};
-  void incEnr(){_enr++;};
-  void incCom(){_com++;};
+  void incStr(){p_StatStr++;};
+  void incAgl(){p_StatAgl++;};
+  void incVit(){p_StatVit++;};
+  void incEnr(){p_StatEnr++;};
+  void incCom(){p_StatCom++;};
  
+  void setLpPerLvl(unsigned char lp)
+  {
+    p_LpPerLvl = lp;
+  };
+  //knowns list
+  void CheckToForgetInViewPort()
+  {
+    MuViewPortSet * t = getViewPort();
+    for (int i =0 ; i< t->getViewSize(); i++)
+      if (t->getViewPort(i)->c_State== MuViewPort::S_ToForget)
+	{
+	  Send(new SForgetId(t->getViewPort(i)->o_Index));
+	  t->getViewPort(i)->c_State=MuViewPort::S_Empty;
+	};
+  };
+
+ void checkNewInViewPort()
+  {
+  SNpcMiting * mit =new SNpcMiting();
+  unsigned char c=0;
+    MuViewPortSet * t = getViewPort();
+    for (int i =0 ; i< t->getViewSize(); i++)
+      {
+	if (t->getViewPort(i)->c_State== MuViewPort::S_New)
+	  {
+	    c++;
+	    mit->addToPack(t->getViewPort(i)->o_Index);
+	    t->getViewPort(i)->c_State=MuViewPort::S_Known;
+	  };
+      };
+    if(c!=0)Send(mit);
+    delete mit;
+  }
+  
   //STATYSTYKI B ALL
+ 
   void setStats(int s=0,int a=0,int v=0,int e=0,int c=0) //domyslnie mozna tylko setStats
   {
-    if(getChNew())					//jesli to nowa postac
+    if(p_NewChar)					//jesli to nowa postac
       {
 	setStr(getBaseStr());		//to ustawiamy statystyki fabr
 	setAgl(getBaseAgi());
@@ -214,99 +189,31 @@ public:
       };
   };	
 
-
-
-  //EXP I LP	
-  void setExp(long int e);			//ustawia exp
-  void setExp(long int e,int lp)
+ void UpdateMaxims()						//update hp,mp,sp po lvl up
   {
-    setExp(e);
-    _lp=lp;
-  };
-  long int getExp();				    //pobiera exp
-  int getLp(){return _lp;};
-  bool decLp()						//zmiensza LP jesli ponizej 0 zwraca false
-  {
-    _lp--;
-    if(_lp<0)
-      {
-	_lp=0;
-	return false;
-      };
-    return true;
-  };
-  void incLp(int i){
-    std::cout << "lp z " << _lp;
-    _lp+=i;
-    std::cout << " na " << _lp <<"\n";
-		
-  };			//dodajmy nowe lp
-  void updateNLvlExp()
-  {
-    _nexp=calculateLvlUpExp();
-  }
-  //STAMINA/MANA
-  int getMaxBaseMP();						//pobieramy max mp
-  int getMaxBaseSP();						//pobieramy maz sp
-
-  void setMaxBaseMP(int mp);				//ustawiamy max MP
-  void setMaxBaseSP(int sp); 				//ustawiamy max SP
-	
-  int getCurentMP();						//pobieram aktualna ilosc MP
-  int getCurentSP();						//pobieramy aktualna ilosc SP
-	
-  //UZUPELNIANIE STAMINY/MANY
-  bool ManaReqNeed();						//czy potrazeba regeneracji many
-  bool StaminaReqNeed();					//czy potrazeba regeneracji staminy
-		
-  void MPReqRun();						//uruchamiamy uzupelnianie many
-  void SPReqRun();						//uruchamiamy uzupelnianie staminy
-  void UpdateMaxims()						//update hp,mp,sp po lvl up
-  {
-    setMaxBaseHP(calculateHP(getLvl(),getVit()));
-    _maxBaseMP=calculateMP(getLvl(),getEnr());
-    _maxBaseSP=getAgl()+getStr()+getEnr();			//tak narazie
-  };
-  void restartHMSP()					//restartuje hp,mp,sp
-  {
-    setCurentHP(getCurentHP());		//nie trzeba zatrzymywac taskow
-    _curentMP=_maxBaseMP;			//poniewaz same sie wylacza
-    _curentSP=_maxBaseSP;			//po zresetowanie hp,mp,sp
+    StatCalcMaxHp();
+    StatCalclMaxMp();
+    setStatMaxSt(getAgl()+getStr()+getEnr());
   };
 
 	
-
-  virtual void CheckStatusPC();					//sprwadzamy co sie dzije z postacia 
-  //i jeslil np nie ma zycia uruchamimy 
-  //odpowiednie taski
-	
-
-  //PACKI OBSLUGI STATUSU POSTACI
-  void printfme()
-  {
-    //		std::cout << ">>>OB: " << getName()<<"\n";
-    //		std::cout << ">> Z: " << getCurentHP()<< " na: "<<getMaxBaseHP() << "\n";
-    //		std::cout << ">> M: " << getCurentMP()<< " na: "<<getMaxBaseMP() << "\n";
-    //		std::cout << ">> S: " << getCurentSP()<< " na: "<<getMaxBaseSP() << "\n";
-  };
-	
-  void updateLive()						//odswierzenei statusu zycia i staminy
+  void IUpdateCurHp()						//odswierzenei statusu zycia i staminy
   {	
-    SUpdateLive *t=	new SUpdateLive(getCurentHP());
+    SUpdateLive *t=	new SUpdateLive(getStatCurHp());
     Send(t);
     delete t;
   };
 	
-  void updateMaxLive()
-  {
-		
-    SUpdateMaxBaseLive *t=new SUpdateMaxBaseLive(getMaxBaseHP());
+  void IUpdateMaxHp()
+  {		
+    SUpdateMaxBaseLive *t=new SUpdateMaxBaseLive(getStatMaxHp());
     Send(t);
     delete t; 
-  };	
-  void updateManaStamina()								//odswierzenie statusu many
+  };
+	
+  void IUpdateCurMpSt()
   {	
-    SUpdateManaStamina*t=new SUpdateManaStamina(getCurentMP(),getCurentSP());
+    SUpdateManaStamina*t=new SUpdateManaStamina(getStatCurMp(),getStatCurSt());
     Send(t);
     delete t;
   };
@@ -320,87 +227,153 @@ public:
     
     
   //EXPERANCE
-  void IGotExp(int from,int i)
+  void IGotExp(unsigned short from,int i)
   {
     Send(new SGotExp(from,i));
   };
     
-  unsigned long calculateLvlUpExp()    
-  {
-    //kolejny lvl to exp potrzebny * 2 na poprzedni
-    int alvl=getLvl();
-    	
-    unsigned long nlvl =_clvl(alvl);
-    return nlvl;
-  };
-	
-  //LVL UP!!
+ 
   void IGotLvlUp()
   {
-		
-    setLvl(getLvl()+1);			//zwiekszamy lvl
-    _nexp=calculateLvlUpExp();	//liczymy exp potrzebny na nowy lvl
-    incLp(getBaseLP());			//dodajemy nowe lp
-    UpdateMaxims();				//updatujemy hp,mp,sp
-    restartHMSP();				//restartujemy hp,mp,sp
-									
-    SLvlUp *lvlup=new SLvlUp(getLvl(),getLp(),getMaxBaseHP(),getMaxBaseMP(),getMaxBaseSP());
-    Send(lvlup);				//posylamy "lvlup"
-    delete lvlup;
-    updateMaxLive();			//posylamy update UpdatMaxHealBase
-    updateLive();				//i curent hp
-		
   };
-  void getExp(long exp)
-  {
-    _exp+=exp;
-    std::cout << "dostalrm exp:"<<_exp<<"na"<<_nexp<<".\n";
-    SServersPublicMsg *gexp=new SServersPublicMsg("Dostales Exp:",Mblue); 
-    broadcastPacket(gexp); //info o expie
-    delete gexp;
-    if(_exp>_nexp)
-      {
-	//SServersPublicMsg*nlvl=new SServersPublicMsg("LVL UP",Mblue);
-	//broadcastPacket(nlvl);		//info o lvlup
-	//delete nlvl;
-	IGotLvlUp();													//lvl up
-      };
-  };
-	
-  //ITEMS
-	
-  void MyItemList()
-  {
-    SInwenoryList *i=new SInwenoryList();
-    Send(i);
-    delete i;
-  };
-	
-  //SKILLe
-	
-  MuSkillMng * getSkillMng(){return _skillMng;	};
-
-  void UseSkill(int id)
-  {
-    _skillMng->getId(id)->Run();   // uruchamia skilla
-  };
-	
-  void MySkillList()
-  {
-    //todo napisac klase cskillList
-  };
-	
+       	
   void IAddSkill(MuSkill * sk)
   {
-    _skillMng->addNewSkill(sk);
     //paczka add skill
   };
+
   void IDeleteSkill(int id)
   {
-    //_skillMng->DeleteSkill(id);
     //pacza dereister skill
   };
 	
+private:
+  ///---------------------misc methods
+	
+  unsigned long CalculateExpForNextLvl(unsigned short lvl)
+  {
+    unsigned long t=1000;
+    for(int c=1;c<=lvl;c++)
+      t=t*2;
+    return t;
+  };
+	
+  void StatCalcMaxHp()
+  {
+    int lvl = getLvl();
+    int vit = getVit();
+    int max;
+    switch(getClass())
+      {
+      case 0x00: 
+      case 0x10: max= 60+(lvl*1)+(vit*1);break;
+      case 0x20: 
+      case 0x30: max= 110+(lvl*2)+(vit*3);break;
+      case 0x40: 
+      case 0x50: max= 80+(lvl*1)+(vit*1);break;
+      case 0x60: max= 110+lvl+(vit*2);break;
+      case 0x80: max= 110+lvl+(vit*2);break;
+      };
+    setStatMaxHp(max);
+  };
+  void StatCalclMaxMp()
+  {
+    int max = 0;
+    int lvl = getLvl();
+    int enr = getEnr();
+
+    switch(getClass())
+      {
+      case 0x00: 
+      case 0x10: max= 60+(lvl*2)+(enr*2);break;
+      case 0x20: 
+      case 0x30: max= (int)(20+(lvl*0.5)+(enr*1));break;
+      case 0x40: 
+      case 0x50: max= (int)(30+(lvl*1.5)+(enr*1.5));break;
+      case 0x60: max= 60+(lvl*1)+(enr*2);break;
+      case 0x80: max= 60+(lvl*1)+(enr*2);break;
+      };
+    setStatMaxMp(max);
+  };
+  
+  void statCalcLpPerLvl()
+  {
+    unsigned char lp = 0;
+    switch(getClass())
+      {
+      case 0x00: lp= 5;break; 
+      case 0x10: lp= 6;break; 
+      case 0x20: lp= 5;break; 
+      case 0x30: lp= 6;break; 
+      case 0x40: lp= 5;break; 
+      case 0x50: lp= 6;break; 
+      case 0x60: lp= 5;break; 
+      case 0x80: lp= 7;break; 
+      };
+    setLpPerLvl(lp);
+  };	
+
+  int getBaseStr()
+  {
+    switch(getClass())
+      {
+      case 0x00:  
+      case 0x10: return 15;
+      case 0x20: 
+      case 0x30: return 28;
+      case 0x40: 
+      case 0x50: return 22;
+      case 0x60: return 26;
+      case 0x80: return 26;
+			
+      };
+  };
+  int getBaseAgi()
+  {
+    switch(getClass())
+      {
+      case 0x00:  
+      case 0x10: return 18;
+      case 0x20: 
+      case 0x30: return 20;
+      case 0x40: 
+      case 0x50: return 25;
+      case 0x60: return 26;
+      case 0x80: return 20;
+			
+      };
+  };
+  int getBaseVit()
+  {
+    switch(getClass())
+      {
+      case 0x00:  
+      case 0x10: return 15;
+      case 0x20: 
+      case 0x30: return 25;
+      case 0x40: 
+      case 0x50: return 20;
+      case 0x60: return 26;
+      case 0x80: return 20;
+			
+      };
+  };
+  int getBaseEnr()
+  {
+    switch(getClass())
+      {
+      case 0x00:  
+      case 0x10: return 30;
+      case 0x20: 
+      case 0x30: return 10;
+      case 0x40: 
+      case 0x50: return 15;
+      case 0x60: return 26;
+      case 0x80: return 15;
+			
+      };
+  };
+
 }; 
 
 #endif /*MUPCINSTANCE_H_*/

@@ -6,6 +6,10 @@
 #include "DB/BDBase.h"
 #include <stdlib.h>
 #include <string>
+
+class MuViewPortSet;
+class MuViewPort;
+
 class MuSpot
 {
   unsigned char _bx;                      //begin x position of spot
@@ -69,10 +73,30 @@ public:
       };
   };
   int startX(){
-    return (rand()%(_bx-_ex)+_bx);
+    int dPosOffset = (_ex-_bx) ;
+    unsigned char rPosX =_bx;
+    if (dPosOffset ==0)
+      {
+	return rPosX;
+      }
+    else
+      {
+	rPosX=(rand()%(dPosOffset/2))+dPosOffset;
+      };
+    return rPosX;
   };
   int startY(){
-    return (rand()%(_by-_ey)+_by);
+    int dPosOffset = (_ey-_by) ;
+    unsigned char rPosY =_by;
+    if (dPosOffset ==0)
+      {
+	return rPosY;
+      }
+    else
+      {
+	rPosY=(rand()%(dPosOffset/2))+dPosOffset;
+      };
+    return rPosY;
   };
   unsigned char getBX(){return _bx;};
   unsigned char getBY(){return _by;};
@@ -88,11 +112,11 @@ class MuMap
 {
   unsigned char _code; // kod mapy
   std::string   _name; // nazwa mapy
-  std::vector<MuObiect*>  _allObiectV;
+  std::vector<unsigned short>  _allObiectV;
   std::vector<MuSpot*>	_allSpotV;
- public:
+public:
   MuMap(unsigned char code,std::string name,BDBase * BD){
-    std::cout << ">MAP: " << name << " init ...\n";
+    printf (">Map: [Name:%s,Indes:%d] init.....\n",name.c_str(),code);   
     _code=code;
     _name=name;
     char tmp2[10];
@@ -133,109 +157,80 @@ class MuMap
 	AddNewSpot(new MuSpot("test1 on "+_name,120,120,10,10,10,10));
 	AddNewSpot(new MuSpot("test on "+_name,120,120,10,10,10,10));
       };
-    std::cout << ">MAP: " << name << " init		 				---DONE---\n";
+    printf(">MAP: [Name:%s,Index:%d]  init		 		  ---DONE---\n",
+	   _name.c_str(),_code);
   };
   void AddNewSpot(MuSpot *s)
-    {
-      _allSpotV.push_back(s);
-      std::cout <<">>MAP: "<< _name << " SPOT #"
-		<< _allSpotV.size() << "						--ADD'ED--\n";
-    };
+  {
+    _allSpotV.push_back(s);
+    printf(">>MAP: [Name:%s,Index:%d  SPOT[Nb:%d]      					--ADD'ED--\n",
+	   _name.c_str(),_code,_allSpotV.size());
+  };
   
+
   void InitMonstersSpot();					//inicjuje spoty potworami
   unsigned char getCode(){return _code;};
   std::string   getName(){return _name;};
   virtual ~MuMap(){};
   
-  void addVisibleObject(MuObiect *obiect)
-    {
-      std::vector<MuObiect*> vList = getVisibleObjects(obiect,20); // szukamy w odleglosci 20
-      for(int i=0;i<vList.size();i++)
-	{
-	  obiect->addKnownObiect(vList[i]);
-	  vList[i]->addKnownObiect(obiect);
-	}
-      
-      
-    };
-  
+    
   void storeNewObiect(MuObiect * o)
-    {
-      _allObiectV.push_back(o);
-      std::cout <<">MAP:"<< _name << " new Obiect id:" << o->getOId() << "	 na [" << (int)o->getX() <<","
-		<<(int)o->getY()<<"]	 typ:"<<o->getMType()<<"	--ADD'ED--\n";
-    };
-  
-  std::vector<MuObiect*> getAllObiects(){return _allObiectV;};
-  
-  //pobieramy obiety w pewnej odlegosci od obiektu o;
-  std::vector<MuObiect*> getVisibleObjects(MuObiect *o,int rad)
-    {
-      std::vector<MuObiect*> nList;
-      int sqRadius = rad*rad;
-      int x=o->getX();
-      int y=o->getY();
-      
-      for (int i=0;i<_allObiectV.size();i++)
-	{
-	  if(_allObiectV[i]->getOId()==o->getOId())continue; // jesli znalazlem siebie to nastepny
-	  
-	  int x1=_allObiectV[i]->getX();
-	  int y1=_allObiectV[i]->getY();
-	  
-	  int dx=x1-x;
-	  int dy=y1-y;
-	  int sqDist = dx*dx + dy*dy;		
-	  if (sqDist < sqRadius)
-	    {
-	      nList.push_back(_allObiectV[i]);
-	    }	
-	};
-      return nList;	
-    };
-  void printAllObjects()
-    {
-      for (int i =0 ; i<_allObiectV.size();i++)
-	{
-	  _allObiectV[i]->printInfo() ;
-	}
+  {
+    _allObiectV.push_back(o->getIndex());
+    printf("MAP:[%s] Stroe new object[%d] in positon[%d,%d] type[%d]  --ADD'ED--\n",
+	   _name.c_str() , o->getIndex(), o->getPosX(),o->getPosY(),o->getType());
+  };
 
-    };
+  std::vector<unsigned short> getAllObiects()
+  {
+    return _allObiectV;
+  };
+  
+  
+  void updatePortView(MuViewPortSet * view);
+
+  void printAllObjects()
+  {
+    for (int i =0 ; i<_allObiectV.size();i++)
+      {
+	MuObiect * o =
+	  ObiectPool::getInstance()->getObject(_allObiectV[i]);
+	if( o != NULL ) o->PrintMe() ;
+      }
+
+  };
+
+
+  void CheckMapIds()
+  {
+    for (std::vector<unsigned short>::iterator i = _allObiectV.begin() ; i!= _allObiectV.end();i++)
+      {
+	if(ObiectPool::getInstance()->getObject((*i))==NULL)
+	  {
+	    printf ("Found wrong id in map Array [Index:%d] ..... removeIt!!\n",(*i));
+	    _allObiectV.erase(i);
+	  };
+      };
+  };
   void printAllSpots()
-    {
-      std::cout << "Spot Id : Spot Data\n";
-      for (int i = 0 ; i<_allSpotV.size();i++)
-    {
-      std::cout << i << " :";
-      _allSpotV[i]->PrintInfo();
-    }
-};
+  {
+    std::cout << "Spot Id : Spot Data\n";
+    for (int i = 0 ; i<_allSpotV.size();i++)
+      {
+	std::cout << i << " :";
+	_allSpotV[i]->PrintInfo();
+      }
+  };
   
   void removeVisibleObject(MuObiect *object)
-    {	
-      //update known objects
-      std::vector<MuObiect*> temp = object->getKnowsObiects();
-      for (int i = 0; i < temp.size(); i++)
-	{
-	  MuObiect *temp1 = temp[i];
-	  temp1->removeKnownObiect(object);
-	  object->removeKnownObiect(temp1);
-	}
-    };
-  //void SendToAll(SBPacket *p);	
-  MuObiect* getId(int id)
-    {
-      for (int i=0;i<_allObiectV.size();i++)
-	if (_allObiectV[i]->getOId()==id)
-	  return _allObiectV[i];
-      
-      return NULL;
-    };
-  
+  {	
+   
+  };
+   
   MuSpot* getSpot(int nr)
-    {
-      return _allSpotV[nr];
-    };
+  {
+    return _allSpotV[nr];
+  };
 };
 
 #endif /*MUMAP_H_*/

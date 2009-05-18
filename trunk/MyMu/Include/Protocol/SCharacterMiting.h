@@ -23,11 +23,11 @@ public:
 	for(int a=0;a<_newList.size();a++)
 	sub(
 		(static_cast<MuPcInstance*> (_newList[a]))->getName(),
-		(static_cast<MuPcInstance*> (_newList[a]))->getOId(),
-		(static_cast<MuPcInstance*> (_newList[a]))->getNewX(),
-		(static_cast<MuPcInstance*> (_newList[a]))->getNewY(),
-		(static_cast<MuPcInstance*> (_newList[a]))->getX(),
-		(static_cast<MuPcInstance*> (_newList[a]))->getY()
+		(static_cast<MuPcInstance*> (_newList[a]))->getIndex(),
+		(static_cast<MuPcInstance*> (_newList[a]))->getPosX(),
+		(static_cast<MuPcInstance*> (_newList[a]))->getPosY(),
+		(static_cast<MuPcInstance*> (_newList[a]))->getPosOldX(),
+		(static_cast<MuPcInstance*> (_newList[a]))->getPosOldY()
 		);
 		(*h)[off].writeC(0x00);
 	return h;

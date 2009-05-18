@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */   
 //#include <iostream>					//cout
-#if defined (__WIN__)
+#if defined (__WIN__)||defined(__MINGW32__)
  
 #include "Socket/SocketWin32.h"			//Sockt
  
@@ -51,7 +51,7 @@
 #include "MuObiects/MuMaps.h"			//mapy w grze 
 #include "MuObiects/MuMonsterInstance.h"//potworek:P 
 #include "MuObiects/MuItemInstance.h"	//itemy na ziemi 
- 
+#include "MuObiects/MuNpcTemplate.h" 
 #ifdef USE_PYTHON 
 #include <python/python.h> 
 #endif // USE_PYHON 
@@ -67,13 +67,13 @@ using std::cout;
 
 #define GSPORT 55901
 #define GSCHATPORT 55990
-#if  !defined (__WIN__)
+#if  !defined (__WIN__)||defined(__MINGW32__)
  #define BACKLOG 10
 
 
 void sigchld_handler(int s)
 {
-  while(waitpid(-1, NULL, WNOHANG) > 0);
+  //while(waitpid(-1, NULL, WNOHANG) > 0);
 }
 
 #endif
@@ -101,7 +101,7 @@ public:
     std::cout << ">SYSTEM TASK TEST DONE\n";
   };
 };
-#if defined(__WIN__)
+#if defined(__WIN__)||defined(__MINGW32__)
 DWORD WINAPI TaskThread(LPVOID lpParam)
 #else
   void *TimeTask(void *arg)
@@ -111,7 +111,7 @@ DWORD WINAPI TaskThread(LPVOID lpParam)
         
 };
 
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
 DWORD WINAPI ClientThread1(LPVOID lpParam)
 #else
   void * ClientThread1(void * lpParam)
@@ -120,7 +120,7 @@ DWORD WINAPI ClientThread1(LPVOID lpParam)
 
   cout << "\nCLIENT THERATT INIT ... \n";
 
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
   SocketWin32 WS((SOCKET)lpParam);
 #else
   SocketUnix WS(*((int *)lpParam));
@@ -130,11 +130,13 @@ DWORD WINAPI ClientThread1(LPVOID lpParam)
   th->setMe(th);
   cout << "CLIENTMNG INIT DONE ... \n";	
   //sth->initCommans(Commands->getCommandListFor(100)); 		//wszystkie komendy
-  cout << "CLIENT CONNECTED COMMENDS INIT DONE ... \n";
   cout << "Runing Client ... \n";
   th->Run();
   cout << "Closing Client ... \n";
   cout << "Cleaning Client ... \n";
+  unsigned short id = th->getConnectID();
+  delete th;
+  ObiectPool::getInstance()->returnId(id);
   std::cout << "ClientTheard Closed... \n\n";
 };
 
@@ -279,7 +281,7 @@ DWORD WINAPI GSAccept(LPVOID lpParam)
 #endif 
      
      
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
 DWORD WINAPI GSChatAccept(LPVOID lpParam) 
 { 
   // winsocket 2.2 setup 
@@ -365,17 +367,17 @@ void SetUpGsStub()
 {      
       
   std::cout << "\nDEC ENC INIT...\n";
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
   cout << ">> Loading decryption keys ...\n";
   if (!Enc.LoadKeys("./data/Dec1.dat",Enc.DecryptKeys)) {
     std::cerr << "Error: Failed to load Dec1.dat!\n" ;
-    return ;
+   // return ;
   }
 	    
   cout << ">> Loading encryption keys ...\n" ;
   if (!Enc.LoadKeys("./data/Enc2.dat",Enc.EncryptKeys)) {
     std::cerr << "Error: Failed to load Enc2.dat!\n" ;
-    return ;
+   // return ;
   }
 #endif
 		
@@ -385,7 +387,7 @@ void SetUpGsStub()
 #endif 
 		    
 		    
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
   HANDLE hThread1;
   DWORD dwThreadID1;    
   hThread1 = CreateThread(NULL, 0, TaskThread,
@@ -394,7 +396,7 @@ void SetUpGsStub()
 			  
   if (hThread1 == NULL)
     {
-      printf("Error in create new theard: %d\n", WSAGetLastError();
+      printf("Error in create new theard: %d\n", WSAGetLastError());
 	     return ;
 	     }    
 				
@@ -412,12 +414,13 @@ void SetUpGsStub()
       if(BD->EnyError()){cout << "Blad ladowania BDL.. cya :( \n";return ;};
       std::cout << "\n";
       //budujemy mapy w grze
-					
+      MuNpcTempMng::Init(BD);
+      MuNpcTempMng::getNpcTempl(0);
       MuMaps::InitInstance(BD);
       std::cout << "\nMOBS INIT...\n";
-					    
-      MuMonsterInstance * mob1=ObiectPool::getInstance()->newMuMonsterInstance(130,127,238,MuMaps::getInstance()->getMap(0),0);
-      MuMonsterInstance * mob2=ObiectPool::getInstance()->newMuMonsterInstance(130,128,238,MuMaps::getInstance()->getMap(0),0);
+      MuNpcTemplate m = MuNpcTempMng::getNpcTempl(238);
+      MuMonsterInstance * mob1=ObiectPool::getInstance()->newMuMonsterInstance(m,130,127,0);
+      MuMonsterInstance * mob2=ObiectPool::getInstance()->newMuMonsterInstance(m,130,128,0);
       MuMaps::getInstance()->initMobs(); 
       MuMaps::getInstance()->getMap(0)->storeNewObiect(mob1);
       MuMaps::getInstance()->getMap(0)->storeNewObiect(mob2);
@@ -441,7 +444,7 @@ void SetUpGsStub()
   int main(int argc, char *argv[])
   {
     SetUpGsStub();
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
 	
     HANDLE hTGS;
     HANDLE hTCGS;
@@ -477,7 +480,7 @@ void SetUpGsStub()
       }
     //GSAccept();
 		    
-#if defined (__WIN__)
+#if defined (__WIN__)||defined (__MINGW32__)
     WSACleanup();
 #endif
     return 0;

@@ -75,7 +75,13 @@ public:
 	  {
 	    mapId=getMapId(st1);
 	    if(mapId!=-1)  ShowAllSpots(mapId);
-	  };
+	  }
+	else
+	  if(s=="-fix")
+	    {
+	      mapId=getMapId(st1);
+	      if(mapId!=-1) FixMap(mapId);
+	    };
   };
   void ShowAllSpots(int mapid)
   {
@@ -89,5 +95,16 @@ public:
   void Run()
   {
   };
+
+  void FixMap(int mapid)
+  {
+    MuMap *m = instance->getMap(mapid);
+    if(m==NULL)
+      printf("Map with [Index:%d] dosnt exist try mapsmng -l for list avalible maps\n",mapid);
+    else
+      m->CheckMapIds();
+  
+  }
+    
 };
 

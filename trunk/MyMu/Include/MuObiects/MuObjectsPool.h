@@ -2,14 +2,15 @@
 #define _OBJECTPOOL_
 #include <iostream>
 #include <stack>
+
 class MuMap;
 class MuObiect;
 class MuMonsterInstance;
 class MuPcInstance;
 class MuItemInstance;
 class MuNpcInstance;
-
-
+class MuViewPort;
+class MuNpcTemplate;
 
 
 class ObiectPool{
@@ -33,7 +34,7 @@ class ObiectPool{
   int contOfItems;
 
   ObiectPool();
-  
+	
 
 public:
 
@@ -43,11 +44,17 @@ public:
   ~ObiectPool();
   
 
-  MuPcInstance* newMuPcInstance();
+  MuPcInstance* newMuPcInstance(unsigned short id);
   MuItemInstance * newItemInstance();
   MuNpcInstance * newNpcInstance();
-  MuMonsterInstance* newMuMonsterInstance(unsigned char _x,unsigned char _y ,unsigned char _r, MuMap *m , int nrsp);
-
+  MuMonsterInstance* newMuMonsterInstance(MuNpcTemplate t, unsigned char _x,unsigned char _y ,unsigned char map );
+  MuObiect * getObject(unsigned short id)
+  {
+	return _pool[id];
+  };
+  
+  unsigned short reserveId();
+  void returnId(unsigned short id);
   void printUsages()
   {
     long sPool=0xffff * 8;
@@ -66,6 +73,8 @@ public:
     std::cout <<"   TOTOAL  [" << sTotal/256 << "]kb \n\n";
   }  
 
+  MuViewPort getDistance(unsigned short id1 , unsigned short id2,unsigned char dist);
+  
 };
 
 
