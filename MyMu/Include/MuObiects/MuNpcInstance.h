@@ -6,21 +6,28 @@
 
 class MuNpcInstance:public MuCharacter
 {
-	//obiekt sie potrafi sam przesuwac
-int _id; 					//id w grze /rasa potwora/postaci
+
+  unsigned short n_ObjId;     //id w grze
 
 protected:
-MuNpcInstance():MuCharacter()
-{
+  MuNpcInstance():MuCharacter()
+  {
 	
-	setMType(3); // npc ogulnie
+    setType(O_NPC); // npc ogulnie
 	
-};
+  };
 public:
-void setId(int id){_id=id;};
-int getId(){return _id;};
-~MuNpcInstance(){}
-//virtual void CheckStatus(){};
+  void setObjId(int id)
+{
+n_ObjId=id;
+};
+  int getObjId()
+{
+return n_ObjId;
+};
+ 
+ ~MuNpcInstance(){}
+
 };
  
 #endif /*MUNPCINSTANCE_H_*/

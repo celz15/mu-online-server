@@ -26,9 +26,12 @@
 
 #if defined(__WIN__)
   #include <winsock2.h>
-  #include <MySQL/mysql.h>
+  #include <mysql/mysql.h>
+#eif defined(__MINGW32__)
+  #include <mysql/mysql.h>
 #else
-  #include <mysql.h>
+#include <windows.h>
+  #include <mysql/mysql.h>
 #endif
 
 #include <string>

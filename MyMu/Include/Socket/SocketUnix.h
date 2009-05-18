@@ -1,6 +1,6 @@
 #ifndef SOCKETUNIX_H_
 #define SOCKETUNIX_H_
-#if   defined(__WIN__)
+#if   defined(__WIN__) || defined (__MINGW32__)
 //nothing
 #else
 

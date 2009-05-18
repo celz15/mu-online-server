@@ -22,7 +22,7 @@ CUseLvlUpPoints(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 	{
 		case 0x00:
 		{
-			if(c->decLp())
+			if(c->decCurLp())
 			{
 			c->incStr();
 			std::cout << "Incrase str.\n";
@@ -33,7 +33,7 @@ CUseLvlUpPoints(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 		};break;
 		case 0x01:
 		{
-			if(c->decLp())
+			if(c->decCurLp())
 			{
 			c->incAgl();
 			std::cout << "Incrase agi.\n";
@@ -43,7 +43,7 @@ CUseLvlUpPoints(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 		};break;
 		case 0x02:
 		{
-			if(c->decLp())
+			if(c->decCurLp())
 			{
 			c->incVit();
 			std::cout << "Incrase vit.\n";
@@ -53,7 +53,7 @@ CUseLvlUpPoints(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 		};break;
 		case 0x03:
 		{
-			if(c->decLp())
+			if(c->decCurLp())
 			{
 			c->incEnr();
 			std::cout << "Incrase enr.\n";
@@ -65,8 +65,8 @@ CUseLvlUpPoints(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 		default : std::cout << "unknown : " << (int) tsp << "\n";
 	};
 	c->UpdateMaxims();
-	c->updateMaxLive();
-
+	c->IUpdateMaxHp();
+	c->IUpdateMaxMpSt();
 	};
 };
 #endif /*CUSELVLUPPOINTS_H_*/

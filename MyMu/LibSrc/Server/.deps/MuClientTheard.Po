@@ -1,150 +1,191 @@
 MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
   ../../Include/Server/MuClientTheard.h ../../Include/IdFactory.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/set \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_tree.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_algobase.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++config.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/os_defines.h \
-  /usr/include/features.h /usr/include/sys/cdefs.h \
-  /usr/include/gnu/stubs.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/cpu_defines.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstring \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstddef \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/include/stddef.h \
-  /usr/include/string.h /usr/include/xlocale.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/climits \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/include/limits.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/include/syslimits.h \
-  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
-  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
-  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
-  /usr/include/bits/stdio_lim.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstdlib \
-  /usr/include/stdlib.h /usr/include/bits/waitflags.h \
-  /usr/include/bits/waitstatus.h /usr/include/endian.h \
-  /usr/include/bits/endian.h /usr/include/sys/types.h \
-  /usr/include/bits/types.h /usr/include/bits/wordsize.h \
-  /usr/include/bits/typesizes.h /usr/include/time.h \
-  /usr/include/sys/select.h /usr/include/bits/select.h \
-  /usr/include/bits/sigset.h /usr/include/bits/time.h \
-  /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
-  /usr/include/bits/sched.h /usr/include/alloca.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/iosfwd \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++locale.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstdio \
-  /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
-  /usr/include/wchar.h /usr/include/bits/wchar.h /usr/include/gconv.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/include/stdarg.h \
-  /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/clocale \
-  /usr/include/locale.h /usr/include/bits/locale.h \
-  /usr/include/langinfo.h /usr/include/nl_types.h /usr/include/iconv.h \
-  /usr/include/libintl.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++io.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/gthr.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/gthr-default.h \
-  /usr/include/pthread.h /usr/include/sched.h /usr/include/signal.h \
-  /usr/include/bits/initspin.h /usr/include/bits/sigthread.h \
-  /usr/include/unistd.h /usr/include/bits/posix_opt.h \
-  /usr/include/bits/environments.h /usr/include/bits/confname.h \
-  /usr/include/getopt.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cctype \
-  /usr/include/ctype.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stringfwd.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/postypes.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cwchar \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ctime \
-  /usr/include/stdint.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/functexcept.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/exception_defines.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_pair.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/cpp_type_traits.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator_base_types.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator_base_funcs.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/concept_check.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/debug/debug.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/allocator.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++allocator.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ext/new_allocator.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/new \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/exception \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_construct.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_function.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_set.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_multiset.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/iostream \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ostream \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ios \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/char_traits.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/localefwd.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/ios_base.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/atomicity.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/atomic_word.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_classes.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/string \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/memory \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_uninitialized.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_raw_storage_iter.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/limits \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_string.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/algorithm \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_algo.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_heap.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_tempbuf.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_string.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/streambuf \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/streambuf.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_ios.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/streambuf_iterator.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_facets.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cwctype \
-  /usr/include/wctype.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/ctype_base.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/ctype_inline.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/codecvt.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/time_members.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/messages_members.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_ios.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/ostream.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/locale \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_facets.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/typeinfo \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/istream \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/istream.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/set \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_tree.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_algobase.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++config.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/os_defines.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstring \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstddef \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/climits \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstdlib \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/new \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/exception \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/iosfwd \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++locale.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/clocale \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/locale.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstdio \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++io.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/gthr.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/gthr-default.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cctype \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stringfwd.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/postypes.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cwchar \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ctime \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/time.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wchar.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wctype.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/functexcept.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/exception_defines.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_pair.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/type_traits.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator_base_types.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator_base_funcs.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/concept_check.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/debug/debug.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cassert \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/allocator.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++allocator.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ext/new_allocator.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_construct.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_function.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/cpp_type_traits.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_set.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_multiset.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/iostream \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ostream \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ios \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/char_traits.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/localefwd.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/ios_base.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/atomicity.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/atomic_word.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_classes.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/string \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/memory \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_uninitialized.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_raw_storage_iter.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/limits \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_string.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/algorithm \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_algo.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_heap.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_tempbuf.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_string.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/streambuf \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/streambuf.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_ios.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/streambuf_iterator.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_facets.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cwctype \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/ctype_base.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/ctype_inline.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/codecvt.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/time_members.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/messages_members.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_ios.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/ostream.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/locale \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_facets.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/typeinfo \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/istream \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/istream.tcc \
   ../../Include/Socket/Socket.h ../../Include/HexBuffer/HexBuffer.h \
   ../../Include/Protocol/SBPacket.h ../../Include/HexBuffer/HexBuffer.h \
-  ../../Include/DB/BDBase.h /usr/include/mysql/mysql.h \
-  /usr/include/mysql/mysql_com.h /usr/include/mysql/mysql_time.h \
-  /usr/include/mysql/mysql_version.h /usr/include/mysql/typelib.h \
-  /usr/include/mysql/my_list.h /usr/include/mysql/my_alloc.h \
+  ../../Include/DB/BDBase.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/cderr.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/dde.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ddeml.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/dlgs.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/imm.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/lzexpand.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mmsystem.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/nb30.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpc.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcdce.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetyps.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcdcep.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnsi.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnterr.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/shellapi.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack2.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winperf.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/commdlg.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winspool.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsock2.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ole2.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objbase.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcndr.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnsip.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objfwd.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wtypes.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unknwn.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objidl.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/cguid.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/olectlid.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oleauto.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oaidl.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oleidl.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_com.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_time.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_version.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/typelib.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/my_list.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/my_alloc.h \
   ../../Include/Protocol/PacketHandler.h ../../Include/Protocol/SHello.h \
   ../../Include/Protocol/SBPacket.h ../../Include/Protocol/CBPacket.h \
   ../../Include/Protocol/BaseStruct.h ../../Include/Protocol/SHello.h \
   ../../Include/MuObiects/MyCharacterList.h \
   ../../Include/MuObiects/MuCharacterBase.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/vector \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/vector \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_bvector.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc \
   ../../Include/MuObiects/MuUser.h ../../Include/MuObiects/MuPcInstance.h \
   ../../Include/MuObiects/MuCharacter.h \
   ../../Include/MuObiects/MuObiect.h ../../Include/Protocol/BaseStruct.h \
-  ../../Include/MuObiects/MuCharacterBase.h ../../Include/Task/Task.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/queue \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/deque \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_deque.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/deque.tcc \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_queue.h \
-  ../../Include/Task/TimeTick.h ../../Include/Task/Job.h \
+  ../../Include/MuObiects/MuViewPort.h \
+  ../../Include/MuObiects/MuObjectsPool.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/stack \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/deque \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_deque.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/deque.tcc \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_stack.h \
+  ../../Include/MuObiects/MuCharacterBase.h \
   ../../Include/Protocol/SBPacket.h ../../Include/Protocol/SIdDie.h \
   ../../Include/Protocol/SToMoveID.h ../../Include/Protocol/SIdGetDmg.h \
   ../../Include/Protocol/SChangeDirectionOrStatus.h \
   ../../Include/MuObiects/MuMap.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/map \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_map.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_multimap.h \
-  ../../Include/DB/BDBase.h ../../Include/MuObiects/MuHandInwentory.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/map \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_map.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_multimap.h \
+  ../../Include/DB/BDBase.h ../../Include/Task/Task.h \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/queue \
+  d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_queue.h \
+  ../../Include/Task/TimeTick.h ../../Include/Task/Job.h \
+  ../../Include/MuObiects/MuHandInwentory.h \
   ../../Include/MuObiects/MuItemT.h ../../Include/HexBuffer/HexBuffer.h \
   ../../Include/MuObiects/MuSkillMng.h \
   ../../Include/Protocol/SUpdateLive.h \
@@ -155,10 +196,9 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
   ../../Include/Protocol/SGotExp.h \
   ../../Include/Protocol/SInwentoryList.h \
   ../../Include/MuObiects/MuHandInwentory.h \
-  ../../Include/Protocol/SLvlUp.h ../../Include/MuObiects/MuMaps.h \
-  ../../Include/MuObiects/MuObjectsPool.h \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/stack \
-  /usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_stack.h \
+  ../../Include/Protocol/SLvlUp.h ../../Include/Protocol/SNpcMiting.h \
+  ../../Include/MuObiects/MuNpcInstance.h \
+  ../../Include/Protocol/SForgetId.h ../../Include/MuObiects/MuMaps.h \
   ../../Include/AdminTools/ACommandMng.h \
   ../../Include/AdminTools/ACommandT.h
 
@@ -166,283 +206,195 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/IdFactory.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/set:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/set:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_tree.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_tree.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_algobase.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_algobase.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++config.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++config.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/os_defines.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/os_defines.h:
 
-/usr/include/features.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstring:
 
-/usr/include/sys/cdefs.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstddef:
 
-/usr/include/gnu/stubs.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/cpu_defines.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstring:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstddef:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/climits:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/include/stddef.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/limits.h:
 
-/usr/include/string.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstdlib:
 
-/usr/include/xlocale.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/climits:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/new:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/include/limits.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/exception:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/include/syslimits.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/iosfwd:
 
-/usr/include/limits.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++locale.h:
 
-/usr/include/bits/posix1_lim.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/clocale:
 
-/usr/include/bits/local_lim.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/locale.h:
 
-/usr/include/linux/limits.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cstdio:
 
-/usr/include/bits/posix2_lim.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
 
-/usr/include/bits/xopen_lim.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
 
-/usr/include/bits/stdio_lim.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstdlib:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++io.h:
 
-/usr/include/stdlib.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/gthr.h:
 
-/usr/include/bits/waitflags.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/gthr-default.h:
 
-/usr/include/bits/waitstatus.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/errno.h:
 
-/usr/include/endian.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cctype:
 
-/usr/include/bits/endian.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
 
-/usr/include/sys/types.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stringfwd.h:
 
-/usr/include/bits/types.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/postypes.h:
 
-/usr/include/bits/wordsize.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cwchar:
 
-/usr/include/bits/typesizes.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ctime:
 
-/usr/include/time.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/time.h:
 
-/usr/include/sys/select.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wchar.h:
 
-/usr/include/bits/select.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wctype.h:
 
-/usr/include/bits/sigset.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
 
-/usr/include/bits/time.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/functexcept.h:
 
-/usr/include/sys/sysmacros.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/exception_defines.h:
 
-/usr/include/bits/pthreadtypes.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_pair.h:
 
-/usr/include/bits/sched.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/type_traits.h:
 
-/usr/include/alloca.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator_base_types.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/iosfwd:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator_base_funcs.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++locale.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/concept_check.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cstdio:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_iterator.h:
 
-/usr/include/stdio.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/debug/debug.h:
 
-/usr/include/libio.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cassert:
 
-/usr/include/_G_config.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h:
 
-/usr/include/wchar.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/allocator.h:
 
-/usr/include/bits/wchar.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/c++allocator.h:
 
-/usr/include/gconv.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ext/new_allocator.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/include/stdarg.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_construct.h:
 
-/usr/include/bits/sys_errlist.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_function.h:
 
-/usr/include/bits/stdio.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/cpp_type_traits.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/clocale:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_set.h:
 
-/usr/include/locale.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_multiset.h:
 
-/usr/include/bits/locale.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/iostream:
 
-/usr/include/langinfo.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ostream:
 
-/usr/include/nl_types.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/ios:
 
-/usr/include/iconv.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/char_traits.h:
 
-/usr/include/libintl.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/localefwd.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++io.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/ios_base.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/gthr.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/atomicity.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/gthr-default.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/atomic_word.h:
 
-/usr/include/pthread.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_classes.h:
 
-/usr/include/sched.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/string:
 
-/usr/include/signal.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/memory:
 
-/usr/include/bits/initspin.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_uninitialized.h:
 
-/usr/include/bits/sigthread.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_raw_storage_iter.h:
 
-/usr/include/unistd.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/limits:
 
-/usr/include/bits/posix_opt.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_string.h:
 
-/usr/include/bits/environments.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/algorithm:
 
-/usr/include/bits/confname.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_algo.h:
 
-/usr/include/getopt.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_heap.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cctype:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_tempbuf.h:
 
-/usr/include/ctype.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_string.tcc:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stringfwd.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/streambuf:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/postypes.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/streambuf.tcc:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cwchar:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_ios.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ctime:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/streambuf_iterator.h:
 
-/usr/include/stdint.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_facets.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/functexcept.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/cwctype:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/exception_defines.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/ctype_base.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_pair.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/ctype_inline.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/cpp_type_traits.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/codecvt.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator_base_types.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/time_members.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator_base_funcs.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/mingw32/bits/messages_members.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/concept_check.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/basic_ios.tcc:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_iterator.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/ostream.tcc:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/debug/debug.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/locale:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/allocator.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/locale_facets.tcc:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/c++allocator.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/typeinfo:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ext/new_allocator.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/istream:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/new:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/exception:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_construct.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_function.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_set.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_multiset.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/iostream:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ostream:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/ios:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/char_traits.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/localefwd.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/ios_base.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/atomicity.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/atomic_word.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_classes.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/string:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/memory:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_uninitialized.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_raw_storage_iter.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/limits:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_string.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/algorithm:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_algo.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_heap.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_tempbuf.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_string.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/streambuf:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/streambuf.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_ios.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/streambuf_iterator.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_facets.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/cwctype:
-
-/usr/include/wctype.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/ctype_base.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/ctype_inline.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/codecvt.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/time_members.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/i486-linux-gnu/bits/messages_members.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/basic_ios.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/ostream.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/locale:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/locale_facets.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/typeinfo:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/istream:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/istream.tcc:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/istream.tcc:
 
 ../../Include/Socket/Socket.h:
 
@@ -454,19 +406,117 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/DB/BDBase.h:
 
-/usr/include/mysql/mysql.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windows.h:
 
-/usr/include/mysql/mysql_com.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/windef.h:
 
-/usr/include/mysql/mysql_time.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnt.h:
 
-/usr/include/mysql/mysql_version.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winerror.h:
 
-/usr/include/mysql/typelib.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetsd.h:
 
-/usr/include/mysql/my_list.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack4.h:
 
-/usr/include/mysql/my_alloc.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/poppack.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wincon.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winbase.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wingdi.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winuser.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnls.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winver.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winnetwk.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winreg.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsvc.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/cderr.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/dde.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ddeml.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/dlgs.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/imm.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/lzexpand.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mmsystem.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/nb30.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpc.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcdce.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/basetyps.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcdcep.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnsi.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnterr.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/shellapi.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/pshpack2.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winperf.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/commdlg.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winspool.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/winsock2.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ole2.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objbase.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcndr.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/rpcnsip.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objfwd.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/wtypes.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unknwn.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/objidl.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/cguid.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/olectlid.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oleauto.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oaidl.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/oleidl.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_com.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_time.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/mysql_version.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/typelib.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/my_list.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/mysql/my_alloc.h:
 
 ../../Include/Protocol/PacketHandler.h:
 
@@ -484,13 +534,13 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/MuObiects/MuCharacterBase.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/vector:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/vector:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_vector.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_vector.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_bvector.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_bvector.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/vector.tcc:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/vector.tcc:
 
 ../../Include/MuObiects/MuUser.h:
 
@@ -502,23 +552,21 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/Protocol/BaseStruct.h:
 
+../../Include/MuObiects/MuViewPort.h:
+
+../../Include/MuObiects/MuObjectsPool.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/stack:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/deque:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_deque.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/deque.tcc:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_stack.h:
+
 ../../Include/MuObiects/MuCharacterBase.h:
-
-../../Include/Task/Task.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/queue:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/deque:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_deque.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/deque.tcc:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_queue.h:
-
-../../Include/Task/TimeTick.h:
-
-../../Include/Task/Job.h:
 
 ../../Include/Protocol/SBPacket.h:
 
@@ -532,13 +580,23 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/MuObiects/MuMap.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/map:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/map:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_map.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_map.h:
 
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_multimap.h:
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_multimap.h:
 
 ../../Include/DB/BDBase.h:
+
+../../Include/Task/Task.h:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/queue:
+
+d:/devTools/MinGw/bin/../lib/gcc/mingw32/3.4.5/../../../../include/c++/3.4.5/bits/stl_queue.h:
+
+../../Include/Task/TimeTick.h:
+
+../../Include/Task/Job.h:
 
 ../../Include/MuObiects/MuHandInwentory.h:
 
@@ -566,13 +624,13 @@ MuClientTheard.o MuClientTheard.o: MuClientTheard.cpp \
 
 ../../Include/Protocol/SLvlUp.h:
 
+../../Include/Protocol/SNpcMiting.h:
+
+../../Include/MuObiects/MuNpcInstance.h:
+
+../../Include/Protocol/SForgetId.h:
+
 ../../Include/MuObiects/MuMaps.h:
-
-../../Include/MuObiects/MuObjectsPool.h:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/stack:
-
-/usr/lib/gcc/i486-linux-gnu/4.1.2/../../../../include/c++/4.1.2/bits/stl_stack.h:
 
 ../../Include/AdminTools/ACommandMng.h:
 

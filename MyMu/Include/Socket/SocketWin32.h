@@ -19,7 +19,7 @@
  */  
 #ifndef SOCKETWIN32_H_
 #define SOCKETWIN32_H_
-#if defined(__WIN__)
+#if defined(__WIN__) || defined(__MINGW32__)
 #include "Socket/Socket.h"
 #include "Protocol/SBPacket.h"
 

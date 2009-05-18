@@ -18,8 +18,8 @@ CChangeDirectionOrStatus(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 	unsigned char nd=(*buff)[3].readC(); 		//new direction
 	unsigned char ns=(*buff)[4].readC();		//new status
 	std::cout << "Change direction: " << (int)nd<< " OR status: " << (int) ns << "\n";
-	_cl->getActiveCharacter()->setD(nd);
-	_cl->getActiveCharacter()->setF(ns);
+	_cl->getActiveCharacter()->setPosHead(nd);
+	_cl->getActiveCharacter()->setPosStatus(ns);
 	_cl->getActiveCharacter()->broadcastPacket(new SChangeDirectionOrStatus(ns,nd) ); 
 	
 	}

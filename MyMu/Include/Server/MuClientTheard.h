@@ -13,7 +13,7 @@
 #include "AdminTools/ACommandMng.h"				//komendy dla fracza/hm'a
 
 
-//#include "Obiects/MuCharacters.h"
+
 class MuClientTheard 
 {
   MuClientTheard * me;							//Wskaznik zwrotny
@@ -29,73 +29,94 @@ class MuClientTheard
   
   int ConnectID; 								//id polaczenia
   int DBId;     								//id do bazy danych
-  //  ACommandMng *_commands;						//komnedy gracza gm;a
-  //	MuPcInstance *_character;					//postac w grze
+
 
 
 public:
   MuClientTheard(Socket  * c,BDBase* db)
   {
- 	  
     _myChList=new MyCharacterList;				//buduje pusta liste postaci gracza
-    ConnectID=IdFactory();					//przydzielam id postaci
+    ConnectID=ObiectPool::getInstance()->reserveId();					//przydzielam id postaci
     _DB=db;									//ustawiam polaczenie z BD
     _connected=c;								//ustawiam polaczenie z klientem
-    
-    //
   }
+
   BDBase * getDB(){return _DB;};
   virtual ~MuClientTheard();
 
-  //  void initCommans(std::vector < ACommandT * > list)
-  //  {
-  //  	 _commands=new ACommandMng(list);				//komendy dla gm'a / gracza inicjuje
-  //  	 
-  //  }	
   void setMe(MuClientTheard *a){me=a;};
 
   void Run(){
-  
     _handler=new PacketHandler(me);					//buduje obsluge pakietow
-    _connected->Send(new SHello("09928",ConnectID));//("10114",ConnectID));
-    //"00001",ConnectID));	//wysylam paczke hello do klijenta NeWUnionMu
+    _connected->Send(new SHello("09928",ConnectID));
 
     while(!_connected->EnyError())					//dopuki klijent sie nie rozlaczy
       {
-	HexBuff *buff=new HexBuff;//alokuje miejsce na paczke przychozaca
-
+	HexBuff *buff=new HexBuff;
 	_connected->Recv(*buff);						//odbieram paczke
 	_handler->handlePacket(buff);					//posylam do obrubki
-	  
-	//zalozenia tu ma byc odbierana pazka i wysylana do obrubki [w zalozeniach] 
-	// klasa PacketHandler ma za zadanie robienie tego	
       };
-	
   };
   
-  //ACommandMng* getCommands(){return _commands;};
-  void setDBId(int i){DBId=i;};						//utawiam id w bd usera
-  int getDBId(){return DBId;};						//pobieram id w bd usera 
+  void setDBId(int i)
+  {
+    DBId=i;
+  };						//utawiam id w bd usera
+
+  int getDBId()
+  {
+    return DBId;
+  };						//pobieram id w bd usera 
   
-  int getConnectID(){return ConnectID;};			//pobieram id polaczenia klijenta
-  Socket * getConnected(){return _connected;};		//pobieram polaczenie z klijentem
+  int getConnectID()
+  {
+    return ConnectID;
+  };			//pobieram id polaczenia klijenta
+
+  Socket * getConnected()
+  {
+    return _connected;
+  };		//pobieram polaczenie z klijentem
   
-  void Send(SBPacket *h){_connected->Send(h);};		//zbindowane wysylanie paczki do klijenta
-  void ASend(SBPacket *h){_connected->multiAdd(h);};//dodawanie paczki do wysylania
-  void MSend(){_connected->multiSend();};			//wysylania kilka pazek na raz
+  void Send(SBPacket *h)
+  {
+    _connected->Send(h);
+  };
+
+  void ASend(SBPacket *h)
+  {
+    _connected->multiAdd(h);
+  };
+
+  void MSend()
+  {
+    _connected->multiSend();
+  };
   
   MyCharacterList * getMyCharacterList()			//pobieram liste postaci usera
-  {return _myChList;};
+  {
+    return _myChList;
+  };
   
-  void setUser(MuUser * u){_user=u;};				//ustawiam usera
-  MuUser* getUser(){return _user;};					//pobieram usera
+  void setUser(MuUser * u)
+  {
+    _user=u;
+  };
+				//ustawiam usera
+  MuUser* getUser()
+  {
+    return _user;
+  };					//pobieram usera
   
   MuPcInstance* getActiveCharacter()				//pobiera postac z grze
-  {return _activeChar;}
+  {
+    return _activeChar;
+  }
+
   void setActiveCharacter(MuPcInstance *o)			//ustawia postac w grze
-  {_activeChar=o;};
-  				
-  
+  {
+    _activeChar=o;
+  };  
 };
 
 #endif /*MUCLIENTTHEARD_H_*/

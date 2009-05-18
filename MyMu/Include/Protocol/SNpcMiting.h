@@ -19,6 +19,22 @@ struct NPCMittingSub{
   unsigned char m_uDestY;
   unsigned char m_uLookDirection;
   unsigned char m_uPath;
+  void set(unsigned short index, unsigned short _class , unsigned char posx , unsigned char posy , 
+			unsigned char posdx,unsigned char posdy,unsigned char ld,unsigned char path)
+  {
+	m_uIndexHi=HIBYTE(index);
+	m_uIndexLo=LOBYTE(index);
+	m_uClassHi=HIBYTE(_class);
+	m_uClassLo=LOBYTE(_class);
+	m_uUnk1=0x00;
+	m_uUnk2=0x00;
+	m_uPosX=posx;
+	m_uPosY=posy;
+	m_uDestX=posdx;
+	m_uDestY=posdy;
+	m_uLookDirection=ld;
+	m_uPath=path;
+  };
 };
 
 struct NPCMitting{
@@ -29,49 +45,48 @@ struct NPCMitting{
 
 class SNpcMiting : public CSPacket
 {
-  vector<MuObiect *> newList;
+  vector<unsigned short > newList;
   int off;
  public:
-  SNpcMiting(vector<MuObiect *> l):CSPacket()
+ SNpcMiting():CSPacket()
     {
-      newList=l;
-      MyName="13	NPC Mitting";
+       MyName="13	NPC Mitting";
     };
   ~SNpcMiting(){};
-  HexBuff * build()
-    {
-      int size = 5+newList.size()*sizeof(NPCMittingSub);
+  void addToPack(unsigned short id)
+  {
+    newList.push_back(id);
+  } 
 
-      NPCMitting package;
+ HexBuff * build()
+  {
+    int size = 5+newList.size()*sizeof(NPCMittingSub);
 
-      package.m_Head.set(0xc2,size,0x13);
-      HeadSetB(&package.m_Head,0xc2,size,0x13);
+    NPCMitting package;
 
-      for(int i = 0 ; i <newList.size();i++)
+    package.m_Head.set(0xc2,size,0x13);
+    HeadSetB(&package.m_Head,0xc2,size,0x13);
+    printf("create Package NPC MITTING\n");
+    for(int i = 0 ; i <newList.size();i++)
+      {
+	MuNpcInstance *npc= static_cast<MuNpcInstance *> (ObiectPool::getInstance()->getObject(newList[i]));
+	if(npc!=NULL)
+							 
 	{
-	  MuNpcInstance *npc= static_cast<MuNpcInstance *> (newList[i]); 
-	  {
-	  package.m_Npc[i].m_uIndexHi=HIBYTE(npc->getId());
-	  package.m_Npc[i].m_uIndexLo=LOBYTE(npc->getId());
-	  package.m_Npc[i].m_uClassHi=HIBYTE(npc->getOId());
-	  package.m_Npc[i].m_uUnk1=0;
-	  package.m_Npc[i].m_uUnk2=0;
-	  package.m_Npc[1].m_uClassLo=LOBYTE(npc->getOId());
-	  package.m_Npc[i].m_uPosX=npc->getNewX();
-	  package.m_Npc[i].m_uPosY=npc->getNewY();
-	  package.m_Npc[i].m_uDestX=npc->getX();
-	  package.m_Npc[i].m_uDestY=npc->getY();
-	  package.m_Npc[i].m_uLookDirection=10; //TODO !!!
-	  package.m_Npc[i].m_uPath=0;//TODO!!
-	  }
-	};
-      package.m_uCount=newList.size();
-      //cast structure to unsigned char pointer:>
-      unsigned char * pacbuf;
-      pacbuf=reinterpret_cast<unsigned char*>(&package);
-      (*h)[0].writeAC(pacbuf,size);
-      return h;
-    };
+	  package.m_Npc[i].set(npc->getIndex(),npc->getObjId(),npc->getPosX(),npc->getPosY(),npc->getPosOldX(),npc->getPosOldY(),10,0);
+	  printf ("add[%d]: id(%d)[%d,%d] , class(%d)[%d,%d],pos[%d,%d]->[%d,%d]\n",i,npc->getIndex(),LOBYTE(npc->getIndex()),HIBYTE(npc->getIndex()),
+		  npc->getObjId(),LOBYTE(npc->getObjId()),HIBYTE(npc->getObjId()),
+		  npc->getPosX(),npc->getPosY(),npc->getPosOldX(),npc->getPosOldY());
+	}
+      };
+    printf("done Create Package NPCMITTING\n");
+    package.m_uCount=newList.size();
+    //cast structure to unsigned char pointer:>
+    unsigned char * pacbuf;
+    pacbuf=reinterpret_cast<unsigned char*>(&package);
+    (*h)[0].writeAC(pacbuf,size);
+    return h;
+  };
 };
 
 

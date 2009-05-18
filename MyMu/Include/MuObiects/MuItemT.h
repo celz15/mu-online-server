@@ -18,161 +18,63 @@
 #define EXEOPT6   0x20 // 00100000b
 #define IT_p16    0x40 // 01000000b
 #define IT_LONGID 0x80 // 10000000b
-class MuItemT {
-	
-	unsigned char _item[4]; // item
-public:	
-MuItemT()
-{
-	for (int t=0;t<=4;t++)
-	_item[t]=0x00;
-}
-~MuItemT(){}
 
-void mBItem(int grupa,int index)							//twor\ymy podstawowy item
+struct ItemHex
 {
-unsigned char t=0x00;		// temp
-      t=grupa; 				// ustawiamy grupe
-      t=t<<4;  				// przesuwamy id
-      t=index; 				// ustawiamy 2 polowe bajtu
-      if((grupa <<4)!=0)	// jesli dlugi id
-      	addExeOp(0x80); 	// ustawiamy long id
-      _item[0]=t;				// ustawaimy item	
-};
-void addExeOp(unsigned char exe)						//ustawimy Exe opcje
-{
-	_item[3]=_item[3]|exe;	//ustawiemy exe opcje
-};
-
-void addIncOpt(unsigned char opt)						//usawimy ainced / zestawowe opcje
-{
-	_item[4]=_item[4]|opt;	//ustawimy ain opcje
-};
-
-
-void Item(unsigned char*b)								//ustawiamy item z hexa
-{
-	_item[0]=b[0];	
-	_item[1]=b[1];
-	_item[2]=b[2];
-	_item[3]=b[3];
-};
-
-void make5BItem(int pos,unsigned char *b)			//tworzymy5 bitowy item
-{
-	b[0]=pos;				//ustawiamy pozycje
-	b[1]=_item[0];			//poprostu kopjujemy bity :p
-	b[2]=_item[1];
-	b[3]=_item[2];
-	b[4]=_item[3];	
-};
-void get4BItem(unsigned char *i)
-{
-	i[0]=_item[0];
-	i[1]=_item[1];
-	i[2]=_item[2];
-	i[3]=_item[3];
+  unsigned char index;
+  unsigned char duration;
+  unsigned char options;
+  unsigned char eoptions;
+  unsigned char aoptions;
+  void setIndex(unsigned char _grup,unsigned char _index)
+  {
+    index = 0x00;
+    duration = 0x00;
+    options = 0x00;
+    eoptions=0x00;
+    aoptions=0x00;
+    index=_grup  << 4;
+    index|=_index & 0x0F; 
+    if((_grup <<4)!=0) 
+      {
+	eoptions|=IT_LONGID;
+      }
+  };
+void  makeItem(unsigned char _grup, unsigned char _index,
+	   unsigned char _lvl,
+	   unsigned char _duration,
+	   unsigned char _options,
+	   unsigned char _eoptions,
+	   unsigned char _aoptions)
+  {
+    
+    setIndex(_grup,_index);
+    duration = _duration;
+    options|=(_lvl>>4);
+    options|=_options;
+    eoptions|=eoptions;
+    aoptions|=_aoptions;
+  };
 };
 
-void setDur(unsigned char dur)
+struct ItemInInwentory
 {
-    _item[1]=dur;
+  unsigned char slot;
+  ItemHex hexData;
 };
 
-void mItem(int gr,int ind,int dur,char op,char ain)
-{
-	mBItem(gr,ind);
-	setDur(dur);
-	addExeOp(op);
-	addIncOpt(ain);
-};
 
-};
+    // fscanf("%d",_grup);
+    //base stats
+    // fscanf("%d %d %d %d %d",index,x,y,serial,serial1,drop);
+    //fscanf("\"%s\" %d",name , droplvl}; 
+    //grup 0
+    //fscanf("%d %d %d %d %d %d %d %d %d %d %d",
+    //   DamMin,DamMax,Speed,Dur,MDur,Str,Agil,DWSM,DKBK,EME,MG);
+    //grup 1
+    //fscanf(
 
-class MuItemBase
-{
-protected:
-int _dura;					//wytrzymalosc
-int _mdura;					//maxymalan wytrzymalosc
-int _lvl;					//lvl itemu
 
-unsigned char _item[4];		//ITEM
-public:
-MuItemBase()
-{
-	_item[0]=_item[1]=_item[2]=_item[3]=_item[4]=0x00;
-};
-~MuItemBase(){};
-void setBItem(int grup,int index)
-{
-	unsigned char t=0x00;		// temp
-      t=grup; 				// ustawiamy grupe
-      t=t<<4;  				// przesuwamy id
-      t=index; 				// ustawiamy 2 polowe bajtu
-      if((grup <<4)!=0)	// jesli dlugi id
-      	_item[3]=_item[3]|0x80; 	// ustawiamy long id
-      _item[0]=t;				// ustawaimy item	
-};
-void setDura(int dura){_item[1]=dura;};  //ustawia wytrzymalosc
-void setLvl(int lvl){_item[2]=_item[2]|((unsigned char)lvl>>4);};		//ustawia lvl itemu
-void setOpt(int opt){_item[2]=_item[2]|(unsigned char)opt;};		//ustawia opcjeitemu like +4+8+12 itp
-void resetOpt(){_item[2]=0x00;};
-void setEOpt(int op){_item[3]=_item[3]|(unsigned char)op;};		//ustawia n'ta exe opcje like +exe dmg itp
-void resetEOpt(){_item[3]=0x00;};
-void setAOpt(int op){_item[4]=_item[4]|(unsigned char)op;};		//ustawia n'ta opcje aincedu
-void resetAOpt(){_item[4]=0x00;};
-void setSkill(){_item[2]=_item[2]|0x04;};			//ustawia skil
-void setLuck(){_item[2]=_item[2]|0x80;};			//ustawia luck
-
-int getIndex(){return 0;};	//pobiera index itemu
-int getGrup(){return 0;};	//pobier grupe itemu
-int getDura(){return _item[1];};   // pobiera wytrzymalosc
-int getLvl(){return 0;};	// pobiera lvl itemu
-int getOpt(){return 0;};	//pobiera opcje
-bool getEOpt(int nr){return false;};
-bool getAOpt(int nr){return false;};
-bool getSkill(){return false;};
-bool getLuck(){return false;};
-
-void getHexItem(unsigned char * t)
-{
-	t[0]=_item[0];
-	t[1]=_item[1];
-	t[2]=_item[2];
-	t[3]=_item[3];
-	t[4]=_item[4];
-};
-
-void setHexItem(unsigned char * t)
-{
-	_item[0]=t[0];
-	_item[1]=t[1];
-	_item[2]=t[2];
-	_item[3]=t[3];
-	_item[4]=t[4];
-};
-
-void InsertInBuff(HexBuff* b , int pos)		//wstawianei iemu w hexbuff
-{
-	(*b)[pos].writeAC(_item,4);
-};
-
-};
-class MuItemInInwentory:public MuItemBase
-{
-	protected:
-	int _dbItemId;	//id w bd itemu 
-	int _slot;		//slot w inw
-	public:
-	MuItemInInwentory(){};
-	int getSlot(){return _slot;};
-	int getDbItemId(){return _dbItemId;};
-
-	void setSlot(int slot){_slot=slot;};
-	void setDbItemId(int id){_dbItemId=id;};
-	
-	void resave(){};						//aktualizuje item w bd;
-	void remove(){};						//usuwa item z bd;
-	
-};
+ 
+ 
 #endif /*MUITEMT_H_*/

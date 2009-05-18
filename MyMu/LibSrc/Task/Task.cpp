@@ -46,8 +46,12 @@ void Task::Run()
 	  jobs.top().Run();
 	  
 	  jobs.pop();
-	};         
-	sleep(1);
+	};
+#if defined (__WIN32__) || defined (__MINGW32__)         
+	_sleep(1);
+#else
+	sleep(1)'
+#endif
 	 
   };
 };
