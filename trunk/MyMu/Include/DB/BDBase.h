@@ -24,10 +24,10 @@
 #ifndef BDBASE_H_
 #define BDBASE_H_
 
-#if defined(__WIN__)
+#ifdef __WIN32__
   #include <winsock2.h>
   #include <mysql/mysql.h>
-#eif defined(__MINGW32__)
+#elif defined (__MINGW32__)
   #include <mysql/mysql.h>
 #else
 #include <windows.h>
