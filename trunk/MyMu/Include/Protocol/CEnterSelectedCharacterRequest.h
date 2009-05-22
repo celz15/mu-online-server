@@ -23,7 +23,7 @@ public:
   {
     nick= (*buff)[4].readS(10);
     cout << "Wybrany Nick: " << nick <<"\n";
-		
+    //_cl->ReadCharacter(nick);
 		
     //montujemy aktualnego chara
     
@@ -87,7 +87,7 @@ public:
     //pc->CheckStatusPC(); 
     //pc->MyItemList();
     //sprawdzamy status [testowe]
-ObiectPool::getInstance()->printUsages();
+    ObiectPool::getInstance()->printUsages();
   };
 };
 

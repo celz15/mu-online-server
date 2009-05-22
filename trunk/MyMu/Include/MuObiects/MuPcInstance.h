@@ -43,7 +43,8 @@ class MuPcInstance:public MuCharacter
   //------------------------other 
   unsigned char p_Class;
   bool          p_NewChar;
-
+  //-------------------------inwentory
+  unsigned long p_InwZen;
 
 protected:
 
@@ -65,6 +66,14 @@ public:
   void setCurExp(unsigned long exp)
   {
     p_CurExp=exp;
+  }
+  void setInwZen(unsigned long zen)
+  {
+    p_InwZen=zen;
+  }
+  unsigned long getInwZen()
+  {
+    return p_InwZen;
   }
   void setCurExp(unsigned long exp , unsigned short lp)
   {
@@ -231,7 +240,8 @@ public:
   {
     Send(new SGotExp(from,i));
   };
-    
+  
+  
  
   void IGotLvlUp()
   {

@@ -3,7 +3,7 @@
 
 
 /* Get the low byte of a word.                      */
-#if !defined(LOBYTE)
+#ifndef LOBYTE
 #define LOBYTE(w)       ((unsigned char)(w))
      
  /* Get the high byte of a word.                     */

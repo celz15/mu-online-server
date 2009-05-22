@@ -63,6 +63,25 @@ struct ItemInInwentory
   ItemHex hexData;
 };
 
+class ItemInfoNode
+{
+public:
+  unsigned char i_InfoGrup;
+  unsigned char i_InfoIndex;
+  //size
+  unsigned char i_InfoHight;
+  unsigned char i_InfoLenght;
+  
+
+}
+
+class ItemInfo
+{
+  enum {
+    MaxSection=0x11,  
+    MaxIndex  =0x11
+  }
+};
 
     // fscanf("%d",_grup);
     //base stats
