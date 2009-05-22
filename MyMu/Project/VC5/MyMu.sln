@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyMu", "MyMu.vcproj", "{19CC1419-BE78-4113-ABB8-30770DC462B4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libHexBuffor", "libHexBuffor.vcproj", "{243FA80C-745E-4CB0-8BD4-33C801FF36BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libSocket", "libSocket\libSocket.vcproj", "{C867CB11-4306-4DF9-8728-2E52C4CD85A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{243FA80C-745E-4CB0-8BD4-33C801FF36BA} = {243FA80C-745E-4CB0-8BD4-33C801FF36BA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ibMuObiects", "..\ibMuObiects\ibMuObiects.vcproj", "{647A6BE2-85F4-457E-9CFF-BEC1FE300889}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19CC1419-BE78-4113-ABB8-30770DC462B4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19CC1419-BE78-4113-ABB8-30770DC462B4}.Debug|Win32.Build.0 = Debug|Win32
+		{19CC1419-BE78-4113-ABB8-30770DC462B4}.Release|Win32.ActiveCfg = Release|Win32
+		{19CC1419-BE78-4113-ABB8-30770DC462B4}.Release|Win32.Build.0 = Release|Win32
+		{243FA80C-745E-4CB0-8BD4-33C801FF36BA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{243FA80C-745E-4CB0-8BD4-33C801FF36BA}.Debug|Win32.Build.0 = Debug|Win32
+		{243FA80C-745E-4CB0-8BD4-33C801FF36BA}.Release|Win32.ActiveCfg = Release|Win32
+		{243FA80C-745E-4CB0-8BD4-33C801FF36BA}.Release|Win32.Build.0 = Release|Win32
+		{C867CB11-4306-4DF9-8728-2E52C4CD85A8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C867CB11-4306-4DF9-8728-2E52C4CD85A8}.Debug|Win32.Build.0 = Debug|Win32
+		{C867CB11-4306-4DF9-8728-2E52C4CD85A8}.Release|Win32.ActiveCfg = Release|Win32
+		{C867CB11-4306-4DF9-8728-2E52C4CD85A8}.Release|Win32.Build.0 = Release|Win32
+		{647A6BE2-85F4-457E-9CFF-BEC1FE300889}.Debug|Win32.ActiveCfg = Debug|Win32
+		{647A6BE2-85F4-457E-9CFF-BEC1FE300889}.Debug|Win32.Build.0 = Debug|Win32
+		{647A6BE2-85F4-457E-9CFF-BEC1FE300889}.Release|Win32.ActiveCfg = Release|Win32
+		{647A6BE2-85F4-457E-9CFF-BEC1FE300889}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
