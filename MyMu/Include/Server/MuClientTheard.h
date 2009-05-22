@@ -102,7 +102,7 @@ public:
   {
     _user=u;
   };
-				//ustawiam usera
+  //ustawiam usera
   MuUser* getUser()
   {
     return _user;
@@ -116,7 +116,97 @@ public:
   void setActiveCharacter(MuPcInstance *o)			//ustawia postac w grze
   {
     _activeChar=o;
-  };  
+  };
+
+  void ReadCharacter(std::string charname)
+  {
+    int dbcharid =getUser()->getDBID();   
+    ReadCharacterFromDb(charname,dbcharid);
+  }
+  void ReadCharacterFromDb(std::string charname,int dbUserId)
+  {
+    char sqlQuery [80]={0x00};
+    sprintf(sqlQuery,"SELECT * FROM characters WHERE ch_user=%d AND ch_name='%s'",dbUserId,charname.c_str());
+    printf ("SQL QUERY: %s",sqlQuery);
+    if(!_DB->isConnected())
+      {
+	mysql_query(_DB->GetDB(),sqlQuery);
+	if(mysql_field_count(_DB->GetDB())>0)
+	  {
+	    MYSQL_RES *wynik=mysql_store_result(_DB->GetDB());
+	    if (wynik != NULL)
+	      {
+		if(mysql_num_rows(wynik)>0)
+		  {
+		    MYSQL_ROW w=mysql_fetch_row(wynik);
+		    _activeChar->setName(w[2]);
+		    _activeChar->setClass(atoi(w[3]));
+		    _activeChar->setLvl(atoi(w[4]));
+		    _activeChar->setLpPerLvl(atoi(w[5]));
+		    _activeChar->setCurExp(atoi(w[6]));
+		    _activeChar->setStr(atoi(w[7]));
+		    _activeChar->setAgl(atoi(w[8]));
+		    _activeChar->setEnr(atoi(w[10]));
+		    _activeChar->setVit(atoi(w[9]));
+		    _activeChar->setCom(atoi(w[11]));
+		    _activeChar->setStatCurHpMpSt(atoi(w[12]),atoi(w[13]),atoi(w[14]));
+		    _activeChar->setPosXY(atoi(w[15]),atoi(w[16]));
+		    _activeChar->setPosHead(atoi(w[18]));
+		    _activeChar->setPosStatus(atoi(w[19]));
+		    _activeChar->setPosMapNb(atoi(w[17]));
+		    _activeChar->setInwZen(atoi(w[20]));
+		  };
+	      };
+	  };
+      };
+    
+  }
+    
+  void SaveCharacterInDb()
+  {
+    char sqlQuery[120];
+    sprintf(sqlQuery,
+	    "UPDATE cheracters SET ch_ExpLvl = %d, ch_ExpLvlP = %d, "
+	    "ch_Exp = %d,"
+	    "ch_StatStr= %d,"
+	    "ch_StatAgl= %d,"
+	    "ch_StatVit= %d,"
+	    "ch_StatEnr= %d,"
+	    "ch_StatCom= %d,"
+	    "ch_StatCurHp=%d,"
+	    "ch_StatCurMp=%d,"
+	    "ch_StatCurSt=%d,"
+	    "ch_PosX=%d,"
+	    "ch_PosY=%d,"
+	    "ch_PosM=%d,"
+	    "ch_PosS=%d,"
+	    "ch_InwZen=%d"
+	    "WHERE  ch_Name ='%s' and ch_Uid=%d LIMIT 1",
+	    _activeChar->getCurExp(),
+	    _activeChar->getStr(),
+	    _activeChar->getAgl(),
+	    _activeChar->getVit(),
+	    _activeChar->getEnr(),
+	    _activeChar->getCom(),
+	    _activeChar->getStatCurHp(),
+	    _activeChar->getStatCurMp(),
+	    _activeChar->getStatCurSt(),
+	    _activeChar->getPosX(),
+	    _activeChar->getPosY(),
+	    _activeChar->getPosMapNb(),
+	    _activeChar->getPosStatus(),
+	    _activeChar->getInwZen()
+	    ) ;
+  }
+
+  void LoadInwentoryFromDb()
+  {
+  }
+
+  void saveInwentoryToDb()
+  {
+  }
+  
 };
 
 #endif /*MUCLIENTTHEARD_H_*/

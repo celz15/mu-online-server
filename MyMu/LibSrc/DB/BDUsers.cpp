@@ -105,50 +105,50 @@ bool BDUsers::GetIds ()
 ////nr=nr postaci, od 0 do 4
 _listCharacter BDUsers::GetCharacter(int nr)
 {
-        _listCharacter postac;
-        string lan, t2;
-	    char tmp2[10];
-        sprintf(tmp2, "%d", characters_id[nr-1]);
-        t2=tmp2;
-        lan="select * from characters where ch_id="+t2;
-        mysql_query(BD->GetDB(), lan.c_str());
-        if (mysql_field_count(BD->GetDB())>0)
-        {
-		MYSQL_RES *wynik = mysql_store_result(BD->GetDB());
-                if (wynik!=NULL)
-                {
-			if (mysql_num_rows(wynik)>0)
-                        {
-         	               MYSQL_ROW wiersz = mysql_fetch_row(wynik);
-                               postac.nr=ID;
-                               postac.Nick=wiersz[2];
-                               postac.klasa=(unsigned char)wiersz[3][0];
-                               postac.lvl=atoi(wiersz[4]);
-                               mysql_free_result(wynik);
-                               return postac;
-                        }
-                }
-		mysql_free_result(wynik); 
+  _listCharacter postac;
+  string lan, t2;
+  char tmp2[10];
+  sprintf(tmp2, "%d", characters_id[nr-1]);
+  t2=tmp2;
+  lan="select * from characters where ch_id="+t2;
+  mysql_query(BD->GetDB(), lan.c_str());
+  if (mysql_field_count(BD->GetDB())>0)
+    {
+      MYSQL_RES *wynik = mysql_store_result(BD->GetDB());
+      if (wynik!=NULL)
+	{
+	  if (mysql_num_rows(wynik)>0)
+	    {
+	      MYSQL_ROW wiersz = mysql_fetch_row(wynik);
+	      postac.nr=ID;
+	      postac.Nick=wiersz[2];
+	      postac.klasa=(unsigned char)wiersz[3][0];
+	      postac.lvl=atoi(wiersz[4]);
+	      mysql_free_result(wynik);
+	      return postac;
+	    }
 	}
-std::cout <<"nr: "<< postac.nr << "nick:" << postac.Nick <<"/n";
+      mysql_free_result(wynik); 
+    }
+  std::cout <<"nr: "<< postac.nr << "nick:" << postac.Nick <<"/n";
 }
 
 
 bool BDUsers::DeleteCharacter(string nick)
 {
-        string lan, tmp;
-        char tmp1[11];
-        sprintf(tmp1, "%d", ID);
-	tmp=tmp1;
-        lan="delete from characters where ch_user='"+tmp+"' and ch_name='"+nick+"'";
-        if (mysql_query(BD->GetDB(), lan.c_str())==0)
-        {
-                return true;
-        }
-	else
-	{
-		return false;
-	}
+  string lan, tmp;
+  char tmp1[11];
+  sprintf(tmp1, "%d", ID);
+  tmp=tmp1;
+  lan="delete from characters where ch_user='"+tmp+"' and ch_name='"+nick+"'";
+  if (mysql_query(BD->GetDB(), lan.c_str())==0)
+    {
+      return true;
+    }
+  else
+    {
+      return false;
+    }
 						
 }
 

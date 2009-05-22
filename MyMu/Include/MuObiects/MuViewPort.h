@@ -21,6 +21,7 @@ public:
   unsigned short o_Index;
   int o_dist;
 
+  ~MuViewPort(){};
   MuViewPort()
   {
     c_State=S_Empty;

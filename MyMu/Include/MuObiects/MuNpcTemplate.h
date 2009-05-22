@@ -21,16 +21,16 @@ public:
   unsigned char n_AttackRange;  
   unsigned char n_MoveSpeed;  
   unsigned char n_AttackSpeed;  
-  unsigned char n_RegerenTime;  
+  unsigned char n_RegerenTime; // also respown time  
   unsigned char n_Atrbution;  
   unsigned char n_ItemRate;  
   unsigned char n_MonyRate;  
   unsigned char n_MaxItemLvl;  
-  unsigned char n_Skill1;  
-  unsigned char n_Skill2  ;
-  unsigned char n_Skill3  ;
-  unsigned char n_Skill4;  
-  unsigned char n_Skill5 ;
+  unsigned char n_Skill1;  //WindProtect="1" 
+  unsigned char n_Skill2  ;//PoisonProtect="0" 
+  unsigned char n_Skill3  ;//IceProtect="0" 
+  unsigned char n_Skill4;  //ElectricProtect="0" 
+  unsigned char n_Skill5 ; //FireProtect="0"
   unsigned char n_ViewRange;
 
 
