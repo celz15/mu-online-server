@@ -73,15 +73,11 @@ public:
   unsigned char i_InfoLenght;
   
 
-}
-
-class ItemInfo
-{
-  enum {
-    MaxSection=0x11,  
-    MaxIndex  =0x11
-  }
 };
+
+//class ItemInfo
+//{
+//};
 
     // fscanf("%d",_grup);
     //base stats
