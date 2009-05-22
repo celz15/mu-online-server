@@ -117,6 +117,13 @@ public:
   {
     o_StatMaxSt=max;
   }
+  void setStatCurHpMpSt(unsigned short hp,unsigned short mp,unsigned short st)
+  {
+    o_StatCurHp=hp;
+    o_StatCurMp=mp;
+    o_StatCurSt=st;
+  }
+
   void setStatMaxHpMpSt(int hp,int mp ,int st)
   {
     
@@ -219,7 +226,11 @@ public:
   
   void PrintStat()
   {
+#ifdef WIN32
     printf ("Stats for Object[index:%d] at time [%d]\n",getIndex(),time(0));
+#else
+    printf ("Stats for Object[index:%d] at time [%d]\n",getIndex(),_time(0));
+#endif
     printHp();
     printMp();
     printSt();
@@ -236,7 +247,7 @@ public:
 protected:
 
   MuCharacter(){
-   };
+  };
 public:
   //void setFireResist(int fireResist){GObjFireResist=fireResist;}  
   //resists all togethjer
