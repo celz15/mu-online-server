@@ -105,11 +105,11 @@ public:
     printf("End dump PoerView [Index:%d]\n",_vIndex);
   };
 
-  void opymalize()
+  void optymalize()
   {
-    if (getViewSize()==0)return;
+    if (getViewSize()<60)return;
     MuViewPort t[75] ;
-    int size=1;
+    int size=0;
     for(int i =0 ; i<getViewSize(); i++)
       {
 	if(_vPort[i].c_State!=MuViewPort::S_Empty)
@@ -118,9 +118,10 @@ public:
 	    size++; 
 	  } 
       }
-    for (int i = 1; i<= size; i++) _vPort[i]=t[i];
-    _vSize=size;
-  };
+    for (int i = 0; i<= size; i++) _vPort[i]=t[i];
+   _vSize=size; 
+ };
+
   void addViewPort(MuViewPort p)
   {
     MuViewPort temp = p;

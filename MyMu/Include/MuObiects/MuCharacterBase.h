@@ -1,6 +1,18 @@
 #ifndef MUCHARACTERBASE_H_
 #define MUCHARACTERBASE_H_
 #include <string>
+enum CharacterClass
+  {
+    ch_Dk=0x01<<0,
+    ch_Bk=0x01<<1,
+    ch_Dw=0x01<<2,
+    ch_Sm=0x01<<3,
+    ch_El=0x01<<4,
+    ch_Ml=0x01<<5,
+    ch_Mg=0x01<<6,
+    ch_Dl=0x01<<8,
+  };
+
 class MuCharacterBase
 {
   std::string   ch_name;			//moj nik

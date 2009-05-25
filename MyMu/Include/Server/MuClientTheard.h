@@ -10,6 +10,7 @@
 #include "MuObiects/MuUser.h"					//informacje o userze
 #include "MuObiects/MuPcInstance.h"				//gracz w swiecie
 #include "MuObiects/MuMaps.h"					//mapy w grze
+#include "MuObiects/MuHandInwentory.h"
 #include "AdminTools/ACommandMng.h"				//komendy dla fracza/hm'a
 
 
@@ -24,7 +25,7 @@ class MuClientTheard
   MuUser *_user;								//user connected to server
   PacketHandler* _handler;						//obsluga protokolu
   MuPcInstance* _activeChar;					//aktualna postac w grze
-
+  MuHandInwentory *_inw;
   
   
   int ConnectID; 								//id polaczenia
@@ -56,6 +57,10 @@ public:
 	_connected->Recv(*buff);						//odbieram paczke
 	_handler->handlePacket(buff);					//posylam do obrubki
       };
+  };
+  MuHandInwentory * getCharactersInwentory()
+  {
+    return _inw;
   };
   
   void setDBId(int i)
@@ -116,6 +121,7 @@ public:
   void setActiveCharacter(MuPcInstance *o)			//ustawia postac w grze
   {
     _activeChar=o;
+    _inw=new MuHandInwentory();
   };
 
   void ReadCharacter(std::string charname)
@@ -195,17 +201,62 @@ public:
 	    _activeChar->getPosY(),
 	    _activeChar->getPosMapNb(),
 	    _activeChar->getPosStatus(),
-	    _activeChar->getInwZen()
+	    _activeChar->getInwZen(),
+	    _activeChar->getName().c_str(),
+	    DBId
 	    ) ;
+    printf("SQLQUERY save character:%s",sqlQuery);
   }
 
   void LoadInwentoryFromDb()
   {
+    char sqlQuery[80]={0};
+    sprintf(sqlQuery,"SELECT * FROM items WHERE i_OwnerId=%d",DBId);
+    if(!getDB()->isConnected())
+      {
+	mysql_query(getDB()->GetDB(),sqlQuery);
+	if(mysql_field_count(getDB()->GetDB())>0)
+	  {
+	    MYSQL_RES * res = mysql_store_result(getDB()->GetDB());
+	    if(res!=NULL)
+	      {
+		if(mysql_num_rows(res)>0)
+		  {
+		    for(int i =0; i<mysql_num_rows(res);i++)
+		      {
+			MYSQL_ROW row=mysql_fetch_row(res);
+			unsigned long serial=atol(row[0]);
+			unsigned char windowId=atoi(row[2]);
+			unsigned char slot = atoi (row[3]);
+			unsigned char grup = atoi (row[4]);
+			unsigned char index = atoi (row[5]);
+			unsigned char lvl = atoi (row[6]);
+			unsigned char dur= atoi (row[7]);
+			unsigned char opt = atoi (row[8]);
+			unsigned char eop = atoi (row[9]);
+			unsigned char aop = atoi (row[10]);
+			ItemInInwentory * i = new ItemInInwentory();
+			i->inw_ItemHex.makeItem(grup,index,lvl,dur,opt,eop,aop);
+			i->inw_ItemSerial=serial;
+			i->inw_slot= slot;
+			i->inw_windowId=windowId;
+			i->inw_ItemInfo= ItemInfoMng::getItemInfo(grup,index);
+			if(windowId==WId_Inwentory)_inw->putItemInInwentory(i);
+			//if(windowId==WId_Vault)_vault->putItemInInwentory(i); todo loult
+		      };
+		  };
+	      };
+	    mysql_free_result(res);
+	  };
+      };
+
+
   }
 
-  void saveInwentoryToDb()
+  void SaveInwentoryToDb()
   {
   }
+  
   
 };
 
