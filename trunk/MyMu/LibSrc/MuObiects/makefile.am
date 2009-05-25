@@ -9,6 +9,7 @@ MuMap.cpp \
 MuPcInstance.cpp\
 MuMaps.cpp\
 MuObjectsPool.cpp\
-MuNpcTemplate.cpp
+MuNpcTemplate.cpp\
+MuItemT.cpp
 
 AM_CPPFLAGS = -I$(top_srcdir)/Include $(MYSQL_INCLUDE)
