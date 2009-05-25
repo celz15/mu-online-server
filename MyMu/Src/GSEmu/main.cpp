@@ -52,6 +52,7 @@
 #include "MuObiects/MuMonsterInstance.h"//potworek:P 
 #include "MuObiects/MuItemInstance.h"	//itemy na ziemi 
 #include "MuObiects/MuNpcTemplate.h" 
+#include "MuObiects/MuItemT.h"
 #ifdef USE_PYTHON 
 #include <python/python.h> 
 #endif // USE_PYHON 
@@ -135,6 +136,7 @@ DWORD WINAPI ClientThread1(LPVOID lpParam)
   cout << "Closing Client ... \n";
   cout << "Cleaning Client ... \n";
   unsigned short id = th->getConnectID();
+  // th->SaveCharacterInDb();
   delete th;
   ObiectPool::getInstance()->returnId(id);
   std::cout << "ClientTheard Closed... \n\n";
@@ -380,6 +382,9 @@ void SetUpGsStub()
    // return ;
   }
 #endif
+  cout << "Load Items definition\n";
+  ItemInfoMng::Init("item.txt");
+  ItemInfoMng::getInstance()->PrintMe();
 		
 #if defined(HAVE_PYTHON)
   cout << ">> INIT Python Core ... \n";
