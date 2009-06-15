@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE IF NOT EXISTS `items` (
+  `_Index` bigint(20) NOT NULL auto_increment,
+  `i_OwnerId` int(11) unsigned NOT NULL default '0',
+  `i_WindowId` smallint(4) unsigned NOT NULL default '0',
+  `i_Slot` smallint(4) unsigned NOT NULL default '0',
+  `i_Grup` smallint(4) unsigned NOT NULL default '0',
+  `i_Index` smallint(4) unsigned NOT NULL default '0',
+  `i_Lvl` smallint(4) unsigned NOT NULL default '0',
+  `i_Duration` smallint(4) unsigned NOT NULL default '0',
+  `i_Option` smallint(4) unsigned NOT NULL default '0',
+  `i_EOption` smallint(4) unsigned NOT NULL default '0',
+  `i_AOption` smallint(4) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`_Index`)
+) TYPE=MyISAM COMMENT='I' AUTO_INCREMENT=1 ;
