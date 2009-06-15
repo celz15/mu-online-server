@@ -5,7 +5,7 @@
 /* Get the low byte of a word.                      */
 #ifndef LOBYTE
 #define LOBYTE(w)       ((unsigned char)(w))
-     
+
  /* Get the high byte of a word.                     */
 #define HIBYTE(w)       ((unsigned char)((unsigned short)(w) >> 8))
 
@@ -29,7 +29,7 @@ typedef struct PMSG_HEADA
   {
     return m_uLen;
   };
-  
+
 }*PPMSG_HEADA;
 
 typedef struct PMSG_HEADB{
@@ -56,7 +56,7 @@ inline void HeadSetA(PPMSG_HEADA pHead, unsigned char uHeader, unsigned char uLe
   pHead->m_uHeader = uHeader;
   pHead->m_uLen=     uLen;
   pHead->m_uProtocolId=uProtocolId;
-};
+}
 
 inline void HeadSetB(PPMSG_HEADB pHead, unsigned char uHeader, unsigned short uLen, unsigned char uProtocolId)
 {
@@ -64,5 +64,5 @@ inline void HeadSetB(PPMSG_HEADB pHead, unsigned char uHeader, unsigned short uL
   pHead->m_uLenHi= HIBYTE(uLen);
   pHead->m_uLenLo= LOBYTE(uLen);
   pHead->m_uProtocolId= uProtocolId;
-};
+}
 #endif

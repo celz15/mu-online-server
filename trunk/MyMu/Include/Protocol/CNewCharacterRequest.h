@@ -21,7 +21,12 @@ CNewCharacterRequest(HexBuff *b,MuClientTheard *t):CBPacket(b,t){}
 	int n=_cl->getMyCharacterList()->getCharacterCount(); // kolejna postac
 	MuCharacterBase * _char=new MuCharacterBase(_name,_class);
 	_cl->getMyCharacterList()->addNewCharacter(_char); // doajemy delikwenta
-	_cl->Send(new SNewCharacterAnsfer(_char,1,n)); // twozymy kazdego
+	if (_cl->CreateNewCharacterInDb(_char))
+	  {
+	    _cl->Send(new SNewCharacterAnsfer(_char,1,n)); // twozymy kazdego
+	  }
+	else
+	  _cl->Send(new SNewCharacterAnsfer(_char,0,n));
 
 	//todo dodac aktualizowanie DB!!!!
 

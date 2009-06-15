@@ -10,7 +10,7 @@ enum CharacterClass
     ch_El=0x01<<4,
     ch_Ml=0x01<<5,
     ch_Mg=0x01<<6,
-    ch_Dl=0x01<<8,
+    ch_Dl=0x01<<8
   };
 
 class MuCharacterBase
@@ -47,10 +47,10 @@ public:
     ch_lvl=b->getLvl();
     ch_new=b->getChNew();
   };
-		
+
   //KALKULACJE DLA KLAS
-  	
-	
+
+
 };
 
 #endif /*MUCHARACTERBASE_H_*/

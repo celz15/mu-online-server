@@ -4,7 +4,8 @@
 
 using std::cout;
 #if defined (__WIN__) || defined(__MINGW32__) 
-#else
+//nothing
+#elif defined (__LINUX__)
 
 SocketUnix::SocketUnix(int s)
 { 

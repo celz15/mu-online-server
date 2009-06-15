@@ -372,6 +372,12 @@ public:
   unsigned char  inw_slot;
   unsigned char  inw_windowId;
   ItemHex        inw_ItemHex;
+
+  void PrintMe()
+  {
+    printf("Item[grup:%d,Index:%d] [%s] in window[%d] at slot[%d] has DataBase id[%d]\n",inw_ItemInfo->i_InfoGrup,inw_ItemInfo->i_InfoIndex,
+	   inw_ItemInfo->i_InfoName,inw_windowId,inw_slot,inw_ItemSerial);
+  };
 };
 
 

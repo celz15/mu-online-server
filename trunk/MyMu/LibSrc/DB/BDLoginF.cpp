@@ -16,24 +16,24 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */ 
+ */
 
 #include "DB/BDLoginF.h"
 #include <iostream>
 using std::cout;
 BDLoginF::BDLoginF(BDBase *Db)
 {
-use="admin";
-pas="admin";
-id=1;
-ile_c=0;
-f=0;
-BD=Db;
-};
+	use = "admin";
+	pas = "admin";
+	id = 1;
+	ile_c = 0;
+	f = 0;
+	BD = Db;
+}
 
 BDLoginF::BDLoginF()
 {
-BD=new BDBase();
+	BD = new BDBase();
 }
 
 BDLoginF::~BDLoginF()
@@ -42,41 +42,46 @@ BDLoginF::~BDLoginF()
 }
 bool BDLoginF::EnyError()
 {
-     return BD->EnyError();
-};
+	return BD->EnyError();
+}
 
 bool BDLoginF::IsUser(std::string login)
 {
-       if(login.compare(0,login.size(),use)==0)return true; else return false;
+	if (login.compare(0, login.size(), use) == 0)
+		return true;
+	else
+		return false;
 }
 
-void BDLoginF::GetUser(string login,login_info *l)
+void BDLoginF::GetUser(string login, login_info *l)
 {
-       login_info tmp;
-		       l->id=id;
-		       l->user=use;
-		      l->pass=pas;
-		      l->HCHar=ile_c;
-		       
-		       switch (f)
-      			{
-           		    case 0:l->flag=OK;     break;
-	                case 1:l->flag=Loged;  break;
-                    case 2:l->flag=Blocked;break;
-		        }
+	login_info tmp;
+	l->id = id;
+	l->user = use;
+	l->pass = pas;
+	l->HCHar = ile_c;
+
+	switch (f)
+	{
+	case 0:
+		l->flag = OK;
+		break;
+	case 1:
+		l->flag = Loged;
+		break;
+	case 2:
+		l->flag = Blocked;
+		break;
+	}
 }
 
 bool BDLoginF::DelteUser(login_info l)
 {
- return true;
- }
-
+	return true;
+}
 
 bool BDLoginF::setFlag(string login, flag_ls flagi)
 {
-    return true;
-    }
-	      
-
-
+	return true;
+}
 

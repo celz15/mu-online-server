@@ -1,7 +1,7 @@
 #pragma once
 
 #include <list>
-#include "MuObiect/MuMonsterInstance.h"
+#include "MuObiects/MuMonsterInstance.h"
 
 using std::list;
 

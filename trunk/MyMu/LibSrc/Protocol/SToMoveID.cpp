@@ -9,7 +9,7 @@ HexBuff* SToMoveID::build()
 	(*h)[7].writeC(f);
 	(*h)[8].writeC(0);
 	return h;
-}; 
+}
 
 SToMoveID::~SToMoveID()
 {

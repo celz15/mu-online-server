@@ -12,7 +12,7 @@ AC_CONFIG_HEADER([config.h])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
-AC_PROG_RANLIB	
+AC_PROG_LIBTOOL
 AC_INCLUDES_DEFAULT
 # Checks for libraries.
 #AX_PYTHON
@@ -24,15 +24,19 @@ AC_INCLUDES_DEFAULT
 # Checks for header files.
 AC_HEADER_STDC
 AC_HEADER_SYS_WAIT
-AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h sys/socket.h unistd.h])
+AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h sys/socket.h sys/time.h unistd.h])
+
 AC_CHECK_HEADER(winsock2.h)
 AC_CHECK_HEADER(mysql/mysql.h)
 
 # Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
 AC_C_CONST
 AC_C_INLINE
+AC_TYPE_SIZE_T
 
 # Checks for library functions.
+ 
 AC_CHECK_FUNCS([gethostbyname inet_ntoa memset socket])
 AC_CONFIG_FILES([
 makefile

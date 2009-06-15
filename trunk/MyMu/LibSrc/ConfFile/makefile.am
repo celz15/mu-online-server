@@ -1,4 +1,5 @@
-lib_LIBRARIES = ../libMuConfFile.a
-___libMuConfFile_a_SOURCES =ConfFile.cpp
-
+lib_LTLIBRARIES = ../libMuConfFile.la
+___libMuConfFile_ladir=ConFile
+___libMuConfFile_la_SOURCES =ConfFile.cpp
+___libMuConfFile_la_HEADERS =../../Include/ConfFile/ConfFile.h
 AM_CPPFLAGS = -I$(top_srcdir)/Include
