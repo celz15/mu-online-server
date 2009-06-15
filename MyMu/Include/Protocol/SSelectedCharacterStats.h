@@ -4,18 +4,33 @@
 #include "Protocol/BaseStruct.h"
 
 
-struct CharacterInfoSrt
+struct CharacterInfo
 {
   PMSG_HEADA m_Head;
-  unsigned char m_uSubType;
-  unsigned char m_uPosX;
-  unsigned char m_uPosY;
-  unsigned char m_uMapID;
-  unsigned char m_uDir;
-  unsigned char m_uUnk1[4];
-  unsigned long m_uCurrentExp;
-  
-  
+  unsigned char SubType;
+  unsigned char PosX;
+  unsigned char PosY;
+  unsigned char MapID;
+  unsigned char Dir;
+  unsigned long exp;
+  unsigned long nextExp;
+  unsigned short lvlUpPoints;
+  unsigned short str;
+  unsigned short agl;
+  unsigned short vit;
+  unsigned short enr;
+  unsigned short hp;
+  unsigned short maxHp;
+  unsigned short mp;
+  unsigned short maxMp;
+  unsigned short st;
+  unsigned short maxSt;
+  unsigned long mony;
+  unsigned char pkLvl;
+  unsigned char ctrCode;
+  unsigned short addPoints;
+  unsigned short maxAddPoints;
+  unsigned short leaderShip;
 };
 
 
@@ -25,140 +40,150 @@ struct CharacterInfoSrt
 //h    -paczka budowana
 class SSelectedharacterStats : public CSPacket
 {
-	//pozycja
-  int _x;					//pozycja x
-  int _y;					//pozycja y
-  int _m; 				//kod mapy
-//Doswiadczenie
-  unsigned long _exp;		//curent exp
-  unsigned long _lexp;	//exp na kolejny lvl
-  int _lp;				//lvl points
-  //statystyki
-  int _str;					//sila
-  int _agi;				//agil
-  int _vit;				//vital
-  int _enr;				//energia
-  //zycie,mana,stamina
-  int _heal;				//zycie
-  int _mheal;				//max zycia
-  int _mana;
-  int _mmana;
-  int _stamina;
-  int _mstamina;
-  //zeny
-  unsigned long _zen;		//ilosc many
-  //spare
-  int	_lsp;	//left spare
-  int	_rsp;   //right sare
-
- public:
+  CharacterInfo p;
+public:
+  SSelectedharacterStats()
+  {
+p.m_Head.set(0xc3,sizeof(CharacterInfo),0xf3);
+    p.SubType=0x03;
+    MyName="F303 Selcted Character Stats";
+  }
   SSelectedharacterStats(
-			 int x,int y,int m, 								// pozycja
-			 unsigned long exp,unsigned long lexp,int lp, 	//exp i punkty do rozdania
-			 int s,int a,int v,int e,						//statystyki
-			 int vi,int mvi,int ma,int mma,int st,int mst,		//zycie mana stamina
+			 unsigned char x,unsigned char y,unsigned char m,unsigned char dir,	// pozycja
+			 unsigned long exp,unsigned long lexp,unsigned short lp, 	//exp i punkty do rozdania
+			 unsigned short s,unsigned short a,unsigned short v,unsigned short e,						//statystyki
+			 unsigned short hp,unsigned short mhp,
+			 unsigned short mp,unsigned short mmp,
+			 unsigned short st,unsigned short mst,		//zycie mana stamina
 			 unsigned long zen,								//zeny
-			 int lsp,int rsp									// lir spare
+			 unsigned char pk,unsigned char ctrcode,
+			 unsigned short addp,unsigned short maddp									// lir spare
 							
 			 
 			 ):CSPacket()
-    {
-      //pos
-      _x=x;
-      _y=y;
-      _m=m;	
-      //exp
-      _exp=exp;
-      _lexp=lexp;
-      _lp=lp;
-      // stats
-      _str=s;
-      _agi=a;
-      _vit=v;
-      _enr=e;
-      //zycie...
-      _heal=vi;				//zycie
-      _mheal=mvi;				//max zycia	
-      _mana=ma;
-      _mmana=mma;
-      _stamina=st;
-      _mstamina=mst;
-      //lvl
-      //spare
-      _lsp=lsp;	//left spare
-      _rsp=rsp;   //right sare
-      
-      //zens
-      _zen=zen;
-      MyName="F303 Selcted Character Stats";
-    };
+  {
+  
+    
+p.m_Head.set(0xc3,sizeof(CharacterInfo),0xf3);
+    p.SubType=0x03;
+    p.PosX=x;    p.PosY=y;    p.MapID=m;    p.Dir=dir;
+    p.exp=exp;    p.nextExp=lexp;    p.lvlUpPoints=lp;
+    p.str=s;    p.agl=a;    p.vit=v;    p.enr=e;    
+    p.hp=hp;    p.maxHp=mhp;
+    p.mp=mp;    p.maxMp=mmp;
+    p.st=st;    p.maxSt=mst;
+    p.mony=zen;
+    p.pkLvl=pk;    p.ctrCode=ctrcode;
+    p.addPoints=addp;p.maxAddPoints=maddp;
+    MyName="F303 Selcted Character Stats";
+  };
   ~SSelectedharacterStats(){};
+  void setAddPoints(unsigned short addp, unsigned short maddp)
+  {
+    p.addPoints=addp;p.maxAddPoints=maddp;
+  };
+  void setPkLvl(unsigned char pk,unsigned short ctrcode)
+  {
+    p.pkLvl=pk;    p.ctrCode=ctrcode;
+  }
+  void setPos(unsigned char x, unsigned char y , unsigned char map , unsigned char dir)
+  {
+    p.PosX=x;    p.PosY=y;    p.MapID=map;    p.Dir=dir;
+  };
+  void setZen(unsigned long zen)
+  {
+    p.mony=zen;
+  }
+  void setExp(unsigned long exp, unsigned long lexp,unsigned short lp)
+  {
+    p.exp=exp;    p.nextExp=lexp;    p.lvlUpPoints=lp;
+  };
+
+  void setMaxHpMpSt(unsigned short hp,unsigned short mhp,
+		    unsigned short mp,unsigned short mmp,
+		    unsigned short st,unsigned short mst)
+  {
+    p.hp=hp;    p.maxHp=mhp;
+    p.mp=mp;    p.maxMp=mmp;
+    p.st=st;    p.maxSt=mst;
+
+  };
+
+  void setStats(unsigned short s,unsigned short a,
+		unsigned short v,unsigned short e)
+  {
+    p.str=s;    p.agl=a;    p.vit=v;    p.enr=e;    
+  };
+
+  
   HexBuff * build()
-    {
-      unsigned char t[]={
-	0xc3 ,0x33 ,0xF3 ,0x03, 
-	0x8E ,0x88 , //x,y 
-		   0x00 ,//mapa 6
-	0x03 , // unknown
-	0x00 ,0x00 , 0x00 ,0x00, // exp 
-	0x64 ,0x00 ,0x00 ,0x00,  //lexp
-	0x00 ,0x01 , //lp 16
+  {
+
+   
+    //unsigned char t[]={
+    // 0xc3 ,0x33 ,0xF3 ,0x03, 
+    // 0x8E ,0x88 , //x,y 
+    // 0x00 ,//mapa 6
+    //  0x03 , // unknown
+    // 0x00 ,0x00 , 0x00 ,0x00, // exp 
+    // 0x64 ,0x00 ,0x00 ,0x00,  //lexp
+    //0x00 ,0x01 , //lp 16
 	
-	0x1C ,0x00 , //str
-	0x14 ,0x00 , //agi 
-	0x19 ,0x00 , //vit
-	0x0A ,0x00 , //enr
+    //0x1C ,0x00 , //str
+    // 0x14 ,0x00 , //agi 
+    //0x19 ,0x00 , //vit
+    //0x0A ,0x00 , //enr
 	
-	0x6E ,0x00 , //live
-	0x6E ,0x00 , //mlive
-	0x14 ,0x00 , //mana
-	0x14, 0x00 , //mmana
-	0x0C ,0x00 , //st35
-	0x19 ,0x00 , //mst
-	
-	
-	0x0f ,0x0f , //12 00
-	//       0  kolor nika?
-	0x01 ,0x00 ,0x00 ,0x00 , // mony
+    // 0x6E ,0x00 , //live
+    //0x6E ,0x00 , //mlive
+    //0x14 ,0x00 , //mana
+    //0x14, 0x00 , //mmana
+    //0x0C ,0x00 , //st35
+    //0x19 ,0x00 , //mst
 	
 	
-	0x03 , //color nicka -0-3 ok 4-6 red [44]
+    //0x0f ,0x0f , //12 00
+    //       0  kolor nika?
+    //0x01 ,0x00 ,0x00 ,0x00 , // mony
 	
-	0x02 ,
-	0x00 ,0x00 , //spare points max [46]
-	0x0f ,0x00 , // spare point [48]
 	
-	0x0f ,0xff , // unk
+    //0x03 , //color nicka -0-3 ok 4-6 red [44]
+	
+    //      0x02 ,
+    //0x00 ,0x00 , //spare points max [46]
+    //0x0f ,0x00 , // spare point [48]
+    unsigned char pack[sizeof (CharacterInfo)+1]={0};
+    memmove(pack,&p,sizeof(CharacterInfo));
+    //0x0f ,0xff , // unk
             
-	0x00};
-      //todo napisac ustawiana statow
-	(*h)[0].writeAC(t,53);
-	(*h)[4].writeC(_x);       //x 	D
-	(*h)[5].writeC(_y);		  //y	D
-	(*h)[6].writeC(_m); //mapa		D
-	(*h)[7].writeC(0x00);	// ??
+    //0x00};
+    //todo napisac ustawiana statow
+    (*h)[0].writeAC(pack,sizeof(CharacterInfo));
+
+    //(*h)[6].writeC(_m); //mapa		D
+    //    (*h)[7].writeC(0x00);	// ??
 	
-	(*h)[8].writeL(_exp,true);//exp
-	(*h)[12].writeL(_lexp,true);//lexp
-	(*h)[16].writeI(_lp,true); // lp D
+    //    (*h)[8].writeL(_exp,true);//exp
+    //(*h)[12].writeL(_lexp,true);//lexp
+    //(*h)[16].writeI(_lp,true); // lp D
 	
-	(*h)[18].writeI(_str,true);//D
-	(*h)[20].writeI(_agi,true);//D
-	(*h)[22].writeI(_vit,true);//D
-	(*h)[24].writeI(_enr,true);//D
-//	
-	(*h)[26].writeI(_heal,true);//D
-	(*h)[28].writeI(_mheal,true);//D
-	(*h)[30].writeI(_mana,true);//D
-	(*h)[32].writeI(_mmana,true);//D
-	(*h)[34].writeI(_stamina,true);//D
-	(*h)[36].writeI(_mstamina,true);//D
+    //(*h)[18].writeI(_str,true);//D
+    //(*h)[20].writeI(_agi,true);//D
+    //(*h)[22].writeI(_vit,true);//D
+    //(*h)[24].writeI(_enr,true);//D
+    //	
+    //(*h)[26].writeI(_heal,true);//D
+    //(*h)[28].writeI(_mheal,true);//D
+    //(*h)[30].writeI(_mana,true);//D
+    //(*h)[32].writeI(_mmana,true);//D
+    //(*h)[34].writeI(_stamina,true);//D
+    //(*h)[36].writeI(_mstamina,true);//D
 	
 	
-	(*h)[40].writeL(_zen,true); 
+    //(*h)[40].writeL(_zen,true); 
 	 
-	return h;
-	};
+    return h;
+  };
 	
 };
 

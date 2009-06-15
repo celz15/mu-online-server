@@ -21,14 +21,15 @@ HexBuff *SHello::build()
 //cout <<  h->Size()<<"\n";
 	(*h)[12].writeC(0x0);
 //cout <<  h->Size()<<"\n";
-//	cout << h->buff2str("")<<"\n"; 
+//	cout << h->buff2str("")<<"\n";
 	return h;
-	
+
 }
 void SHello::wyswietl()
 {
 	cout << h->buff2str("0x") << "\n";
-}; 
+}
+
 /*void LoginServer::PackServVersion(Hex * h,int id) // build package 00 ansve
 {
 Int Id(id);

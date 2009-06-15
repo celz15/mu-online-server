@@ -6,37 +6,37 @@ using std::cout;
 TimeJob::TimeJob(Job*j,int s):Ticket(s)
 {
   J=j;
-};
+}
 
 TimeTick TimeJob::GetTicket() const
 {
   return Ticket;
-};
+}
 
 bool operator<(const TimeJob x,const TimeJob y)
 {
  return (x.GetTicket().GetTime() > y.GetTicket().GetTime());
-};
+}
 
 Task::Task()
 {
 cout <<"|>SYSTEM Time events init..Done\n";
-};
+}
 void TimeJob::Run() const
-{	
+{
   J->Run();
   std::cout << ">TASKCORE RUN: " << J->getDes() << "\n";
-};
+}
 
 void Task::AddJobA(Job* j,int t)
   {
   //std::cout << ">TASKCORE REG: "<< j->getDes()<<"za "<< t << "\n";
   jobs.push(TimeJob(j,t));
-};
-void Task::Run() 
+}
+void Task::Run()
 {
    for (;;)
-   
+
     {
     if(!jobs.empty())
       while ((jobs.top().GetTicket().TickEnd())&&(!jobs.empty()))
@@ -44,19 +44,19 @@ void Task::Run()
 		std::cout << "in task " << jobs.size() << " quene\n";
 		//std::cout << "in task run\n";
 	  jobs.top().Run();
-	  
+
 	  jobs.pop();
 	};
-#if defined (__WIN32__) || defined (__MINGW32__)         
+#if defined (__WIN32__) || defined (__MINGW32__)
 	_sleep(1);
 #else
 	sleep(1)'
 #endif
-	 
+
   };
-};
+}
 
 Task * Task::_instance=NULL;
 
 
-;
+

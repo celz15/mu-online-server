@@ -2,8 +2,7 @@
 #define SOCKETUNIX_H_
 #if   defined(__WIN__) || defined (__MINGW32__)
 //nothing
-#else
-
+#elif defined (__LINUX__)
 #include "Socket.h"
 #include <sys/socket.h>
 #include "Protocol/SBPacket.h"

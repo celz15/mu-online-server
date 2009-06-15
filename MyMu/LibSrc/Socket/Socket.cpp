@@ -16,28 +16,34 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */  
+ */
 #include "../../Include/Socket/Socket.h"
 
 Socket::Socket()
 {
-	Error=false;
-	_multiSend=NULL;
+	Error = false;
+	_multiSend = NULL;
 }
 
 Socket::~Socket()
 {
 }
 
-Socket & operator << (Socket &s , HexBuff &h)
+Socket & operator <<(Socket &s, HexBuff &h)
 {
 	s.Send(h);
-		return s;
-};
-Socket & operator >> (Socket &s , HexBuff &h)
+	return s;
+}
+Socket & operator >>(Socket &s, HexBuff &h)
 {
- s.Recv(h);
-return s;
-};
-bool Socket::EnyError(){return Error;};
-void Socket::SetError(){Error=true;};
+	s.Recv(h);
+	return s;
+}
+bool Socket::EnyError()
+{
+	return Error;
+}
+void Socket::SetError()
+{
+	Error = true;
+}

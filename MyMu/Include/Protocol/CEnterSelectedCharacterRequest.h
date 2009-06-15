@@ -27,52 +27,53 @@ public:
 		
     //montujemy aktualnego chara
     
-    MuPcInstance *pc=ObiectPool::getInstance()->newMuPcInstance(_cl->getConnectID());
+    //MuPcInstance *pc=ObiectPool::getInstance()->newMuPcInstance(_cl->getConnectID());
 		 
-    pc->SetFromCharacterBase(_cl->getMyCharacterList()->getCharacter(nick)); // pobieramy informacje z MucharacterBase
-		
-    pc->setPosMapNb(MuMaps::getInstance()->getMap(0)->getCode());		
+    //  pc->SetFromCharacterBase(_cl->getMyCharacterList()->getCharacter(nick)); // pobieramy informacje z MucharacterBase
     
-    pc->setIndex(_cl->getConnectID());
-    pc->setPortView(new MuViewPortSet(_cl->getConnectID(),10));
-    pc->setPosXY(170,127);
-    pc->setPosNewXY(170,127);
-    pc->setStats(10,10,10,10,10);
-    pc->setType(O_Player);										//zaznaczam sie jako gracz
-    pc->setPosStatus(0x00);											//ustawiamy flage
-    pc->setCurExp(500,5);	
-    pc->setConnected(_cl->getConnected());					//ustawiamy polaczenie
+    // pc->setPosMapNb(MuMaps::getInstance()->getMap(0)->getCode());		
+    
+    // pc->setIndex(_cl->getConnectID());
+    //pc->setPortView(new MuViewPortSet(_cl->getConnectID(),10));
+    //pc->setPosXY(170,127);
+    //pc->setPosNewXY(170,127);
+    //pc->setStats(10,10,10,10,10);
+    //pc->setType(O_Player);										//zaznaczam sie jako gracz
+    //pc->setPosStatus(0x00);											//ustawiamy flage
+    //pc->setCurExp(500,5);	
+    //pc->setConnected(_cl->getConnected());					//ustawiamy polaczenie
 		
-    MuMaps::getInstance()->getMap(pc->getPosMapNb())->storeNewObiect(pc);
+    //MuMaps::getInstance()->getMap(pc->getPosMapNb())->storeNewObiect(pc);
     
     
     //pc->updateNLvlExp();						//ustawiamy lvlup exp
     //pc->UpdateMaxims();							//usatwiamy hp,mp,sp
 	
-			
-    _cl->setActiveCharacter(pc);
+    _cl->ReadCharacter(nick);
+   MuPcInstance * pc= _cl->getActiveCharacter();
     std::cout << "po ustawieniu usera\n";
 		
 		
-    SSelectedharacterStats *t=	new SSelectedharacterStats(
-							   pc->getPosX(),pc->getPosY(),pc->getPosMapNb(), //pos
-							   pc->getCurExp(),1000,pc->getCurLp(),//exp
-							   pc->getStr(),pc->getAgl(),pc->getVit(),pc->getEnr(), //stat agl..
-							   pc->getStatCurHp(),pc->getStatMaxHp(),pc->getStatCurMp(),
-							   pc->getStatMaxMp(),pc->getStatCurSt(),pc->getStatMaxSt(),//zycie mana,st
-							   10, // zen
-							   100,100 // spare
-							   );
+    SSelectedharacterStats *t=	new SSelectedharacterStats();
+    t->setPos(pc->getPosX(),pc->getPosY(),pc->getPosMapNb(), pc->getPosHead());
+    t->setExp(pc->getCurExp(),pc->getNextExp(),pc->getCurLp());
+    t->setStats(pc->getStr(),pc->getAgl(),pc->getVit(),pc->getEnr());
+    t->setMaxHpMpSt(pc->getStatCurHp(),pc->getStatMaxHp(),
+		    pc->getStatCurMp(),pc->getStatMaxMp(),
+		    pc->getStatCurSt(),pc->getStatMaxSt());
+    t->setZen(pc->getInwZen());
+    t->setPkLvl( 0,0x02); // zen
+    t->setAddPoints(100,100);
     std::cout << "po zbudowaniu paczki postaci\n";
     //_cl->ASend(new SPingReplay(0x20));
     //_cl->ASend(new SC103Unknown());
-    _cl->ASend(t);
-    //_cl->ASend(new SInwenoryList());
+    _cl->Send(t);
     //_cl->ASend(new SRegisterNewSkill(NULL));
     //_cl->ASend(new SC1A0Unknown());
     //_cl->ASend(new SClientSettings());
     //_cl->ASend(new SFriedList());
-    _cl->MSend();
+    //_cl->MSend();
+    
     //Send(t);
 		
     //_cl->Send(
@@ -87,6 +88,8 @@ public:
     //pc->CheckStatusPC(); 
     //pc->MyItemList();
     //sprawdzamy status [testowe]
+    pc->Send(new SItemList(_cl->getCharactersInwentory()->getAsVector()));
+    pc->MoveTo(pc->getPosX(),pc->getPosY());
     ObiectPool::getInstance()->printUsages();
   };
 };

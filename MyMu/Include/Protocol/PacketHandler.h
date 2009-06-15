@@ -10,8 +10,8 @@ class PacketHandler
  MuClientTheard *_client; // wskaznik do Clienta
  public:
   PacketHandler( MuClientTheard* t);
-  virtual ~PacketHandler();;
-  
+  virtual ~PacketHandler();
+
   void handlePacket(HexBuff *p);
 
 };

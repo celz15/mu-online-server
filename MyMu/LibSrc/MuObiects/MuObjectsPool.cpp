@@ -4,129 +4,173 @@
 #include "MuObiects/MuNpcInstance.h"
 #include "MuObiects/MuViewPort.h"
 #include "MuObiects/MuNpcTemplate.h"
+#include <utility>
 
 #include <math.h>
 void ObiectPool::initPoolData()
 {
-  for (int i = 0 ; i <=0xffff;i++)
-    {
-      _pool[i]=NULL; //sets empty flag
-      _freeCels.push(i); // sets empty cels
-    }
-  printf ("|SYSTEM ObjPoool Init Succesfull\n");
+	for (int i = 0; i <= 0xffff; i++)
+	{
+		_pool[i] = NULL; //sets empty flag
+		_freeCels.push(i); // sets empty cels
+	}
+	printf("|SYSTEM ObjPoool Init Succesfull\n");
 }
 
 ObiectPool::ObiectPool()
 {
-  sizeOfPointer=sizeof(MuObiect*);
+	sizeOfPointer = sizeof(MuObiect*);
 
-  sizeOfPcInstance=sizeof(MuPcInstance);
-  sizeOfMonsterInstance=sizeof(MuMonsterInstance);
-  sizeOfNpcInstance=sizeof(MuNpcInstance);
-  sizeOfItemInstance=sizeof(MuItemInstance);
+	sizeOfPcInstance = sizeof(MuPcInstance);
+	sizeOfMonsterInstance = sizeof(MuMonsterInstance);
+	sizeOfNpcInstance = sizeof(MuNpcInstance);
+	sizeOfItemInstance = sizeof(MuItemInstance);
 
-  contOfMonsters=contOfPlayers=contOfNpcs=contOfItems=0;
+	contOfMonsters = contOfPlayers = contOfNpcs = contOfItems = 0;
 
 }
 
-ObiectPool* ObiectPool::_instance=NULL;
- ObiectPool* ObiectPool::getInstance()
+ObiectPool* ObiectPool::_instance = NULL;
+ObiectPool* ObiectPool::getInstance()
 {
-  if(_instance==NULL)
-    {
-      _instance = new ObiectPool;
-      _instance->initPoolData();
-    }
-  return _instance;
-};
+	if (_instance == NULL)
+	{
+		_instance = new ObiectPool;
+		_instance->initPoolData();
+	}
+	return _instance;
+}
+
 unsigned short ObiectPool::reserveId()
 {
-  unsigned short freeid =_freeCels.top();
-  _freeCels.pop();
-  return freeid;
+	unsigned short freeid = _freeCels.top();
+	_freeCels.pop();
+	return freeid;
 }
 void ObiectPool::returnId(unsigned short id)
 {
-  if(_pool[id] != NULL)
-    {
-      MuObiect *t = _pool[id];
-      delete t;
-      _pool[id] = NULL;
-    };
-  _freeCels.push(id);
+	if (_pool[id] != NULL)
+	{
+		MuObiect *t = _pool[id];
+		delete t;
+		_pool[id] = NULL;
+	};
+	_freeCels.push(id);
 }
 ObiectPool::~ObiectPool()
 {
 }
 
-
-
-MuMonsterInstance* ObiectPool::newMuMonsterInstance(MuNpcTemplate t,unsigned char _x ,unsigned char _y, unsigned char map)
+MuPcInstance* ObiectPool::newMuPcInstance(unsigned short id)
 {
-  MuMonsterInstance * temp;
-  int freeId= _freeCels.top();
-  _freeCels.pop(); 
-  temp= new MuMonsterInstance(t, _x,_y,map,freeId);
-  _pool[freeId]=temp;
-  contOfMonsters++;
-  //printf ("|OBJECTPOOL Object %d Creted and Stored Succesfull \n",freeId);
-  return temp;
+	MuPcInstance * temp = new MuPcInstance();
+	temp->setIndex(id);
+	temp->setType(O_Player);
+	_pool[id] = temp;
+	return temp;
 }
 
-MuPcInstance * ObiectPool::newMuPcInstance(unsigned short id )
+MuMonsterInstance* ObiectPool::newMuMonsterInstance(MuNpcTemplate t,
+		unsigned char _x, unsigned char _y, unsigned char map)
 {
-  MuPcInstance *pc = new MuPcInstance();
-  pc->setIndex(id);
-  if(_pool[id]==NULL)
-    {
-      _pool[id]=pc;
-      contOfPlayers++;
-    }
-  else
-    printf ("Error in try to put object [Index:] in ObiectPool !!!\n",id);
-
-  return pc;
+	MuMonsterInstance * temp;
+	int freeId = _freeCels.top();
+	_freeCels.pop();
+	temp = new MuMonsterInstance(t, _x, _y, map, freeId);
+	temp->setType(O_Mob);
+	_pool[freeId] = temp;
+	contOfMonsters++;
+	//printf ("|OBJECTPOOL Object %d Creted and Stored Succesfull \n",freeId);
+	return temp;
 }
 
-
-
-MuViewPort ObiectPool::getDistance(unsigned short id1 , unsigned short id2,unsigned char dist)
+MuNpcInstance* ObiectPool::newMuNPCInstance(MuNpcTemplate t, unsigned char _x,
+		unsigned char _y, unsigned char map)
 {
-  MuViewPort temp;
-  temp.o_Index=id2;
-  temp.o_dist=0xff;
-  temp.c_State=0x00;
- register MuObiect * o1 = getObject(id1);
- register MuObiect * o2 = getObject(id2);
-  if ((o1==NULL) || (o2 == NULL))
-    {
-      temp.o_Index =0x00;
-      temp.o_dist=0xff;
-      temp.c_State=0x04;
-      printf("NULL :/\n");
-      temp.PrintMe();
-      return temp; 
-    }
-  else
-    //obiects exists
-    {
-      if((o1->getPosX() == o2->getPosX()) && (o1->getPosX() == o2->getPosY()))
+	MuMonsterInstance * temp;
+	int freeId = _freeCels.top();
+	_freeCels.pop();
+	temp = new MuMonsterInstance(t, _x, _y, map, freeId);
+	temp->setType(O_NPC);
+	_pool[freeId] = temp;
+	contOfMonsters++;
+	//printf ("|OBJECTPOOL Object %d Creted and Stored Succesfull \n",freeId);
+	return temp;
+}
+
+MuViewPortPair ObiectPool::getDistance(unsigned short id1, unsigned short id2,
+		unsigned char dist)
+{
+	MuViewPortPair te = std::make_pair(new MuViewPort(), new MuViewPort());
+	te.first->o_Index = id1;
+	te.first->o_dist = 0xff;
+	te.first->c_State = 0x00;
+	te.second->o_Index = id2;
+	te.second->o_dist = 0xff;
+	te.second->c_State = 0x00;
+
+	register MuObiect * o1 = getObject(id1);
+	register MuObiect * o2 = getObject(id2);
+	if ((o1 == NULL) || (o2 == NULL))
 	{
-	  temp.o_dist=0;
+		te.first->o_Index = 0x00;
+		te.second->o_Index = 0x00;
+		te.first->c_State = 0x04;
+		te.second->c_State = 0x04;
+		te.first->PrintMe();
+		te.second->PrintMe();
+		return te;
 	}
-      else
+	else
+	//obiects exists
 	{
-	  //calcuate the distance
-	  float fCalcX = (float)abs(o1->getPosX() - o2->getPosX());
-	  float fCalcY = (float)abs(o1->getPosY() - o2->getPosY());      
-	  temp.o_dist  = (int)sqrt((fCalcX * fCalcX) + (fCalcY * fCalcY));
-	};
-    }
-  if (temp.o_dist<=dist) temp.c_State = MuViewPort::S_New;
-  else temp.c_State=MuViewPort::S_ToForget;
-  temp.o_Type  = o2->getType();
-  temp.o_Index = id2;
-  return temp;
-  
-};
-  
+		if ((o1->getPosX() == o2->getPosX())
+				&& (o1->getPosX() == o2->getPosY()))
+		{
+			te.first->o_dist = 0;
+			te.second->o_dist = 0;
+		}
+		else
+		{
+			//Calculate the distance
+			float fCalcX = (float) abs(o1->getPosX() - o2->getPosX());
+			float fCalcY = (float) abs(o1->getPosY() - o2->getPosY());
+			int res = (int) sqrt((fCalcX * fCalcX) + (fCalcY * fCalcY));
+			te.first->o_dist = res;
+			te.second->o_dist = res;
+		};
+	}
+	if (te.second->o_dist <= dist)
+	{
+		te.first->c_State = MuViewPort::S_New;
+		te.second->c_State = MuViewPort::S_New;
+	}
+	else
+	{
+		te.first->c_State = MuViewPort::S_ToForget;
+		te.second->c_State = MuViewPort::S_ToForget;
+
+	}
+	te.first->o_Type = o1->getType();
+	te.second->o_Type = o2->getType();
+	return te;
+
+}
+
+void ObiectPool::ProcessPool()
+{
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		MuObiect * o = _pool[i];
+		if (!o->isVisibable())
+		{
+			printf("Spown Object: \n");
+			MuMaps::getInstance()->getMap(o->getPosMapNb())->storeNewObiect(o);
+			o->setVisibable(true);
+			continue;
+		}
+		o->PrintMe();
+	}
+}

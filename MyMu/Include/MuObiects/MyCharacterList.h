@@ -6,6 +6,18 @@ using std::vector;
 #include <iostream>
 using std::cout;
 
+struct class_stat
+{
+  unsigned short _str;
+  unsigned short _agl;
+  unsigned short _vit;
+  unsigned short _enr;
+  unsigned short _com;
+  unsigned char _lp;
+};
+
+
+
 class MyCharacterList
 {
   vector <MuCharacterBase *>list;

@@ -5,10 +5,8 @@ CBPacket::~CBPacket()
 {
 }
 
-
-
 HexBuff *CBPacket::AsHexBuff()
 {
-  return buff;
-};
+	return buff;
+}
 

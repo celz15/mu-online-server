@@ -128,11 +128,14 @@ public:
   {
     int dbcharid =getUser()->getDBID();   
     ReadCharacterFromDb(charname,dbcharid);
+    LoadInwentoryFromDb();
   }
-  void ReadCharacterFromDb(std::string charname,int dbUserId)
+  void ReadCharacterFromDb(std::string charname,int userid )
   {
+    MuPcInstance *pc=ObiectPool::getInstance()->newMuPcInstance(getConnectID());
+    
     char sqlQuery [80]={0x00};
-    sprintf(sqlQuery,"SELECT * FROM characters WHERE ch_user=%d AND ch_name='%s'",dbUserId,charname.c_str());
+    sprintf(sqlQuery,"SELECT * FROM characters WHERE ch_user=%d AND ch_name='%s'",userid,charname.c_str());
     printf ("SQL QUERY: %s",sqlQuery);
     if(!_DB->isConnected())
       {
@@ -145,29 +148,38 @@ public:
 		if(mysql_num_rows(wynik)>0)
 		  {
 		    MYSQL_ROW w=mysql_fetch_row(wynik);
-		    _activeChar->setName(w[2]);
-		    _activeChar->setClass(atoi(w[3]));
-		    _activeChar->setLvl(atoi(w[4]));
-		    _activeChar->setLpPerLvl(atoi(w[5]));
-		    _activeChar->setCurExp(atoi(w[6]));
-		    _activeChar->setStr(atoi(w[7]));
-		    _activeChar->setAgl(atoi(w[8]));
-		    _activeChar->setEnr(atoi(w[10]));
-		    _activeChar->setVit(atoi(w[9]));
-		    _activeChar->setCom(atoi(w[11]));
-		    _activeChar->setStatCurHpMpSt(atoi(w[12]),atoi(w[13]),atoi(w[14]));
-		    _activeChar->setPosXY(atoi(w[15]),atoi(w[16]));
-		    _activeChar->setPosHead(atoi(w[18]));
-		    _activeChar->setPosStatus(atoi(w[19]));
-		    _activeChar->setPosMapNb(atoi(w[17]));
-		    _activeChar->setInwZen(atoi(w[20]));
+		    pc->setCharIdInDb(atol(w[0]));
+		    pc->setName(w[2]);
+		    pc->setClass(atoi(w[3]));
+		    pc->setLvl(atoi(w[4]));
+		    pc->setLpPerLvl(atoi(w[5]));
+		    pc->setCurExp(atoi(w[6]));
+		    pc->setStr(atoi(w[7]));
+		    pc->setAgl(atoi(w[8]));
+		    pc->setEnr(atoi(w[10]));
+		    pc->setVit(atoi(w[9]));
+		    pc->setCom(atoi(w[11]));
+		    pc->UpdateMaxims();
+		    pc->setStatCurHpMpSt(atoi(w[12]),atoi(w[13]),atoi(w[14]));
+		    pc->setPosXY(atoi(w[15]),atoi(w[16]));
+		    pc->setPosNewXY(atoi(w[15]),atoi(w[16]));
+		    pc->setPosHead(atoi(w[18]));
+		    pc->setPosStatus(atoi(w[19]));
+		    pc->setPosMapNb(atoi(w[17]));
+		    pc->setInwZen(atol(w[20]));
+		    pc->setType(O_Player);
+		    pc->setConnected(getConnected());
 		  };
 	      };
+	    mysql_free_result(wynik);
 	  };
       };
-    
+    setActiveCharacter(pc);
+    pc->setPortView(new MuViewPortSet(getConnectID(),10));
+    MuMaps::getInstance()->getMap(pc->getPosMapNb())->storeNewObiect(pc);    
+
   }
-    
+  
   void SaveCharacterInDb()
   {
     char sqlQuery[120];
@@ -203,7 +215,7 @@ public:
 	    _activeChar->getPosStatus(),
 	    _activeChar->getInwZen(),
 	    _activeChar->getName().c_str(),
-	    DBId
+	    _activeChar->getCharIdInDb()
 	    ) ;
     printf("SQLQUERY save character:%s",sqlQuery);
   }
@@ -211,7 +223,8 @@ public:
   void LoadInwentoryFromDb()
   {
     char sqlQuery[80]={0};
-    sprintf(sqlQuery,"SELECT * FROM items WHERE i_OwnerId=%d",DBId);
+    sprintf(sqlQuery,"SELECT * FROM items WHERE i_OwnerId=%d",_activeChar->getCharIdInDb());
+    printf("ItemsSQL: %s\n",sqlQuery);
     if(!getDB()->isConnected())
       {
 	mysql_query(getDB()->GetDB(),sqlQuery);
@@ -220,7 +233,7 @@ public:
 	    MYSQL_RES * res = mysql_store_result(getDB()->GetDB());
 	    if(res!=NULL)
 	      {
-		if(mysql_num_rows(res)>0)
+		if(mysql_num_rows(res)>=0)
 		  {
 		    for(int i =0; i<mysql_num_rows(res);i++)
 		      {
@@ -241,6 +254,7 @@ public:
 			i->inw_slot= slot;
 			i->inw_windowId=windowId;
 			i->inw_ItemInfo= ItemInfoMng::getItemInfo(grup,index);
+			i->PrintMe();
 			if(windowId==WId_Inwentory)_inw->putItemInInwentory(i);
 			//if(windowId==WId_Vault)_vault->putItemInInwentory(i); todo loult
 		      };
@@ -249,15 +263,101 @@ public:
 	    mysql_free_result(res);
 	  };
       };
-
-
+    _inw->PrintMe();
   }
-
+  
   void SaveInwentoryToDb()
   {
   }
-  
-  
+
+
+  bool CreateNewCharacterInDb(MuCharacterBase * chara)
+  {
+    int dbcharid =getUser()->getDBID();   
+    class_stat st=getBaseStatsForClass(chara->getClass());
+    if(checkNickInDb(chara->getName()))
+      return false;
+    //store
+    char sql[300]={0};
+    char sqlupd[100]={0};
+    sprintf(sqlupd,"UPDATE `users` SET `u_char_count` = '%d' WHERE `u_id` =%d LIMIT 1 ;",
+	    getMyCharacterList()->getCharacterCount(),dbcharid);
+    sprintf(sql,
+	    "INSERT INTO characters(`ch_user`,`ch_name`,`ch_class`,`ch_StatStr`,`ch_StatAgl`,`ch_StatVit`,`ch_StatEnr`,`ch_StatCom`)"
+	    "VALUES (%d,'%s',%d,%d,%d,%d, %d,%d);",dbcharid,chara->getName().c_str(),chara->getClass(),
+	    st._str,st._agl,st._vit,st._enr,st._com);
+ 
+    if(!getDB()->isConnected())
+      {
+	mysql_query(getDB()->GetDB(),sql);
+	mysql_query(getDB()->GetDB(),sqlupd);
+	return true;
+      };
+    return false;
+    
+  }
+
+  bool checkNickInDb(std::string name)
+  {
+    int count=-1;
+    char sql[120];
+    sprintf(sql,"SELECT COUNT(*) FROM characters where ch_name='%s'",name.c_str());
+    if(!getDB()->isConnected())
+      {
+	mysql_query(getDB()->GetDB(),sql);
+	if(mysql_field_count(getDB()->GetDB())>0)
+	  {
+	    MYSQL_RES * res = mysql_store_result(getDB()->GetDB());
+	    if(res!=NULL)
+	      {
+		if(mysql_num_rows(res)==1)
+		  {
+		    MYSQL_ROW row=mysql_fetch_row(res);
+		    count = atoi(row[0]);
+		  };
+		
+	      };
+	    mysql_free_result(res); 
+	  }
+      }
+    if(count==0) return false;
+    else return true;
+  }
+	 
+	 
+
+  class_stat getBaseStatsForClass(unsigned char cl)
+  {
+    class_stat st;
+    char sql[120]={0};
+    sprintf(sql,"SELECT ch_str,ch_agi, ch_vit, ch_enr,ch_com, ch_map, ch_lp "
+	    "FROM `characterbasestat` where ch_class=%d",cl);
+    if(!getDB()->isConnected())
+      {
+	mysql_query(getDB()->GetDB(),sql);
+	if(mysql_field_count(getDB()->GetDB())>0)
+	  {
+	    MYSQL_RES * res = mysql_store_result(getDB()->GetDB());
+	    if(res!=NULL)
+	      {
+		if(mysql_num_rows(res)==1)
+		  {
+		    MYSQL_ROW row=mysql_fetch_row(res);
+		    st._str=atoi(row[0]);
+		    st._agl=atoi(row[1]);
+		    st._vit=atoi(row[2]);
+		    st._enr=atoi(row[3]);
+		    st._com=atoi(row[4]);
+		    st._lp=atoi(row[6]);
+		  };
+
+	      }
+	    mysql_free_result(res); 
+	  }
+      }
+    return st;
+  }
+ 
 };
 
 #endif /*MUCLIENTTHEARD_H_*/
