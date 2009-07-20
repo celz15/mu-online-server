@@ -39,7 +39,7 @@ public:
 		printf("Obj[Index:%d,Type:%d$] in distance [dist:%d,State:%d]\n",
 				o_Index, o_Type, o_dist, c_State);
 	}
-	;
+
 };
 
 class MuViewPortSet

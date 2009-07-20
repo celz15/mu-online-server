@@ -1,6 +1,7 @@
 #ifndef _OBJECTPOOL_
 #define _OBJECTPOOL_
 #include <iostream>
+#include <list>
 #include <stack>
 #include <utility>
 using std::pair;
@@ -79,6 +80,12 @@ public:
   }
 
   MuViewPortPair getDistance(unsigned short id1 , unsigned short id2,unsigned char dist);
+  std::list<MuObiect*> toObjList();
+  std::list<unsigned short> toIdObjList();
+  std::list<MuObiect*> toMonList();
+  std::list<unsigned short> toIdMobList();
+  std::list<MuObiect*> toPlaList();
+  std::list<unsigned short> toIdPlaList();
 
   void ProcessPool();
 };
