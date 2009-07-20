@@ -25,7 +25,6 @@ void MuMap::InitMonstersSpot()
 						ObiectPool::getInstance()-> newMuMonsterInstance(t,
 								(unsigned char) s->startX(),
 								(unsigned char) s->startY(), this->getCode());
-				//
 				storeNewObiect(mob);
 				//mob->RunMoveInst();
 			};

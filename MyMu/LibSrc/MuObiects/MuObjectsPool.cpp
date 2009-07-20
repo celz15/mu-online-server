@@ -174,3 +174,77 @@ void ObiectPool::ProcessPool()
 		o->PrintMe();
 	}
 }
+
+std::list<MuObiect*> ObiectPool::toObjList()
+{
+	std::list<MuObiect*> vec;
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		vec.push_back(_pool[i]);
+	};
+	return vec;
+
+}
+
+std::list<MuObiect*> ObiectPool::toMonList()
+{
+	std::list<MuObiect*> vec;
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		if (_pool[i]->getType() == O_Mob)
+			vec.push_back(_pool[i]);
+	};
+	return vec;
+}
+
+std::list<MuObiect*> ObiectPool::toPlaList()
+{
+	std::list<MuObiect*> vec;
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		if (_pool[i]->getType() == O_Player)
+			vec.push_back(_pool[i]);
+	};
+	return vec;
+}
+std::list<unsigned short> ObiectPool::toIdObjList()
+{
+	std::list<unsigned short> lis;
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		lis.push_back(i);
+	}
+	return lis;
+}
+
+std::list<unsigned short> ObiectPool::toIdMobList()
+{
+	std::list<unsigned short> lis;
+	for (unsigned int i = 0; i <= 0xffff; i++)
+	{
+		if (_pool[i] == NULL)
+			continue;
+		if (_pool[i]->getType() == O_Mob)
+			lis.push_back(i);
+	}
+	return lis;
+}
+
+std::list<unsigned short> ObiectPool::toIdPlaList()
+{
+	std::list<unsigned short> lis;
+	for (unsigned int i =0 ; i <= 0xffff; i++)
+	{
+		if(_pool[i]==NULL)continue;
+		if(_pool[i]->getType() == O_Player)
+			lis.push_back(i);
+	}
+}

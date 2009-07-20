@@ -34,9 +34,7 @@ void MuCharacter::broadcastPacket(SBPacket *p)
 				}
 			}
 		};
-
 	};
-
 }
 
 void MuCharacter::CheckViewPort()
@@ -52,20 +50,17 @@ void MuCharacter::IDie()
 	printf("Monster [%d] Died ... \n", getIndex());
 	SIdDie * pack = new SIdDie(getIndex());
 	broadcastPacket(pack);
-
 	MuMaps::getInstance()->getMap(getPosMapNb())->removeVisibleObject(
 			getIndex());
 	this->setVisibable(false);
 	//o_ViewPort->printMe();
 	for (int i = 0; i <= o_ViewPort->getViewSize(); i++)
 	{
-
 		MuViewPort * p = o_ViewPort->getViewPort(i);
 		p->PrintMe();
 		if ((p->o_Type == O_Player) && (p->c_State == MuViewPort::S_Known))
 		{
 			p->PrintMe();
-
 			pc
 					= static_cast<MuPcInstance*> ((ObiectPool::getInstance()->getObject(
 							p->o_Index)));

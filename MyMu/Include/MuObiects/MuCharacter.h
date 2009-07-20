@@ -265,7 +265,7 @@ public:
 		printMp();
 		printSt();
 	}
-	;
+
 
 	void _dmg(int i) //dotalem dmg prywatna poniewaz tu tulko odejmuje hp
 	{
@@ -273,13 +273,13 @@ public:
 		o_StatCurHp -= i;
 		printHp();
 	}
-	;
+
 protected:
 
 	MuCharacter()
 	{
 	}
-	;
+
 public:
 	//void setFireResist(int fireResist){GObjFireResist=fireResist;}
 	//resists all together
@@ -337,7 +337,7 @@ public:
 		for (int i = 0; i < t->getViewSize(); i++)
 			if (t->getViewPort(i)->c_State == MuViewPort::S_ToForget)
 				t->getViewPort(i)->c_State = MuViewPort::S_Empty;
-		t->opymalize();
+		t->optymalize();
 	}
 
 	virtual void checkNewInViewPort()

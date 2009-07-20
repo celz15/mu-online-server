@@ -41,7 +41,7 @@ protected:
 		o_Visibable = true;
 		setPosXY(192, 189);
 	}
-	;
+
 public:
 
 	virtual ~MuObiect()

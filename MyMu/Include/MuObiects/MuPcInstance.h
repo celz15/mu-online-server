@@ -51,7 +51,6 @@ protected:
 
 	MuPcInstance()
 	{
-
 		std::cout << "MuPcIntancr init done \n";
 	}
 
@@ -127,7 +126,6 @@ public:
 		p_CurLP--;
 		return true;
 	}
-	;
 
 	virtual ~MuPcInstance()
 	{
@@ -137,14 +135,12 @@ public:
 	{
 		p_Con = s;
 	}
-	;
 
 	void Send(SBPacket *p)
 	{
 		if (p != NULL)
 			p_Con->Send(p);
 	}
-	;
 
 	//STATYSTYKI USTAWIANUE
 	void setStr(unsigned short str); //ustawia  sile
@@ -165,33 +161,31 @@ public:
 	{
 		p_StatStr++;
 	}
-	;
+
 	void incAgl()
 	{
 		p_StatAgl++;
 	}
-	;
+
 	void incVit()
 	{
 		p_StatVit++;
 	}
-	;
+
 	void incEnr()
 	{
 		p_StatEnr++;
 	}
-	;
 	void incCom()
 	{
 		p_StatCom++;
 	}
-	;
 
 	void setLpPerLvl(unsigned char lp)
 	{
 		p_LpPerLvl = lp;
 	}
-	;
+
 	//knowns list
 	void CheckToForgetInViewPort()
 	{
@@ -203,7 +197,6 @@ public:
 				t->getViewPort(i)->c_State = MuViewPort::S_Empty;
 			};
 	}
-	;
 
 	void checkNewInViewPort()
 	{
@@ -245,7 +238,6 @@ public:
 			setCom(c);
 		};
 	}
-	;
 
 	void UpdateMaxims() //update hp,mp,sp po lvl up
 	{
@@ -253,7 +245,6 @@ public:
 		StatCalclMaxMp();
 		setStatMaxSt(getAgl() + getStr() + getEnr());
 	}
-	;
 
 	void IUpdateCurHp() //odswierzenei statusu zycia i staminy
 	{
@@ -261,7 +252,6 @@ public:
 		Send(t);
 		delete t;
 	}
-	;
 
 	void IUpdateMaxHp()
 	{
@@ -269,7 +259,6 @@ public:
 		Send(t);
 		delete t;
 	}
-	;
 
 	void IUpdateCurMpSt()
 	{
@@ -278,7 +267,6 @@ public:
 		Send(t);
 		delete t;
 	}
-	;
 
 	//POBIREANIE DMG
 	int getRealDmg()
@@ -286,31 +274,26 @@ public:
 		//todo napisac liczenia dmg
 		return 30; // ustawimy na 6
 	}
-	;
 
 	//EXPERANCE
 	void IGotExp(unsigned short from, int i)
 	{
 		Send(new SGotExp(from, i));
 	}
-	;
 
 	void IGotLvlUp()
 	{
 	}
-	;
 
 	void IAddSkill(MuSkill * sk)
 	{
 		//paczka add skill
 	}
-	;
 
 	void IDeleteSkill(int id)
 	{
 		//pacza dereister skill
 	}
-	;
 
 public:
 	///---------------------misc methods
@@ -322,7 +305,6 @@ public:
 			t = t * 2;
 		return t;
 	}
-	;
 
 	void StatCalcMaxHp()
 	{
@@ -352,7 +334,7 @@ public:
 		};
 		setStatMaxHp(max);
 	}
-	;
+
 	void StatCalclMaxMp()
 	{
 		int max = 0;
@@ -382,7 +364,6 @@ public:
 		};
 		setStatMaxMp(max);
 	}
-	;
 
 	void statCalcLpPerLvl()
 	{
@@ -416,7 +397,6 @@ public:
 		};
 		setLpPerLvl(lp);
 	}
-	;
 
 	int getBaseStr()
 	{
@@ -438,7 +418,7 @@ public:
 
 		};
 	}
-	;
+
 	int getBaseAgi()
 	{
 		switch (getClass())
@@ -459,7 +439,7 @@ public:
 
 		};
 	}
-	;
+
 	int getBaseVit()
 	{
 		switch (getClass())
@@ -480,7 +460,7 @@ public:
 
 		};
 	}
-	;
+
 	int getBaseEnr()
 	{
 		switch (getClass())
@@ -501,7 +481,6 @@ public:
 
 		};
 	}
-	;
 
 };
 
