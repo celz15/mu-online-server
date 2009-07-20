@@ -187,16 +187,7 @@ public:
 	}
 
 	//knowns list
-	void CheckToForgetInViewPort()
-	{
-		MuViewPortSet * t = getViewPort();
-		for (int i = 0; i < t->getViewSize(); i++)
-			if (t->getViewPort(i)->c_State == MuViewPort::S_ToForget)
-			{
-				Send(new SForgetId(t->getViewPort(i)->o_Index));
-				t->getViewPort(i)->c_State = MuViewPort::S_Empty;
-			};
-	}
+	void CheckToForgetInViewPort();
 
 	void checkNewInViewPort()
 	{
