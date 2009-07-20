@@ -93,7 +93,6 @@ public:
 		};
 	}
 
-
 	unsigned char searchId(unsigned short id)
 	{
 		for (int i = 0; i < getViewSize(); i++)
@@ -109,7 +108,6 @@ public:
 		return _vIndex;
 	}
 
-
 	void printMe()
 	{
 		printf("\nPointView[Size:%d] for [Index:%d]in [Rad:%d]\n", _vSize,
@@ -121,7 +119,6 @@ public:
 		};
 		printf("End dump PoerView [Index:%d]\n", _vIndex);
 	}
-
 
 	void optymalize()
 	{
@@ -142,7 +139,6 @@ public:
 		_vSize = size;
 	}
 
-
 	void addViewPort(MuViewPort *p)
 	{
 		MuViewPort *temp = p;
@@ -156,17 +152,19 @@ public:
 				memmove(&_vPort[_vSize - 1], p, sizeof(MuViewPort));
 			};
 		}
-		else // we known it :)
-		{
-			if ((temp->c_State == MuViewPort::S_New) && (_vPort[pos].c_State
-					== MuViewPort::S_Known))
-				_vPort[pos].o_dist = temp->o_dist;
-			else
-				memmove(&(_vPort[pos]), temp, sizeof(MuViewPort)); //update dest and forget flag
-		};
-		//  printMe();
+		else if ((temp->c_State == MuViewPort::S_New) && (_vPort[pos].c_State
+				== MuViewPort::S_Known))
+			_vPort[pos].o_dist = temp->o_dist;
+		else if ((temp->c_State == MuViewPort::S_ToForget)
+				&& (_vPort[pos].c_State == MuViewPort::S_Empty))
+			_vPort[pos].o_dist = temp->o_dist;
+		else
+			memmove(&(_vPort[pos]), temp, sizeof(MuViewPort)); //update dest and forget flag
+
+		printMe();
 		delete temp;
 	}
 
-
 };
+
+

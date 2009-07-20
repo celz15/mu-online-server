@@ -104,10 +104,10 @@ MuViewPortPair ObiectPool::getDistance(unsigned short id1, unsigned short id2,
 	MuViewPortPair te = std::make_pair(new MuViewPort(), new MuViewPort());
 	te.first->o_Index = id1;
 	te.first->o_dist = 0xff;
-	te.first->c_State = 0x00;
+	te.first->c_State = MuViewPort::S_Empty;
 	te.second->o_Index = id2;
 	te.second->o_dist = 0xff;
-	te.second->c_State = 0x00;
+	te.second->c_State = MuViewPort::S_Empty;
 
 	register MuObiect * o1 = getObject(id1);
 	register MuObiect * o2 = getObject(id2);
@@ -115,8 +115,8 @@ MuViewPortPair ObiectPool::getDistance(unsigned short id1, unsigned short id2,
 	{
 		te.first->o_Index = 0x00;
 		te.second->o_Index = 0x00;
-		te.first->c_State = 0x04;
-		te.second->c_State = 0x04;
+		te.first->c_State = MuViewPort::S_Empty;
+		te.second->c_State = MuViewPort::S_Empty;
 		te.first->PrintMe();
 		te.second->PrintMe();
 		return te;
