@@ -248,3 +248,11 @@ std::list<unsigned short> ObiectPool::toIdPlaList()
 			lis.push_back(i);
 	}
 }
+
+void ObiectPool::setDevaultAiProc(MuAiProcessor *proc)
+{
+}
+
+
+
+

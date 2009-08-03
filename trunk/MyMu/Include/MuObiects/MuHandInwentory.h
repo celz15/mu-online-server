@@ -21,7 +21,7 @@ public:
 	~MuHandInwentory()
 	{
 	}
-	;
+
 
 	ItemInInwentory* getImp() //pobieramy impa
 	{
