@@ -17,8 +17,8 @@ void MuCharacter::broadcastPacket(SBPacket *p)
 
 			if ((*o_ViewPort)[i].o_Type == O_Player)//if i'm player
 			{
-				printf("......i:%d z :%d\n", i, o_ViewPort->getViewSize());
-				printf("---->found player in broadcast package \n");
+				//printf("......i:%d z :%d\n", i, o_ViewPort->getViewSize());
+				//printf("---->found player in broadcast package \n");
 				id = (*o_ViewPort)[i].o_Index;
 				MuObiect * o = ObiectPool::getInstance()->getObject(id);
 				if (o != NULL)

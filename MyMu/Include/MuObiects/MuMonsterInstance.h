@@ -10,11 +10,55 @@
 #include "Protocol/SIdAtackId.h"
 #include "Task/Task.h"
 #include "IdFactory.h"
+class MuMonsterAiData
+{
+public:
+	enum
+	{
+		AiNothing = 0,
+		//move
+		AiGoto = 1,
+		AiTurn = 2,
+		//respown
+		AiRespown = 3
+	};
+	//move data
+	unsigned char _Pos_destX;
+	unsigned char _Pos_destY;
+	unsigned char _Pos_destH;
+	//skills
+	unsigned char _Skill_id; //run skill id on pos or id
+	//target
+	unsigned short _Target_id; // target
+	//Ai task
+	unsigned char _aiTask;
+	unsigned long _time; // time when use data to make AiJob
+
+
+	unsigned long getTime()
+	{
+		return _time;
+	}
+	void runInNextXMSec(unsigned long sec)
+	{
+		_time = time(0) + sec;
+	}
+	bool runTime()
+	{
+		if (time(0) >= _time)
+			return true;
+		else
+			return false;
+	}
+
+};
 
 class MuMonsterInstance: public MuAtackableInstance
 {
 	friend class ObiectPool;
+	MuMonsterAiData * _actualIaData; //if null then not set yet
 	int GObjAttackType;
+	unsigned char GobjAttackRange;
 	int GObjMoveRange;
 	int GObjItemDropRate;
 	int GObjMaxItemDropLvl;
@@ -34,7 +78,7 @@ public:
 	{
 		return GObjAttackType;
 	}
-	;
+
 	void setAttackType(int AttackType)
 	{
 		GObjAttackType = AttackType;
@@ -101,7 +145,6 @@ protected:
 		PrintStat();
 	}
 
-
 public:
 	long getExp()
 	{
@@ -116,9 +159,22 @@ public:
 	void Move()
 	{
 		unsigned char range = getMoveRange();
-
 	}
-
+	//return Ai data
+	MuMonsterAiData * getAiData()
+	{
+		return _actualIaData;
+	}
+	//set ai data
+	void setAiData(MuMonsterAiData * data)
+	{
+		_actualIaData = data;
+	}
+	unsigned char getAttackRange()
+	{
+		return 1;//(TODO) set stats
+		return GobjAttackRange;
+	}
 };
 //klasy taska
 

@@ -161,7 +161,7 @@ public:
 		else
 			memmove(&(_vPort[pos]), temp, sizeof(MuViewPort)); //update dest and forget flag
 
-		printMe();
+		//printMe();
 		delete temp;
 	}
 

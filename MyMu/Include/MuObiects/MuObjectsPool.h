@@ -15,6 +15,7 @@ class MuItemInstance;
 class MuNpcInstance;
 class MuViewPort;
 class MuNpcTemplate;
+class MuAiProcessor;
 typedef pair<MuViewPort * , MuViewPort * > MuViewPortPair;
 
 
@@ -23,7 +24,8 @@ class ObiectPool{
   static ObiectPool * _instance;
   std::stack<int> _freeCels;                   //free cels
   MuObiect*  _pool[0xFFFF];
-
+  MuAiPorcessor *_ai[0xff];
+  MuAiProcessor *_DefaultAiProc;
   void initPoolData();
 
   int sizeOfPointer;
@@ -88,6 +90,10 @@ public:
   std::list<unsigned short> toIdPlaList();
 
   void ProcessPool();
+  MuAiProcessor * getAiProcById(unsigned char id);
+  MuAiProcessor * getDefaultAiProc();
+  void setAiProcOnId(unsigned char id,MuAiProcessor * proc);
+  void setDevaultAiProc(MuAiProcessor * proc);
 };
 
 
