@@ -24,7 +24,7 @@ class ObiectPool{
   static ObiectPool * _instance;
   std::stack<int> _freeCels;                   //free cels
   MuObiect*  _pool[0xFFFF];
-  MuAiPorcessor *_ai[0xff];
+  MuAiProcessor *_ai[0xff];
   MuAiProcessor *_DefaultAiProc;
   void initPoolData();
 
