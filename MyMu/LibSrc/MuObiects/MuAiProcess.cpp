@@ -54,8 +54,8 @@ void MuAiProcess::Signall(unsigned short from, unsigned short who,
 		unsigned char what)
 {
 	MuMonsterAiData * data;
-	MuMonsterInstance * mon = ObiectPool::getInstance()->getObject(from);
-	MuPcInstance * pc = ObiectPool::getInstance()->getObject(who);
+	MuMonsterInstance * mon =static_cast<MuMonsterInstance*> (ObiectPool::getInstance()->getObject(from));
+	MuCharacter * pc = static_cast<MuCharacter*>(ObiectPool::getInstance()->getObject(who));
 	if (mon == NULL)
 		return;
 	switch (what)
