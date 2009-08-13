@@ -27,6 +27,7 @@ ObiectPool::ObiectPool()
 	sizeOfItemInstance = sizeof(MuItemInstance);
 
 	contOfMonsters = contOfPlayers = contOfNpcs = contOfItems = 0;
+	_DefaultAiProc = new MuAiProcessor;
 
 }
 
@@ -241,18 +242,22 @@ std::list<unsigned short> ObiectPool::toIdMobList()
 std::list<unsigned short> ObiectPool::toIdPlaList()
 {
 	std::list<unsigned short> lis;
-	for (unsigned int i =0 ; i <= 0xffff; i++)
+	for (unsigned int i = 0; i <= 0xffff; i++)
 	{
-		if(_pool[i]==NULL)continue;
-		if(_pool[i]->getType() == O_Player)
+		if (_pool[i] == NULL)
+			continue;
+		if (_pool[i]->getType() == O_Player)
 			lis.push_back(i);
 	}
 }
 
 void ObiectPool::setDevaultAiProc(MuAiProcessor *proc)
 {
+	_DefaultAiProc = proc;
 }
 
-
-
+MuAiProcessor * ObiectPool::getDefaultAiProc()
+{
+	return _DefaultAiProc;
+}
 

@@ -7,18 +7,18 @@
 
 #include "MuObiects/MuAiProcess.h"
 #include "MuObiects/MuMonsterInstance.h"
-MuAiProcess::MuAiProcess()
+MuAiProcessor::MuAiProcessor()
 {
 	// TODO Auto-generated constructor stub
 
 }
 
-MuAiProcess::~MuAiProcess()
+MuAiProcessor::~MuAiProcessor()
 {
 	// TODO Auto-generated destructor stub
 }
 
-void MuAiProcess::Process(MuMonsterInstance *inst)
+void MuAiProcessor::Process(MuMonsterInstance *inst)
 {
 	MuMonsterAiData * data = inst->getAiData();
 	if (data == NULL)
@@ -40,17 +40,17 @@ void MuAiProcess::Process(MuMonsterInstance *inst)
 
 }
 
-void MuAiProcess::setAiProcessId(unsigned char id)
+void MuAiProcessor::setAiProcessId(unsigned char id)
 {
 	_ai_id = id;
 }
 
-unsigned char MuAiProcess::getAiProcessId()
+unsigned char MuAiProcessor::getAiProcessId()
 {
 	return _ai_id;
 }
 
-void MuAiProcess::Signall(unsigned short from, unsigned short who,
+void MuAiProcessor::Signall(unsigned short from, unsigned short who,
 		unsigned char what)
 {
 	MuMonsterAiData * data;
