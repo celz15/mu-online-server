@@ -8,7 +8,7 @@
 #ifndef MUAIPROCESS_H_
 #define MUAIPROCESS_H_
 class MuMonsterInstance;
-class MuAiProcess
+class MMuAiProcessor
 {
 	unsigned char _ai_id; // id of process
 public:
@@ -16,8 +16,8 @@ public:
 	{
 		SigDie = 0, SigAtacked = 1
 	};
-	MuAiProcess();
-	virtual ~MuAiProcess();
+	MuAiProcessor();
+	virtual ~MuAiProcessor();
 	virtual void Process(MuMonsterInstance * inst);
 	void setAiProcessId(unsigned char id);
 	unsigned char getAiProcessId();
