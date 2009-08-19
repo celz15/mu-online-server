@@ -4,6 +4,7 @@
 #include "MuObiects/MuNpcInstance.h"
 #include "MuObiects/MuViewPort.h"
 #include "MuObiects/MuNpcTemplate.h"
+#include "MuObiects/MuAiProcess.h"
 #include <utility>
 
 #include <math.h>
@@ -27,7 +28,7 @@ ObiectPool::ObiectPool()
 	sizeOfItemInstance = sizeof(MuItemInstance);
 
 	contOfMonsters = contOfPlayers = contOfNpcs = contOfItems = 0;
-	_DefaultAiProc = new MuAiProcessor;
+	_DefaultAiProc = new MuAiProcessor();
 
 }
 
@@ -165,12 +166,22 @@ void ObiectPool::ProcessPool()
 		if (_pool[i] == NULL)
 			continue;
 		MuObiect * o = _pool[i];
-		if (!o->isVisibable())
+
+		if (o->getType() == O_Mob)
 		{
-			printf("Spown Object: \n");
-			MuMaps::getInstance()->getMap(o->getPosMapNb())->storeNewObiect(o);
-			o->setVisibable(true);
-			continue;
+			MuMonsterInstance *m = reinterpret_cast<MuMonsterInstance*> (o);
+			switch (m->getAiProctype())
+			{
+			case MuCharacter::AI_DEFAULT:
+				getDefaultAiProc()->Process(m);
+				break;
+			case MuCharacter::AI_SPECIFED:
+				getAiProcById(m->getAiProcIndex())->Process(m);
+				break;
+			case MuCharacter::AI_NONE:
+				break;
+			}
+
 		}
 		o->PrintMe();
 	}

@@ -1,6 +1,7 @@
 #include "MuObiects/MuCharacter.h"
 #include "MuObiects/MuPcInstance.h"
 #include "MuObiects/MuMaps.h"
+#include "MuObiects/MuAiProcess.h"
 
 unsigned char MuCharacter::getPosOldX()
 {
@@ -53,6 +54,8 @@ void MuCharacter::IDie()
 	MuMaps::getInstance()->getMap(getPosMapNb())->removeVisibleObject(
 			getIndex());
 	this->setVisibable(false);
+	MuAiProcessor* ai= ObiectPool::getInstance()->getDefaultAiProc();
+	ai->Signall(getIndex(),0,MuAiProcessor::SigDie);
 	//o_ViewPort->printMe();
 	for (int i = 0; i <= o_ViewPort->getViewSize(); i++)
 	{

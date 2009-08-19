@@ -8,7 +8,7 @@
 #ifndef MUAIPROCESS_H_
 #define MUAIPROCESS_H_
 class MuMonsterInstance;
-class MMuAiProcessor
+class MuAiProcessor
 {
 	unsigned char _ai_id; // id of process
 public:

@@ -16,6 +16,16 @@
 
 class MuCharacter: public MuObiect
 {
+	//------------------AI TYPE DEFINIIONS ----------
+public:
+	enum AI_PROCTYPE{
+		AI_DEFAULT=0,
+		AI_SPECIFED=1,
+		AI_NONE=2
+	};
+private:
+	AI_PROCTYPE o_AiType;    //type of Ai proc used by obiect
+	unsigned char o_AiIndex; //index of used Ai proc if used eny
 	//------------------POSITION----------------------
 	unsigned char o_PosOldX; //old x position
 	unsigned char o_PosOldY; //old y position
@@ -51,6 +61,25 @@ class MuCharacter: public MuObiect
 	//-----------------------------------actual target ?? -----
 	MuObiect * _target;
 public:
+	//------------------------------------Ai usage ------------
+
+	AI_PROCTYPE getAiProctype()
+	{
+		return AI_DEFAULT; //(TODO)
+		return o_AiType;
+	}
+	void setAiProcType(AI_PROCTYPE p)
+	{
+		o_AiType = p;
+	}
+	unsigned char getAiProcIndex()
+	{
+		return o_AiIndex;
+	}
+	void setAiProcIndex(unsigned char index)
+	{
+		o_AiIndex = index;
+	}
 	//------------------------------------Get/Set--------------
 	//position
 	void setPosNewX(unsigned char x)

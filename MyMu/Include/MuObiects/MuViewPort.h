@@ -9,7 +9,7 @@ typedef pair<MuViewPort *, MuViewPort *> MuViewPortPair;
 class MuViewPort
 {
 public:
-	enum
+	enum //Slot types definitions
 	{
 		S_Empty = 0x00, S_ToForget = 0x01, S_New = 0x02, S_Known = 0x03
 	};
@@ -134,7 +134,7 @@ public:
 				size++;
 			}
 		}
-		for (int i = 0; i <= size; i++)
+		for (int i = 0; i <= size; i++)//(TODO) memove ?? memmove(_vPort,t,sizeof(MuViewPort)*75);
 			_vPort[i] = t[i];
 		_vSize = size;
 	}
@@ -142,7 +142,7 @@ public:
 	void addViewPort(MuViewPort *p)
 	{
 		MuViewPort *temp = p;
-		//if obiect is'nt in see area ther is to forget whotever its known or not
+		//if obiect is'nt in see area ther is to forget whatever its known or not
 		unsigned char pos = searchId(p->o_Index);
 		if (pos == 0xff) //we do not known it;
 		{

@@ -28,11 +28,15 @@ void MuAiProcessor::Process(MuMonsterInstance *inst)
 	else if (data->runTime())
 		switch (data->_aiTask)
 		{
-		case MuMonsterAiData::AiRespown:
+		case MuMonsterAiData::AiRespown: //reset instance on map and set its visitabling to true
+			MuMaps::getInstance()->getMap(inst->getPosMapNb())->storeNewObiect(
+					inst);
 			inst->setVisibable(true);
-			printf("AI Monster[id:] Respowned!\n", inst->getIndex());
+			printf("AI Monster[id:%d] Respowned!\n", inst->getIndex());
 			break;
 		case MuMonsterAiData::AiGoto:
+			printf("AI Monster[id:%d] Move to [x:%d,y:%d]!\n",
+					inst->getIndex(), data->_Pos_destX, data->_Pos_destY);
 			break;
 		case MuMonsterAiData::AiTurn:
 			break;
@@ -54,8 +58,15 @@ void MuAiProcessor::Signall(unsigned short from, unsigned short who,
 		unsigned char what)
 {
 	MuMonsterAiData * data;
-	MuMonsterInstance * mon =static_cast<MuMonsterInstance*> (ObiectPool::getInstance()->getObject(from));
-	MuCharacter * pc = static_cast<MuCharacter*>(ObiectPool::getInstance()->getObject(who));
+	MuMonsterInstance
+			* mon =
+					static_cast<MuMonsterInstance*> (ObiectPool::getInstance()->getObject(
+							from));
+	if (what = !SigDie)
+		MuCharacter
+				* pc =
+						static_cast<MuCharacter*> (ObiectPool::getInstance()->getObject(
+								who));
 	if (mon == NULL)
 		return;
 	switch (what)
