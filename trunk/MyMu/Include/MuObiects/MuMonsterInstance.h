@@ -19,7 +19,7 @@ public:
 		//move
 		AiGoto = 1,
 		AiTurn = 2,
-		//respown
+		//rezpown
 		AiRespown = 3
 	};
 	//move data
